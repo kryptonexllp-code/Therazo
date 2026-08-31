@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import Ticker from '@/components/Ticker'
@@ -10,6 +11,12 @@ import ProductCard from '@/components/ui/ProductCard'
 import StatCounter from '@/components/StatCounter'
 import WaitlistForm from '@/components/WaitlistForm'
 import { products, comingSoonProducts } from '@/lib/products'
+
+export const metadata: Metadata = {
+  title: 'Science. Defined. | Pharmacy-Grade Skincare India',
+  description:
+    'Therazo is a pharmacy-grade unisex skincare brand formulated for Indian skin. SPF 50 PA++++ Daily Shield — 6 UV filters, Ectoin, Niacinamide, Ceramide Complex. Every claim documented.',
+}
 
 export default function HomePage() {
   return (
