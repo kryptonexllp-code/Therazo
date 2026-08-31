@@ -19,10 +19,7 @@ export default function StatCounter({
   useEffect(() => {
     if (!isInView) return
     const numeric = value.match(/^\d+$/)
-    if (!numeric) {
-      setDisplay(value)
-      return
-    }
+    if (!numeric) return
     const target = parseInt(value, 10)
     const start = performance.now()
     let frame: number
