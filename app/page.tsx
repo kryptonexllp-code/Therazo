@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import Ticker from '@/components/Ticker'
 import HeroScanner from '@/components/HeroScanner'
 import OrderButton from '@/components/OrderButton'
@@ -8,7 +9,6 @@ import GoldDivider from '@/components/ui/GoldDivider'
 import ProductCard from '@/components/ui/ProductCard'
 import StatCounter from '@/components/StatCounter'
 import WaitlistForm from '@/components/WaitlistForm'
-import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
 import { products, comingSoonProducts } from '@/lib/products'
 
 export default function HomePage() {
@@ -42,7 +42,14 @@ export default function HomePage() {
           </div>
         </div>
         <div className="relative bg-[#E8EFF8] md:w-[52%] h-[280px] md:h-auto">
-          <ImagePlaceholder label="Daily Shield — hero clinical" className="absolute inset-0 h-full w-full" variant="light" />
+          <Image
+            src="/images/hero-daily-shield-clinical.png"
+            alt="Daily Shield SPF Moisturizer on a stone slab with molecular props"
+            fill
+            priority
+            sizes="(max-width: 768px) 100vw, 52vw"
+            className="object-cover object-right"
+          />
           <HeroScanner />
         </div>
       </section>
@@ -176,11 +183,15 @@ export default function HomePage() {
             </p>
           </div>
         </div>
-        <ImagePlaceholder
-          label="The full Therazo range — laboratory setting"
-          variant="navy"
-          className="w-full h-[220px] mt-14 border-bluemuted/20"
-        />
+        <div className="relative w-full h-[220px] mt-14 border border-bluemuted/20">
+          <Image
+            src="/images/hero-full-range-lab.png"
+            alt="The full Therazo range — all 5 products in a laboratory setting"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
       </AnimatedSection>
 
       {/* SECTION 7 — ACTIVE SYSTEM */}

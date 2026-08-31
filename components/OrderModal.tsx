@@ -1,9 +1,10 @@
 'use client'
 
 import { useEffect } from 'react'
+import Image from 'next/image'
 import { useOrderModal } from './OrderModalContext'
 import { ORDER_WHATSAPP_URL } from '@/lib/whatsapp'
-import ImagePlaceholder from './ui/ImagePlaceholder'
+import { dailyShield } from '@/lib/products'
 
 export default function OrderModal({ razorpayUrl }: { razorpayUrl?: string }) {
   const { isOpen, closeOrderModal } = useOrderModal()
@@ -44,7 +45,9 @@ export default function OrderModal({ razorpayUrl }: { razorpayUrl?: string }) {
         </div>
 
         <div className="p-5 flex items-center gap-4">
-          <ImagePlaceholder label="Daily Shield" className="h-16 w-16 shrink-0" />
+          <div className="relative h-16 w-16 shrink-0 bg-lgrey">
+            <Image src={dailyShield.productImage} alt="Daily Shield" fill sizes="64px" className="object-contain" />
+          </div>
           <div>
             <p className="font-bold text-navy text-[14px]">Daily Shield</p>
             <p className="text-mgrey text-[12px]">SPF 50 PA++++ · 50ml</p>

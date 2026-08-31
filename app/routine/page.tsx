@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
-import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
 import ComingSoonBadge from '@/components/ui/ComingSoonBadge'
 import OrderButton from '@/components/OrderButton'
 import WaitlistForm from '@/components/WaitlistForm'
@@ -40,10 +40,15 @@ export default function RoutinePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {steps.map((p) => (
             <div key={p.id} className="bg-white border border-cardline flex flex-col sm:flex-row overflow-hidden">
-              <ImagePlaceholder
-                label={`${p.name} — product`}
-                className="h-48 sm:h-auto sm:w-[42%] shrink-0"
-              />
+              <div className="relative h-48 sm:h-auto sm:w-[42%] shrink-0 bg-lgrey">
+                <Image
+                  src={p.productImage}
+                  alt={`${p.name} — ${p.descriptor}`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 300px"
+                  className="object-contain"
+                />
+              </div>
               <div className="p-7 flex flex-col flex-1">
                 <p className="text-mgrey text-[10px] font-medium tracking-[0.2em] uppercase mb-2">
                   Step {p.sku} · {p.step}

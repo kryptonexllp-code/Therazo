@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
+import Image from 'next/image'
 import ComingSoonBadge from '@/components/ui/ComingSoonBadge'
 import { ORDER_WHATSAPP_URL } from '@/lib/whatsapp'
 import { products } from '@/lib/products'
@@ -35,7 +35,15 @@ export default function ProductsPage() {
           className={`px-6 md:px-20 py-16 ${i % 2 === 0 ? 'bg-white' : 'bg-lgrey'}`}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <ImagePlaceholder label={p.name} className="h-[260px] w-full bg-offwhite" />
+            <div className="relative h-[260px] w-full bg-offwhite">
+              <Image
+                src={p.productImage}
+                alt={`${p.name} — ${p.descriptor}`}
+                fill
+                sizes="(max-width: 1024px) 90vw, 500px"
+                className="object-contain"
+              />
+            </div>
             <div>
               <p className="text-mgrey text-[11px] tracking-[0.15em] uppercase mb-2">
                 {p.sku} · {p.step}

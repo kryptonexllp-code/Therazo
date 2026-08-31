@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
 import ActiveCard from '@/components/ui/ActiveCard'
+import ProductGallery from './ProductGallery'
 import StickyOrderBar from '@/components/StickyOrderBar'
 import OrderButton from '@/components/OrderButton'
 import AnimatedSection from '@/components/AnimatedSection'
@@ -55,14 +55,14 @@ export default function DailyShieldPage() {
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
-          <div>
-            <ImagePlaceholder label="Daily Shield — main image" className="h-[380px] w-full mb-4" />
-            <div className="grid grid-cols-3 gap-3">
-              <ImagePlaceholder label="Box detail" className="h-24" />
-              <ImagePlaceholder label="On stone slab" className="h-24" />
-              <ImagePlaceholder label="Texture shot — coming soon" className="h-24" />
-            </div>
-          </div>
+          <ProductGallery
+            images={[
+              { src: dailyShield.heroImage, alt: 'Daily Shield on a stone slab with molecular props', label: 'Daily Shield — main image' },
+              { src: dailyShield.productImage, alt: 'Daily Shield packaging box detail', label: 'Box detail' },
+              { src: dailyShield.heroImage, alt: 'Daily Shield tube close-up', label: 'On stone slab' },
+              { src: '', alt: '', label: 'Texture shot — coming soon' },
+            ]}
+          />
 
           <div>
             <div className="inline-flex items-center gap-2 mb-4">

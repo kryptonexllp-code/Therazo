@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
 import GoldDivider from '@/components/ui/GoldDivider'
-import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
 import ComingSoonBadge from '@/components/ui/ComingSoonBadge'
 import { products } from '@/lib/products'
 
@@ -183,7 +183,15 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {products.map((p) => (
             <div key={p.id} className="bg-white border border-cardline p-5 flex flex-col">
-              <ImagePlaceholder label={`${p.name} — product`} className="h-32 w-full mb-4" />
+              <div className="relative h-32 w-full mb-4 bg-lgrey">
+                <Image
+                  src={p.productImage}
+                  alt={`${p.name} — ${p.descriptor}`}
+                  fill
+                  sizes="(max-width: 640px) 90vw, 220px"
+                  className="object-contain"
+                />
+              </div>
               <p className="text-mgrey text-[10px] font-medium tracking-[0.15em] uppercase mb-1">
                 {p.step} · {p.sku}
               </p>

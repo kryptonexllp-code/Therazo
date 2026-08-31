@@ -1,6 +1,6 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import type { Metadata } from 'next'
-import ImagePlaceholder from './ImagePlaceholder'
 import WaitlistForm from '@/components/WaitlistForm'
 import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from './SectionLabel'
@@ -37,7 +37,15 @@ export default function ProductComingSoonPage({ product }: { product: Product })
 
       <AnimatedSection className="bg-white px-6 md:px-20 py-16 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
-          <ImagePlaceholder label={product.name} className="h-[240px] w-full bg-lgrey" />
+          <div className="relative h-[240px] w-full bg-lgrey">
+            <Image
+              src={product.productImage}
+              alt={`${product.name} — ${product.descriptor}`}
+              fill
+              sizes="(max-width: 1024px) 90vw, 500px"
+              className="object-contain"
+            />
+          </div>
           <div>
             <SectionLabel>About This Product</SectionLabel>
             {product.about?.map((para, i) => (
@@ -71,7 +79,15 @@ export default function ProductComingSoonPage({ product }: { product: Product })
                 Available now in the Therazo range
               </p>
               <div className="flex items-center gap-4">
-                <ImagePlaceholder label="Daily Shield" className="h-14 w-14 shrink-0" />
+                <div className="relative h-14 w-14 shrink-0 bg-white">
+                  <Image
+                    src={dailyShield.productImage}
+                    alt="Daily Shield"
+                    fill
+                    sizes="56px"
+                    className="object-contain"
+                  />
+                </div>
                 <div>
                   <p className="font-bold text-navy text-[14px]">{dailyShield.name}</p>
                   <p className="text-mgrey text-[12px]">{dailyShield.spf} · ₹{dailyShield.price}</p>
