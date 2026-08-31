@@ -15,6 +15,16 @@ export default function ForDoctorsPage() {
   return (
     <>
       <section className="bg-navy px-6 md:px-20 pt-32 pb-16">
+        <div className="relative h-8 w-32 mb-6">
+          <Image
+            src="/images/logos/logo-mono-dark.png"
+            alt="Therazo — Science. Defined."
+            fill
+            sizes="128px"
+            style={{ objectFit: 'cover', objectPosition: '50% 47.6%' }}
+            className="mix-blend-multiply"
+          />
+        </div>
         <SectionLabel dark>For Dermatologists</SectionLabel>
         <h1 className="font-extrabold text-white text-[34px] sm:text-[44px] md:text-[52px] leading-[1.05] mb-6">
           We are not seeking endorsements.

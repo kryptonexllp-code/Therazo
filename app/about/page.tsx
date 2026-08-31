@@ -53,6 +53,15 @@ export default function AboutPage() {
     <>
       {/* HERO */}
       <section className="bg-navy px-6 md:px-20 pt-32 pb-16">
+        <div className="relative h-16 w-16 mb-8">
+          <Image
+            src="/images/logos/logo-icon-tagline.png"
+            alt="Therazo — Science. Defined."
+            fill
+            sizes="64px"
+            className="object-contain mix-blend-multiply"
+          />
+        </div>
         <SectionLabel dark>Our Story</SectionLabel>
         <h1 className="font-extrabold text-white text-[36px] sm:text-[52px] md:text-[64px] leading-[0.95] mb-8">
           TO HEAL AND

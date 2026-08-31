@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { useOrderModal } from './OrderModalContext'
+import Logo, { LogoIcon } from './ui/Logo'
 
 const NAV_LINKS = [
   { label: 'The Science', href: '/science' },
@@ -19,13 +20,9 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-16 bg-navy">
       <div className="h-full flex items-center justify-between px-5 md:px-8">
-        <Link href="/" className="flex flex-col leading-none">
-          <span className="font-extrabold text-white text-[18px] tracking-[0.06em]">
-            THERAZO<sup className="text-[9px]">™</sup>
-          </span>
-          <span className="text-bluemuted text-[8px] tracking-[0.28em] mt-1 hidden sm:block">
-            S C I E N C E . D E F I N E D .
-          </span>
+        <Link href="/" className="flex items-center">
+          <Logo variant="reversed" height={32} className="hidden sm:block" />
+          <LogoIcon height={32} className="sm:hidden" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">

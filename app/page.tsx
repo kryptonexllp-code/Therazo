@@ -65,7 +65,16 @@ export default function HomePage() {
       <Ticker />
 
       {/* SECTION 3 — BRAND POSITIONING */}
-      <AnimatedSection className="bg-offwhite px-6 md:px-20 py-20 md:py-[120px]">
+      <AnimatedSection className="relative bg-offwhite px-6 md:px-20 py-20 md:py-[120px] overflow-hidden">
+        <div className="hidden lg:block absolute -bottom-6 -right-6 h-40 w-40 pointer-events-none" aria-hidden="true">
+          <Image
+            src="/images/logos/logo-mono-light.png"
+            alt=""
+            fill
+            sizes="160px"
+            className="object-contain mix-blend-multiply opacity-70"
+          />
+        </div>
         <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-14">
           <div>
             <SectionLabel>Why Therazo Is Different</SectionLabel>

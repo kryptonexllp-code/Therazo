@@ -1,14 +1,12 @@
 import Link from 'next/link'
+import Logo from './ui/Logo'
 
 export default function Footer() {
   return (
     <footer className="bg-navy border-t-2 border-gold pt-16 pb-8 px-6 md:px-16">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
         <div>
-          <span className="font-extrabold text-white text-[18px] tracking-[0.06em]">
-            THERAZO<sup className="text-[9px]">™</sup>
-          </span>
-          <p className="text-bluelight text-[13px] mt-3 mb-5">Science. Defined.</p>
+          <Logo variant="reversed" height={28} className="mb-5" />
           <p className="text-bluelight text-[13px]">care@therazo.co</p>
           <p className="text-bluelight text-[13px] mb-5">www.therazo.co</p>
           <div className="flex gap-4">
