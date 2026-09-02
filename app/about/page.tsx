@@ -71,9 +71,13 @@ export default function AboutPage() {
         <p className="text-bluelight text-[16px] leading-[1.8] max-w-2xl">
           THERAZO™ is derived from two Ancient Greek words — Therapeutikos, &ldquo;to heal, to care
           for, to restore&rdquo;, and Sozo, &ldquo;to save, to preserve, to protect from harm&rdquo;.
-          This is not a naming exercise. It is a commitment. Every product we build is measured
-          against those two words: does it heal what is damaged, and does it preserve what is
-          healthy. If a formula cannot answer yes to both, it does not carry the Therazo name.
+        </p>
+        <p className="text-bluelight text-[16px] leading-[1.8] max-w-2xl mt-5">
+          Skincare should not require a biochemistry degree to navigate. It should be honest about
+          what it contains, clear about what each ingredient does, and confident enough to publish
+          the evidence rather than hide behind the packaging. Therazo is an honest attempt to bring
+          skincare the science it has always deserved — formulated carefully, communicated plainly,
+          and built for people who want to know what they are actually putting on their skin.
         </p>
       </section>
 
@@ -128,6 +132,68 @@ export default function AboutPage() {
               ))}
             </div>
           ))}
+        </div>
+      </AnimatedSection>
+
+      {/* DR. CURE PHARMACY — FOUNDING STORY */}
+      <AnimatedSection
+        className="px-6 md:px-20 py-20"
+        style={{ backgroundColor: '#F8F9FF', borderTop: '2px solid #1F3A5F' }}
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-12 items-start">
+          <div>
+            <div
+              className="flex h-[60px] w-[120px] items-center justify-center border"
+              style={{ backgroundColor: '#E8EFF8', borderColor: '#E2E8F0' }}
+            >
+              <span className="text-[12px] font-medium text-navy">Dr. Cure Pharmacy</span>
+            </div>
+            <a
+              href="https://drcurepharmacy.co.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-block text-[12px] font-medium text-navy hover:underline"
+            >
+              drcurepharmacy.co.in →
+            </a>
+            <div className="mt-3 flex flex-wrap gap-1.5">
+              <span className="border border-navy px-2.5 py-[3px] text-[10px] font-medium tracking-[0.1em] text-navy">
+                10+ years pharmacy
+              </span>
+              <span className="border border-navy px-2.5 py-[3px] text-[10px] font-medium tracking-[0.1em] text-navy">
+                Hyderabad
+              </span>
+              <span
+                className="border px-2.5 py-[3px] text-[10px] font-medium tracking-[0.1em]"
+                style={{ backgroundColor: '#EBF8F1', borderColor: '#1D6F42', color: '#1D6F42' }}
+              >
+                Healthcare ecosystem
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <SectionLabel>Our Foundation</SectionLabel>
+            <h2 className="font-bold text-navy text-[28px] md:text-[32px] mb-5">
+              Born from pharmacy. Built on science.
+            </h2>
+            <p className="text-dgrey text-[16px] leading-[1.75]">
+              Therazo grows from the experience and knowledge of R&amp;D scientists with 15+ years
+              of formulation expertise, and Dr. Cure Pharmacy — a decade of trusted pharmacy
+              presence in Hyderabad, now expanding into a healthcare ecosystem brand covering
+              nutraceuticals, skincare, haircare, and kids wellness products.
+            </p>
+            <p className="text-dgrey text-[16px] leading-[1.75] mt-4">
+              The same rigour that guides pharmaceutical dispensing now guides every Therazo
+              formula. Informed, meticulous, and pharmacy-grade — this is the standard that Dr.
+              Cure Pharmacy has built over ten years, and the standard Therazo is built to match.
+            </p>
+            <p className="text-dgrey text-[16px] leading-[1.75] mt-4">
+              Dr. Cure Pharmacy&apos;s decade of clinical relationships with dermatologists and
+              patients across Hyderabad is the foundation on which Therazo&apos;s approach to
+              honest clinical dialogue is built.
+            </p>
+          </div>
         </div>
       </AnimatedSection>
 

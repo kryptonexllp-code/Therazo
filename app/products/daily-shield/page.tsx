@@ -51,7 +51,7 @@ export default function DailyShieldPage() {
 
       <section className="px-6 md:px-20 pt-24 md:pt-16 pb-16">
         <p className="text-mgrey text-[12px] mb-8">
-          <Link href="/">Home</Link> › <Link href="/products">The Range</Link> › Daily Shield
+          <Link href="/customers">Home</Link> › <Link href="/products">The Range</Link> › Daily Shield
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">

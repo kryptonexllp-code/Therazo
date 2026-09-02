@@ -3,30 +3,12 @@ import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
 import GoldDivider from '@/components/ui/GoldDivider'
 import IngredientLibrary from './IngredientLibrary'
-import { products } from '@/lib/products'
+import SkuCoverageMatrix from '@/components/SkuCoverageMatrix'
 
 export const metadata: Metadata = {
   title: 'The Science',
   description:
     'The clinical foundation behind Therazo — the Active System, the 6 UV filters in Daily Shield, PA rating science, and the full ingredient library across every formula.',
-}
-
-const SKU_ACTIVES = [
-  'Ectoin',
-  'Niacinamide',
-  'Ceramide Complex',
-  'Zinc PCA',
-  'Postbiotic Lysate',
-  'Beta-Glucan',
-  'Tranexamic Acid',
-]
-
-function hasActive(actives: { name: string }[], target: string) {
-  return actives.some((a) => {
-    const n = a.name.toLowerCase()
-    if (target === 'Postbiotic Lysate') return n.includes('ferment') || n.includes('postbiotic')
-    return n.includes(target.toLowerCase())
-  })
 }
 
 const UV_FILTERS = [
@@ -178,38 +160,7 @@ export default function SciencePage() {
           Presence and absence only — never concentrations. Concentrations are shared exclusively
           with dermatologists on the clinical portal.
         </p>
-        <div className="overflow-x-auto border border-cardline">
-          <table className="w-full text-left text-[13px] min-w-[720px]">
-            <thead>
-              <tr className="bg-navy text-white">
-                <th className="p-4 font-medium">Active</th>
-                {products.map((p) => (
-                  <th key={p.id} className="p-4 font-medium text-center whitespace-nowrap">
-                    {p.name}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {SKU_ACTIVES.map((active, i) => (
-                <tr key={active} className={i % 2 === 0 ? 'bg-white' : 'bg-lgrey'}>
-                  <td className="p-4 border-t border-cardline font-medium text-navy whitespace-nowrap">
-                    {active}
-                  </td>
-                  {products.map((p) => (
-                    <td key={p.id} className="p-4 border-t border-cardline text-center">
-                      {hasActive(p.actives, active) ? (
-                        <span className="text-green font-bold">✓</span>
-                      ) : (
-                        <span className="text-cardline">—</span>
-                      )}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <SkuCoverageMatrix />
       </AnimatedSection>
 
       {/* 6 UV FILTERS */}
@@ -219,8 +170,9 @@ export default function SciencePage() {
           The 6 UV Filters in Daily Shield
         </h2>
         <p className="text-mgrey text-[16px] max-w-2xl mb-12">
-          A six-filter system chosen for photostability and true broad-spectrum coverage — not the
-          single cheap filters common in mass-market sunscreen.
+          A six-filter system chosen for photostability and true broad-spectrum coverage, rather
+          than relying on a single-filter approach, which limits the breadth of UV coverage any
+          one formula can achieve.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {UV_FILTERS.map((f) => (

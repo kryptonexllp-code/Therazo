@@ -5,6 +5,7 @@ const BASE_URL = 'https://therazo.co'
 
 const STATIC_PATHS = [
   '',
+  '/customers',
   '/products',
   '/products/daily-shield',
   '/products/gentle-cleanser',

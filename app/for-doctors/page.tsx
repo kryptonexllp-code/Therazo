@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import SectionLabel from '@/components/ui/SectionLabel'
 import DoctorSampleForm from './DoctorSampleForm'
+import SkuCoverageMatrix from '@/components/SkuCoverageMatrix'
 import { DAILY_SHIELD_CLINICAL } from '@/lib/clinical'
 
 export const metadata: Metadata = {
@@ -47,7 +48,7 @@ export default function ForDoctorsPage() {
         </div>
       </section>
 
-      <section className="bg-white px-6 md:px-20 py-16">
+      <section id="formulation" className="bg-white px-6 md:px-20 py-16">
         <h2 className="font-bold text-navy text-[24px] mb-10">What We Share</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           <div className="border border-cardline p-6">
@@ -69,7 +70,7 @@ export default function ForDoctorsPage() {
         </div>
       </section>
 
-      <section className="bg-lgrey px-6 md:px-20 py-16">
+      <section id="clinical-data" className="bg-lgrey px-6 md:px-20 py-16">
         <p className="text-mgrey text-[13px] italic mb-6 max-w-2xl">
           Concentrations are provided in clinical context. This data is not reproduced on the
           public product page.
@@ -96,6 +97,12 @@ export default function ForDoctorsPage() {
             </tbody>
           </table>
         </div>
+
+        <h3 className="font-bold text-navy text-[18px] mt-14 mb-2">SKU Coverage Matrix</h3>
+        <p className="text-mgrey text-[13px] italic mb-6 max-w-2xl">
+          Which active appears in which product — presence and absence only.
+        </p>
+        <SkuCoverageMatrix />
       </section>
 
       <section className="bg-navy px-6 md:px-20 py-16">

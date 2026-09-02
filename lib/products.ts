@@ -76,7 +76,7 @@ export const products: Product[] = [
     step: 'CLEANSE',
     name: 'Gentle Daily Cleanser',
     descriptor: 'Ceramide Cleanser',
-    price: 399,
+    price: 749,
     size: '100 ml',
     status: 'coming-soon',
     timeline: 'Arriving Y1 Q3',
@@ -88,6 +88,8 @@ export const products: Product[] = [
       { name: 'Niacinamide', function: 'Barrier support and tone evening', benefit: 'Maintains barrier integrity through the cleansing step. Addresses uneven tone from first use.' },
       { name: 'Zinc PCA', function: 'Sebum regulation', benefit: 'Reduces excess oil production. Particularly effective for oily and combination skin.' },
       { name: 'Ectoin', function: 'Stress shield and barrier support', benefit: 'Protects skin cells from cleansing-related environmental stress. Present in all 5 Therazo formulas.' },
+      { name: 'Postbiotic Lysate (Bifida Ferment Filtrate)', function: 'Microbiome support', benefit: 'A fermentation-derived postbiotic that supports a balanced skin microbiome through the cleansing step.' },
+      { name: 'Beta-Glucan', function: 'Skin immune support', benefit: "Oat-derived. Supports the skin's own immune function and calms visible stress from daily cleansing." },
     ],
     claims: ['Silicone-free', 'Paraben-free', 'Sulphate-free', 'Synthetic Fragrance-Free'],
     about: [
@@ -116,6 +118,7 @@ export const products: Product[] = [
       { name: 'Zinc PCA', function: 'Oil control and antimicrobial', benefit: 'Regulates sebaceous activity at the follicular level. Clinical evidence for visible pore reduction.' },
       { name: 'Ceramide Complex', function: 'Barrier repair without heaviness', benefit: 'Replenishes barrier lipids in a lightweight gel format — appropriate for the Indian climate.' },
       { name: 'Ectoin', function: 'Extremolyte stress protection', benefit: 'Shields skin from urban environmental stressors. Consistent across all Therazo formulas.' },
+      { name: 'Postbiotic Lysate (Lactobacillus Ferment)', function: 'Microbiome support', benefit: 'Supports a balanced skin microbiome — a root factor in regulating excess oiliness.' },
     ],
     claims: ['Silicone-free', 'Paraben-free', 'Mineral oil-free', 'Synthetic Fragrance-Free', 'Non-comedogenic'],
     about: [
@@ -144,6 +147,7 @@ export const products: Product[] = [
       { name: 'Ectoin', function: 'Extremolyte membrane protection', benefit: 'Protects while the barrier rebuilds. Clinically validated for skin under stress.' },
       { name: 'Beta-Glucan', function: 'Skin immune support', benefit: 'Oat-derived. Activates skin immune defence. Accelerates barrier restoration. Fastest-growing clinical ingredient 2026.' },
       { name: 'Panthenol', function: 'Healing and soothing', benefit: 'Pro-Vitamin B5 accelerates skin cell repair and provides lasting soothing relief.' },
+      { name: 'Postbiotic Lysate (Bifida Ferment Filtrate)', function: 'Microbiome support', benefit: 'Supports a balanced skin microbiome alongside the barrier-repair actives.' },
     ],
     claims: ['Silicone-free', 'Paraben-free', 'Mineral oil-free', 'Synthetic Fragrance-Free', 'Dermatologically tested'],
     about: [

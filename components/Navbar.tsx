@@ -1,32 +1,69 @@
 'use client'
 
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useOrderModal } from './OrderModalContext'
 import Logo, { LogoIcon } from './ui/Logo'
 
-const NAV_LINKS = [
-  { label: 'The Science', href: '/science' },
-  { label: 'The Range', href: '/products' },
-  { label: 'The Routine', href: '/routine' },
-  { label: 'Our Story', href: '/about' },
-  { label: 'For Doctors', href: '/for-doctors' },
-]
+export type NavVariant = 'default' | 'customer' | 'doctor'
 
-export default function Navbar() {
+const NAV_LINKS: Record<NavVariant, { label: string; href: string }[]> = {
+  default: [
+    { label: 'The Science', href: '/science' },
+    { label: 'The Range', href: '/products' },
+    { label: 'The Routine', href: '/routine' },
+    { label: 'Our Story', href: '/about' },
+    { label: 'For Doctors', href: '/for-doctors' },
+  ],
+  customer: [
+    { label: 'The Range', href: '/products' },
+    { label: 'The Science', href: '/science' },
+    { label: 'The Routine', href: '/routine' },
+    { label: 'Our Story', href: '/about' },
+  ],
+  doctor: [
+    { label: 'Clinical Data', href: '/for-doctors#clinical-data' },
+    { label: 'Formulation', href: '/for-doctors#formulation' },
+    { label: 'Sample Request', href: '/for-doctors#sample-request' },
+  ],
+}
+
+export default function Navbar({ variant = 'default' }: { variant?: NavVariant }) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const { openOrderModal } = useOrderModal()
+  const router = useRouter()
+  const links = NAV_LINKS[variant]
+  const showOrderNow = variant !== 'doctor'
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-16 bg-navy">
       <div className="h-full flex items-center justify-between px-5 md:px-8">
-        <Link href="/" className="flex items-center">
-          <Logo variant="reversed" height={32} className="hidden sm:block" />
-          <LogoIcon height={32} className="sm:hidden" />
-        </Link>
+        <div className="flex items-center gap-4">
+          <Link href="/" className="flex items-center">
+            <Logo variant="reversed" height={32} className="hidden sm:block" />
+            <LogoIcon height={32} className="sm:hidden" />
+          </Link>
+          {variant === 'customer' && (
+            <button
+              onClick={() => router.push('/')}
+              className="hidden md:inline-block text-[11px] text-bluemuted"
+            >
+              ← Home
+            </button>
+          )}
+          {variant === 'doctor' && (
+            <button
+              onClick={() => router.push('/customers')}
+              className="hidden md:inline-block text-[11px] text-bluemuted"
+            >
+              ← Customer portal
+            </button>
+          )}
+        </div>
 
         <nav className="hidden lg:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
+          {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -39,12 +76,14 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <button
-            onClick={openOrderModal}
-            className="hidden sm:inline-block border border-gold text-gold text-[11px] font-bold tracking-[0.1em] uppercase px-[18px] py-[7px] transition-colors duration-200 hover:bg-gold hover:text-navy"
-          >
-            Order Now
-          </button>
+          {showOrderNow && (
+            <button
+              onClick={openOrderModal}
+              className="hidden sm:inline-block border border-gold text-gold text-[11px] font-bold tracking-[0.1em] uppercase px-[18px] py-[7px] transition-colors duration-200 hover:bg-gold hover:text-navy"
+            >
+              Order Now
+            </button>
+          )}
           <button
             aria-label="Open menu"
             onClick={() => setMobileOpen(true)}
@@ -66,7 +105,29 @@ export default function Navbar() {
           >
             ✕
           </button>
-          {NAV_LINKS.map((link) => (
+          {variant === 'customer' && (
+            <button
+              onClick={() => {
+                setMobileOpen(false)
+                router.push('/')
+              }}
+              className="text-bluemuted text-[13px]"
+            >
+              ← Home
+            </button>
+          )}
+          {variant === 'doctor' && (
+            <button
+              onClick={() => {
+                setMobileOpen(false)
+                router.push('/customers')
+              }}
+              className="text-bluemuted text-[13px]"
+            >
+              ← Customer portal
+            </button>
+          )}
+          {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -76,15 +137,17 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <button
-            onClick={() => {
-              setMobileOpen(false)
-              openOrderModal()
-            }}
-            className="mt-4 border border-gold text-gold font-bold text-[14px] tracking-[0.1em] uppercase px-8 py-3"
-          >
-            Order Now
-          </button>
+          {showOrderNow && (
+            <button
+              onClick={() => {
+                setMobileOpen(false)
+                openOrderModal()
+              }}
+              className="mt-4 border border-gold text-gold font-bold text-[14px] tracking-[0.1em] uppercase px-8 py-3"
+            >
+              Order Now
+            </button>
+          )}
         </div>
       )}
     </header>

@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import './globals.css'
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import SiteChrome from '@/components/SiteChrome'
 import { OrderModalProvider } from '@/components/OrderModalContext'
 import OrderModal from '@/components/OrderModal'
 
@@ -34,9 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en-IN" className={poppins.variable}>
       <body className="font-sans antialiased">
         <OrderModalProvider>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
+          <SiteChrome>{children}</SiteChrome>
           <OrderModal />
         </OrderModalProvider>
       </body>
