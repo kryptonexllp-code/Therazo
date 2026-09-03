@@ -8,7 +8,7 @@ import Footer from './Footer'
 // experience with no site chrome — every other route keeps the global nav/footer.
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  const isChromeless = pathname === '/' || pathname === '/logo-sting'
+  const isChromeless = pathname === '/'
 
   if (isChromeless) {
     return <>{children}</>
