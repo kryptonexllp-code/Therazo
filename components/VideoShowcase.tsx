@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import SectionLabel from './ui/SectionLabel'
+import LogoSting from './LogoSting'
 
 const VIDEOS = [
   { id: 'application', title: 'Daily application — Indian skin tones', meta: '60 sec · AI generated' },
@@ -56,6 +57,13 @@ export default function VideoShowcase() {
       <p className="text-center italic text-mgrey text-[12px] mt-5">
         Videos are AI-generated for demonstration. Actual product footage arriving soon.
       </p>
+
+      <div className="mt-14 max-w-xl mx-auto">
+        <div className="relative aspect-video overflow-hidden">
+          <LogoSting variant="embed" />
+        </div>
+        <p className="text-center text-mgrey text-[11px] mt-3">Therazo — Science. Defined.</p>
+      </div>
     </section>
   )
 }
