@@ -38,6 +38,7 @@ MODEL_URL = (
 )
 DEFAULT_VIDEOS = [
     ROOT / "public" / "videos" / "hero-play-once.mp4",
+    # A seamless loop clip, if one is added (HeroScanner mode="loop").
     ROOT / "public" / "videos" / "hero-loop.mp4",
 ]
 

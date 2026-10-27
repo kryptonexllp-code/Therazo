@@ -3,7 +3,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Ticker from '@/components/Ticker'
 import VideoShowcase from '@/components/VideoShowcase'
-import CustomerHeroVideo from '@/components/CustomerHeroVideo'
+import HeroScanner from '@/components/HeroScanner'
+import { HERO_CLIP } from '@/lib/heroVideo'
+import { HERO_LABELS } from '@/content/heroLabels'
 import { AI_IMAGERY_CAPTION } from '@/content/disclosure'
 import WaitlistButton from '@/components/WaitlistButton'
 import AnimatedSection from '@/components/AnimatedSection'
@@ -57,7 +59,15 @@ export default function HomePage() {
         </div>
         <div className="md:w-[52%] flex flex-col">
           <div className="relative overflow-hidden bg-[#E8EFF8] aspect-square md:aspect-auto md:flex-1">
-            <CustomerHeroVideo />
+            {/* Plays once, forwards, and holds on the final frame. */}
+            <HeroScanner
+              mode="once"
+              src={HERO_CLIP.src}
+              landmarksSrc={HERO_CLIP.landmarksSrc}
+              poster={HERO_CLIP.poster}
+              keepClear={HERO_CLIP.keepClear}
+              labels={HERO_LABELS}
+            />
           </div>
           <p className="md:hidden bg-navy text-bluemuted text-[10px] tracking-[0.04em] px-6 py-1.5">
             {AI_IMAGERY_CAPTION}

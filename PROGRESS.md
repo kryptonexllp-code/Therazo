@@ -25,8 +25,8 @@ this file.
 
 ## Open items
 
-- **Hero video (blocking, see docs/LAUNCH_CHECKLIST.md)**: both hero clips are
-  watermarked placeholders; `hero-loop.mp4` is a stand-in built from the play-once clip.
+- **Hero video (blocking, see docs/LAUNCH_CHECKLIST.md)**: hero-play-once.mp4 is a
+  watermarked placeholder. It plays once and holds the final frame; no loop clip yet.
 
 - **Waitlist storage**: `/api/waitlist` writes to a local JSON file. That does not
   persist on Vercel — connect real storage (database, form service or sheet) before launch.

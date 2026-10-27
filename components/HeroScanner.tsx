@@ -156,7 +156,6 @@ export default function HeroScanner({
   poster,
   labels,
   keepClear,
-  onEnded,
   className = '',
 }: {
   src: string
@@ -165,7 +164,6 @@ export default function HeroScanner({
   poster: string
   labels: string[]
   keepClear?: Box
-  onEnded?: () => void
   className?: string
 }) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -242,22 +240,32 @@ export default function HeroScanner({
     }
   }, [mode, playVideo])
 
-  // Pause when the tab is hidden or the hero is scrolled out of view.
+  // Playback is forwards only — never reversed or rewound frame by frame.
+  // 'once': plays through once and holds on the final frame; it never
+  // restarts by itself. If the hero leaves the viewport and comes back, it
+  // replays once from the start. Hiding the tab pauses and resumes in place.
+  // 'loop': the native loop attribute, for a seamless loop clip.
   useEffect(() => {
     const video = videoRef.current
     const el = containerRef.current
     if (!video || !el || !playVideo) return
     video.muted = true
     let inView = true
+    let leftView = false
     const sync = () => {
-      if (inView && !document.hidden) {
-        if (!video.ended) video.play().catch(() => {})
-      } else {
+      if (!inView || document.hidden) {
         video.pause()
+        return
       }
+      if (mode === 'once' && leftView) {
+        leftView = false
+        video.currentTime = 0
+      }
+      if (!video.ended) video.play().catch(() => {})
     }
     const io = new IntersectionObserver(([entry]) => {
       inView = entry.isIntersecting
+      if (!inView) leftView = true
       sync()
     })
     io.observe(el)
@@ -266,7 +274,7 @@ export default function HeroScanner({
       io.disconnect()
       document.removeEventListener('visibilitychange', sync)
     }
-  }, [playVideo])
+  }, [mode, playVideo])
 
   const mapping = useMemo(() => (size && lm ? coverMapping(size.w, size.h, lm) : null), [size, lm])
   const cues = useMemo(
@@ -324,7 +332,6 @@ export default function HeroScanner({
           autoPlay
           preload="auto"
           loop={mode === 'loop'}
-          onEnded={onEnded}
           aria-hidden="true"
         />
       ) : (
