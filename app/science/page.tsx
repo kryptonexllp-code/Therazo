@@ -6,18 +6,6 @@ import IngredientLibrary from './IngredientLibrary'
 import SkuCoverageMatrix from '@/components/SkuCoverageMatrix'
 import UvFilterBands from '@/components/UvFilterBands'
 
-// Daily Shield key actives with percentages (back-of-pack list). The brand
-// brief allows percentages on the science and doctors pages only.
-const DAILY_SHIELD_ACTIVES = [
-  ['Ectoin', '1%'],
-  ['Niacinamide', '3%'],
-  ['Ceramide Complex', '0.5%'],
-  ['Ethyl Ascorbic Acid', '1%'],
-  ['Sodium Hyaluronate', '0.5%'],
-  ['Panthenol', '1%'],
-  ['Tocopherol', '0.5%'],
-]
-
 export const metadata: Metadata = {
   title: 'The Science',
   description:
@@ -111,21 +99,10 @@ export default function SciencePage() {
           Which product contains which active.
         </h2>
         <p className="text-mgrey text-[15px] max-w-2xl mb-10">
-          Presence and absence only. Daily Shield&apos;s key-active percentages are listed
-          below; full formulation data is on the clinical portal.
+          Presence and absence only. Concentrations and full formulation data are shared with
+          clinicians on the doctors portal.
         </p>
         <SkuCoverageMatrix />
-
-        <h3 className="font-bold text-navy text-[18px] mt-14 mb-2">Daily Shield — key actives</h3>
-        <p className="text-mgrey text-[13px] mb-5">As printed on the back of pack.</p>
-        <dl className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 border-t border-l border-cardline max-w-5xl">
-          {DAILY_SHIELD_ACTIVES.map(([name, pct]) => (
-            <div key={name} className="border-r border-b border-cardline p-4">
-              <dt className="text-navy text-[12px] font-medium">{name}</dt>
-              <dd className="text-navy font-extrabold text-[20px] mt-1">{pct}</dd>
-            </div>
-          ))}
-        </dl>
       </AnimatedSection>
 
       {/* 6 UV FILTERS */}

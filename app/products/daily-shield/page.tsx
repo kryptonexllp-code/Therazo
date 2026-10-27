@@ -9,16 +9,16 @@ import AnimatedSection from '@/components/AnimatedSection'
 import UvFilterBands from '@/components/UvFilterBands'
 import { dailyShield, productClaims } from '@/lib/products'
 
-// Back-of-pack key actives. Percentages are allowed in back-of-pack style
-// lists only (see CLAUDE.md) — never on front-of-pack style lists.
-const BACK_OF_PACK = [
-  ['Ectoin', '1%'],
-  ['Niacinamide', '3%'],
-  ['Ceramide Complex', '0.5%'],
-  ['Ethyl Ascorbic Acid', '1%'],
-  ['Sodium Hyaluronate', '0.5%'],
-  ['Panthenol', '1%'],
-  ['Tocopherol', '0.5%'],
+// Key actives by name. Concentrations stay in the /for-doctors tier only
+// (two-tier rule, CLAUDE.md) — never list percentages on customer pages.
+const KEY_ACTIVES = [
+  'Ectoin',
+  'Niacinamide',
+  'Ceramide Complex',
+  'Ethyl Ascorbic Acid',
+  'Sodium Hyaluronate',
+  'Panthenol',
+  'Tocopherol',
 ]
 
 export const metadata: Metadata = {
@@ -238,19 +238,19 @@ export default function DailyShieldPage() {
       </AnimatedSection>
 
       <AnimatedSection className="bg-lgrey px-6 md:px-20 py-16">
-        <h2 className="text-center font-bold text-navy text-[24px] mb-3">Back of Pack</h2>
+        <h2 className="text-center font-bold text-navy text-[24px] mb-3">Key Actives</h2>
         <p className="text-center text-mgrey text-[13px] mb-8 max-w-xl mx-auto">
-          Key actives as printed on the pack. We will publish the full ingredient list, in order,
-          from the final pack artwork.
+          The actives in Daily Shield. We will publish the full ingredient list, in order, from
+          the final pack artwork. Formulation detail for clinicians is on the{' '}
+          <Link href="/for-doctors" className="text-navy underline underline-offset-2">doctors portal</Link>.
         </p>
-        <dl className="max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 border-t border-l border-cardline bg-white">
-          {BACK_OF_PACK.map(([name, pct]) => (
-            <div key={name} className="border-r border-b border-cardline p-4">
-              <dt className="text-navy text-[12px] font-medium">{name}</dt>
-              <dd className="text-navy font-extrabold text-[18px] mt-1">{pct}</dd>
-            </div>
+        <ul className="max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 border-t border-l border-cardline bg-white">
+          {KEY_ACTIVES.map((name) => (
+            <li key={name} className="border-r border-b border-cardline p-4 text-navy text-[13px] font-medium">
+              {name}
+            </li>
           ))}
-        </dl>
+        </ul>
         <details className="max-w-3xl mx-auto bg-white border border-cardline p-5 mt-6">
           <summary className="cursor-pointer font-bold text-navy text-[14px]">
             Full Ingredient List (INCI)
