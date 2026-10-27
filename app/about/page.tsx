@@ -19,7 +19,7 @@ const PILLARS = [
     n: '01',
     title: 'Evidence before trends',
     body: [
-      'Science informs every formulation decision. Not market trend reports. Not what competitors are doing. Published clinical evidence, stated concentrations, documented reasons.',
+      'Science informs every formulation decision. Not market trend reports. Not what competitors are doing. Published research, stated concentrations, documented reasons.',
       'Before an active earns a place in a Therazo formula, it has to answer one question: what does the published research say it does, and at what concentration does it actually work. If the answer is unclear, the ingredient does not make it in.',
     ],
   },

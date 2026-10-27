@@ -6,9 +6,9 @@ import SkuCoverageMatrix from '@/components/SkuCoverageMatrix'
 import { DAILY_SHIELD_CLINICAL } from '@/lib/clinical'
 
 export const metadata: Metadata = {
-  title: 'For Dermatologists — Clinical Data',
+  title: 'For Dermatologists — Formulation Data',
   description:
-    'Therazo shares complete formulation data with clinicians — concentrations, mechanisms, CMO details, and test certificates.',
+    'Therazo shares complete formulation data with clinicians — concentrations, ingredient mechanisms and manufacturer details.',
 }
 
 export default function ForDoctorsPage() {
@@ -33,15 +33,15 @@ export default function ForDoctorsPage() {
           We are seeking honest clinical dialogue.
         </h1>
         <p className="text-bluelight text-[16px] max-w-2xl mb-10">
-          Therazo shares complete formulation data with clinicians — concentrations, mechanisms,
-          CMO details, and test certificates. We ask only for honest feedback. Your expertise
-          shapes our next product.
+          Therazo shares complete formulation data with clinicians — concentrations, ingredient
+          mechanisms and manufacturer details. Test reports will be added here as they become
+          available. We ask only for honest feedback. Your expertise shapes our next product.
         </p>
       </section>
 
       <section id="formulation" className="bg-white px-6 md:px-20 py-16">
         <h2 className="font-bold text-navy text-[24px] mb-10">What We Share</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           <div className="border border-cardline p-6">
             <p className="text-navy font-bold text-[14px] mb-2">Formulation Reference</p>
             <p className="text-mgrey text-[13px]">{c.formulationRef} · {c.formulationName}</p>
@@ -51,20 +51,34 @@ export default function ForDoctorsPage() {
             <p className="text-mgrey text-[13px]">All {c.fullActives.length} actives with concentrations (shown on this page only)</p>
           </div>
           <div className="border border-cardline p-6">
-            <p className="text-navy font-bold text-[14px] mb-2">CMO Details</p>
-            <p className="text-mgrey text-[13px]">{c.cmo}</p>
+            <p className="text-navy font-bold text-[14px] mb-2">Manufacturer</p>
+            <p className="text-mgrey text-[13px]">
+              Manufactured by {c.manufacturer}. Marketed by {c.marketer}.
+            </p>
           </div>
           <div className="border border-cardline p-6">
-            <p className="text-navy font-bold text-[14px] mb-2">SPF Test</p>
-            <p className="text-mgrey text-[13px]">{c.spfTest}</p>
+            <p className="text-navy font-bold text-[14px] mb-2">SPF</p>
+            <p className="text-mgrey text-[13px]">{c.spfStatus}</p>
+          </div>
+          <div className="border border-dashed border-navy p-6">
+            <p className="flex items-center justify-between gap-2 mb-2">
+              <span className="text-navy font-bold text-[14px]">Sample kit and dose card for clinics</span>
+              <span className="shrink-0 bg-navy text-white text-[9px] font-medium tracking-[0.15em] uppercase px-2 py-1">
+                Coming soon
+              </span>
+            </p>
+            <p className="text-mgrey text-[13px]">
+              A clinic sample kit with a printed dose card for patients. Register below and we will
+              contact you when it is ready.
+            </p>
           </div>
         </div>
       </section>
 
       <section id="clinical-data" className="bg-lgrey px-6 md:px-20 py-16">
         <p className="text-mgrey text-[13px] italic mb-6 max-w-2xl">
-          Concentrations are provided in clinical context. This data is not reproduced on the
-          public product page.
+          Concentrations and ingredient mechanisms as reported in the literature — not outcomes
+          measured for this product. Batch 1 carries no efficacy claims.
         </p>
         <div className="overflow-x-auto bg-white border border-cardline">
           <table className="w-full text-left text-[13px]">
@@ -114,7 +128,11 @@ export default function ForDoctorsPage() {
       </section>
 
       <section id="sample-request" className="bg-white px-6 md:px-20 py-16">
-        <h2 className="font-bold text-navy text-[24px] mb-8">Request a Sample for Clinical Evaluation</h2>
+        <h2 className="font-bold text-navy text-[24px] mb-3">Register for a Clinic Sample Kit</h2>
+        <p className="text-mgrey text-[14px] max-w-2xl mb-8">
+          Sample kits and dose cards for clinics are coming soon. Register your interest and we
+          will contact you when they are available.
+        </p>
         <div className="max-w-2xl">
           <DoctorSampleForm />
         </div>

@@ -1,28 +1,30 @@
 import 'server-only'
 
-// This object is imported ONLY in /app/for-doctors/page.tsx (server component)
-// Never import in any client component or public page
+// Imported ONLY by /app/for-doctors/page.tsx (server component).
+// Batch 1: no efficacy claims and no SPF test result exist yet — mechanisms
+// below describe each ingredient as reported in the literature, not
+// outcomes measured for this product.
 export const DAILY_SHIELD_CLINICAL = {
   formulationRef: 'HIM-2627-3041',
   formulationName: 'Advanced Hydra Shield SPF Moisturizer',
-  formulationScore: '95/100',
-  cmo: 'BO International, 870 Udyog Vihar Phase V, Sector 19, Gurugram, Haryana 122016',
-  spfTest: 'ISO 24444:2019 (in-vivo) — certificate in progress',
+  manufacturer: 'BO International, Jhajjar, Haryana',
+  marketer: 'Kryptonex LLP, Hyderabad',
+  spfStatus: 'SPF 50 PA++++ is the product designation. No SPF test report exists yet for batch 1 — it will be shared here when available.',
   fullActives: [
-    { name: 'Tinosorb S (Bemotrizinol)', concentration: 'As per formulation', type: 'UV Filter', mechanism: 'Photostable broadband UV absorber. UVA+UVB coverage. Does not isomerise under UV exposure.' },
-    { name: 'Tinosorb M (Bisoctrizole)', concentration: 'As per formulation', type: 'UV Filter', mechanism: 'Hybrid UV filter acting by both absorption and scattering. Enhanced UVA depth protection.' },
-    { name: 'DHHB', concentration: 'As per formulation', type: 'UV Filter', mechanism: 'Photostable UVA absorber. Superior stability vs avobenzone under UV exposure.' },
-    { name: 'Ethylhexyl Triazone', concentration: 'As per formulation', type: 'UV Filter', mechanism: 'Triazine-based UVB filter. Photostable at low concentrations.' },
-    { name: 'Zinc Oxide', concentration: 'As per formulation', type: 'Physical UV Filter', mechanism: 'Broad-spectrum physical UV filter by scattering and absorption.' },
-    { name: 'Titanium Dioxide', concentration: 'As per formulation', type: 'Physical UV Filter', mechanism: 'Physical UV filter, primarily UVB range.' },
-    { name: 'Ectoin', concentration: '1%', type: 'Extremolyte', mechanism: 'Compatible solute. Stabilises membranes under osmotic/UV/heat stress. Clinical evidence for photoprotection and barrier support.' },
-    { name: 'Niacinamide', concentration: '3%', type: 'Functional Active', mechanism: 'Inhibits melanosome transfer from melanocytes to keratinocytes. Sebostatic. Supports ceramide synthesis.' },
-    { name: 'Ceramide Complex', concentration: '0.5%', type: 'Barrier Active', mechanism: 'Multi-ceramide complex: Ceramide NP + AP + EOP + Phytosphingosine + Cholesterol. Replenishes stratum corneum lipid matrix.' },
-    { name: 'Ethyl Ascorbic Acid', concentration: '1%', type: 'Antioxidant', mechanism: 'Ethyl-substituted ascorbic acid ester. Superior stability vs L-ascorbic acid. Antioxidant + melanin synthesis inhibition.' },
-    { name: 'Sodium Hyaluronate', concentration: '0.5%', type: 'Humectant', mechanism: 'Low molecular weight hyaluronate for dermal penetration and sustained hydration.' },
-    { name: 'Squalane', concentration: 'As per formulation', type: 'Emollient', mechanism: 'Plant-derived. Identical to skin-produced squalane. Non-comedogenic.' },
-    { name: 'Panthenol', concentration: '1%', type: 'Soothing Active', mechanism: 'Converts to pantothenic acid. Accelerates epithelial repair. Anti-inflammatory.' },
-    { name: 'Tocopherol', concentration: '0.5%', type: 'Antioxidant', mechanism: 'Vitamin E. Free radical scavenger. Stabilises actives in formula.' },
-    { name: 'Rosa Damascena Flower Extract', concentration: 'As per formulation', type: 'Botanical', mechanism: 'Natural antioxidant botanical. Mild natural scent — product is synthetic fragrance-free.' },
+    { name: 'Bis-Ethylhexyloxyphenol Methoxyphenyl Triazine (bemotrizinol)', concentration: 'As per formulation', type: 'Organic UV filter — triazine', mechanism: 'Broad-spectrum UVA/UVB absorber. Reported to be photostable.' },
+    { name: 'Methylene Bis-Benzotriazolyl Tetramethylbutylphenol (bisoctrizole)', concentration: 'As per formulation', type: 'Organic UV filter — particulate', mechanism: 'Broad-spectrum filter dispersed as particles; absorbs and scatters UV.' },
+    { name: 'Diethylamino Hydroxybenzoyl Hexyl Benzoate (DHHB)', concentration: 'As per formulation', type: 'Organic UV filter — benzoate', mechanism: 'UVA absorber. Reported to be photostable.' },
+    { name: 'Ethylhexyl Triazone', concentration: 'As per formulation', type: 'Organic UV filter — triazine', mechanism: 'UVB absorber. Reported to be photostable.' },
+    { name: 'Zinc Oxide', concentration: 'As per formulation', type: 'Mineral UV filter', mechanism: 'Scatters and absorbs across UVB and UVA.' },
+    { name: 'Titanium Dioxide', concentration: 'As per formulation', type: 'Mineral UV filter', mechanism: 'Scatters and absorbs, mainly UVB and short-wave UVA.' },
+    { name: 'Ectoin', concentration: '1%', type: 'Extremolyte', mechanism: 'Draws water to skin cells and forms a stabilising hydration shell around them, supporting hydration retention. Acts in the outer skin layers; does not absorb UV and does not reach the dermis.' },
+    { name: 'Niacinamide', concentration: '3%', type: 'Vitamin B3', mechanism: 'Reported to reduce melanosome transfer to keratinocytes, to be sebostatic, and to support ceramide synthesis.' },
+    { name: 'Ceramide Complex', concentration: '0.5%', type: 'Barrier lipids', mechanism: 'Ceramide NP + AP + EOP + Phytosphingosine + Cholesterol. Replenishes stratum corneum lipids.' },
+    { name: 'Ethyl Ascorbic Acid', concentration: '1%', type: 'Vitamin C derivative', mechanism: 'Ethyl ether of ascorbic acid, more stable than L-ascorbic acid. Antioxidant; reported tyrosinase-inhibiting activity.' },
+    { name: 'Sodium Hyaluronate', concentration: '0.5%', type: 'Humectant', mechanism: 'Binds water at the skin surface.' },
+    { name: 'Squalane', concentration: 'As per formulation', type: 'Emollient', mechanism: 'Plant-derived emollient; structurally similar to a component of skin surface lipids.' },
+    { name: 'Panthenol', concentration: '1%', type: 'Provitamin B5', mechanism: 'Converted to pantothenic acid in skin. Humectant; studied for soothing.' },
+    { name: 'Tocopherol', concentration: '0.5%', type: 'Antioxidant', mechanism: 'Vitamin E. Free-radical scavenger; also helps protect the formula from oxidation.' },
+    { name: 'Rosa Damascena Flower Extract', concentration: 'As per formulation', type: 'Botanical', mechanism: 'Botanical with a mild natural scent — the product is synthetic fragrance-free, not fragrance-free.' },
   ],
 }

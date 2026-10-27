@@ -29,7 +29,7 @@ export default function DoctorSampleForm() {
   if (status === 'done') {
     return (
       <p className="text-navy font-medium text-[15px]">
-        Request received. We respond within 48 hours. care@therazo.co
+        Registered. We will contact you when clinic sample kits are available. care@therazo.co
       </p>
     )
   }
@@ -57,10 +57,10 @@ export default function DoctorSampleForm() {
         disabled={status === 'loading'}
         className="sm:col-span-2 bg-navy text-white font-bold text-[12px] tracking-[0.15em] uppercase py-4 disabled:opacity-60"
       >
-        {status === 'loading' ? 'Submitting…' : 'Request Sample'}
+        {status === 'loading' ? 'Submitting…' : 'Register Interest'}
       </button>
       {status === 'error' && <p className="text-red-600 text-[12px] sm:col-span-2">Something went wrong. Please try again.</p>}
-      <p className="text-mgrey text-[12px] sm:col-span-2">We respond within 48 hours. care@therazo.co</p>
+      <p className="text-mgrey text-[12px] sm:col-span-2">Questions: care@therazo.co · 1800 569 4100</p>
     </form>
   )
 }

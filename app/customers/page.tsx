@@ -88,7 +88,7 @@ export default function HomePage() {
             <p className="text-dgrey text-[16px] leading-[1.75] max-w-[520px] mt-6">
               We are a pharmacy-grade brand. Every ingredient in a Therazo formula has a documented
               reason to be there, at a stated concentration. We
-              inform before we sell. We publish our manufacturer. We share full clinical data with
+              inform before we sell. We publish our manufacturer. We share full formulation data with
               dermatologists. And we price our products so that pharmacy-grade skincare is
               accessible to the Indian consumer who deserves it.
             </p>
@@ -114,12 +114,12 @@ export default function HomePage() {
             {
               n: '01',
               title: 'Evidence before trends',
-              body: 'Science informs every formulation decision. Not market trend reports. Not what competitors are doing. Published clinical evidence, stated concentrations, documented reasons.',
+              body: 'Science informs every formulation decision. Not market trend reports. Not what competitors are doing. Published research, stated concentrations, documented reasons.',
             },
             {
               n: '02',
               title: 'Full transparency',
-              body: 'We publish our manufacturer address, our formulation reference, and complete clinical data for dermatologists. Trust requires information — not trust me.',
+              body: 'We publish our manufacturer address, our formulation reference, and complete formulation data for dermatologists. Trust requires information — not trust me.',
             },
             {
               n: '03',
@@ -348,13 +348,13 @@ export default function HomePage() {
               href="/for-doctors"
               className="text-center border border-white text-white text-[11px] font-medium tracking-[0.15em] uppercase px-6 py-3 transition-colors duration-200 hover:bg-white hover:text-navy"
             >
-              Access Clinical Data →
+              Formulation Data →
             </Link>
             <Link
               href="/for-doctors#sample-request"
               className="text-center border border-white text-white text-[11px] font-medium tracking-[0.15em] uppercase px-6 py-3 transition-colors duration-200 hover:bg-white hover:text-navy"
             >
-              Request a Sample →
+              Clinic Sample Kit →
             </Link>
           </div>
         </div>

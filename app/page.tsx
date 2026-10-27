@@ -190,7 +190,7 @@ export default function LandingPage() {
             <span className="text-bluelight"><StethoscopeIcon /></span>
             <span className="mt-2.5 font-bold text-[15px] text-white">For Doctors</span>
             <span className="mt-1.5 text-[12px] leading-relaxed text-[#8BAFD4]">
-              Access full clinical data and request a sample.
+              Formulation data, and a sample kit for clinics.
             </span>
             <span className="mt-3.5 block font-bold text-[11px] tracking-[0.15em] text-bluelight">Enter →</span>
           </motion.button>
