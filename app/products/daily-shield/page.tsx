@@ -65,12 +65,13 @@ export default function DailyShieldPage() {
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
+          {/* TODO: replace with final white-matt pack photo — both images below are
+              older mockups (off-white tube, earlier carton), kept as placeholders. */}
           <ProductGallery
             images={[
-              { src: dailyShield.heroImage ?? '', alt: 'Daily Shield on a stone slab with molecular props', label: 'Daily Shield — main image' },
-              { src: dailyShield.productImage ?? '', alt: 'Daily Shield packaging box detail', label: 'Box detail' },
-              { src: dailyShield.heroImage ?? '', alt: 'Daily Shield tube close-up', label: 'On stone slab' },
-              { src: '', alt: '', label: 'Texture shot — coming soon' },
+              { src: dailyShield.heroImage, alt: 'Daily Shield SPF Moisturizer tube' },
+              { src: dailyShield.productImage, alt: 'Daily Shield carton' },
+              { src: undefined, alt: 'Daily Shield texture' },
             ]}
           />
 

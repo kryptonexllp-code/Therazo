@@ -1,43 +1,40 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
-import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
+import ProductImage from '@/components/ui/ProductImage'
 
 type GalleryImage = {
-  src: string
+  src?: string
   alt: string
-  label: string
 }
 
+// Main image + thumbnails, all inside fixed aspect wrappers with
+// object-fit: contain so the pack is never cropped. The main image loads
+// eagerly (above the fold); thumbnails lazy-load.
 export default function ProductGallery({ images }: { images: GalleryImage[] }) {
   const [active, setActive] = useState(0)
   const current = images[active]
 
   return (
     <div>
-      <div className="relative h-[380px] w-full mb-4 bg-lgrey">
-        {current.src ? (
-          <Image src={current.src} alt={current.alt} fill sizes="(max-width: 1024px) 90vw, 500px" className="object-contain" priority />
-        ) : (
-          <ImagePlaceholder label={current.label} className="h-full w-full" />
-        )}
-      </div>
+      <ProductImage
+        src={current.src}
+        alt={current.alt}
+        aspect="4 / 5"
+        sizes="(max-width: 1024px) 90vw, 520px"
+        priority
+        className="mb-4 max-h-[560px]"
+      />
       <div className="grid grid-cols-3 gap-3">
         {images.map((img, i) => (
           <button
-            key={img.label}
+            key={img.alt}
             onClick={() => setActive(i)}
-            className={`relative h-24 bg-lgrey border ${
-              i === active ? 'border-navy border-2' : 'border-cardline'
-            }`}
-            aria-label={`Show ${img.label}`}
+            className={`bg-lgrey border ${i === active ? 'border-navy border-2' : 'border-cardline'}`}
+            aria-label={`Show ${img.alt}`}
+            aria-pressed={i === active}
           >
-            {img.src ? (
-              <Image src={img.src} alt={img.alt} fill sizes="150px" className="object-contain" />
-            ) : (
-              <ImagePlaceholder label={img.label} className="h-full w-full" />
-            )}
+            <ProductImage src={img.src} alt={img.alt} aspect="1 / 1" sizes="150px" />
           </button>
         ))}
       </div>

@@ -61,6 +61,7 @@ export const products: Product[] = [
     spf: 'SPF 50 PA++++',
     uvFilters: 6,
     frontOfPack: ['Ectoin', 'Niacinamide', 'Ceramide Complex', 'Vitamin C'],
+    // TODO: replace with final white-matt pack photo — both are older mockups
     heroImage: '/images/hero-daily-shield-clinical.png',
     productImage: '/images/product-daily-shield-box.png',
     actives: [
