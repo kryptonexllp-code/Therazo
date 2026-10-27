@@ -10,4 +10,7 @@ export const COMPANY = {
   region: 'Telangana',
   marketer: 'Kryptonex LLP, Hyderabad',
   manufacturer: 'BO International, Jhajjar, Haryana',
+  manufacturingLicence: 'COS8HR2025000015',
+  countryOfOrigin: 'India',
+  // No CIN or PAN on the site unless supplied.
 } as const

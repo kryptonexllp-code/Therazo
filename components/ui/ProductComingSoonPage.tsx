@@ -9,6 +9,7 @@ import { dailyShield, formatPrice, productClaims, type Product } from '@/lib/pro
 import WaitlistButton from '@/components/WaitlistButton'
 import UsageBadge from './UsageBadge'
 import ProductFaq from '@/components/ProductFaq'
+import ProductRegulatory from '@/components/ProductRegulatory'
 
 export function buildComingSoonMetadata(product: Product): Metadata {
   return {
@@ -132,6 +133,7 @@ export default function ProductComingSoonPage({ product }: { product: Product })
       </AnimatedSection>
 
       <ProductFaq productId={product.id} name={product.name} />
+      <ProductRegulatory />
     </>
   )
 }

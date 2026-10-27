@@ -12,6 +12,8 @@ import DoseIllustrations from '@/components/DoseIllustrations'
 import DayTimeline from '@/components/DayTimeline'
 import { DOSE_LINE } from '@/content/dose'
 import ProductFaq from '@/components/ProductFaq'
+import SpfDocsBlock from '@/components/SpfDocsBlock'
+import ProductRegulatory from '@/components/ProductRegulatory'
 import { dailyShield, productClaims } from '@/lib/products'
 
 // Key actives by name. Concentrations stay in the /for-doctors tier only
@@ -219,9 +221,10 @@ export default function DailyShieldPage() {
         <p className="text-center text-mgrey text-[14px] max-w-xl mx-auto mb-10">
           Organic and mineral filter classes, and the wavebands each one works in.
         </p>
-        <div className="max-w-3xl mx-auto bg-white border border-cardline p-6">
+        <div className="max-w-3xl mx-auto bg-white border border-cardline p-6 mb-6">
           <UvFilterBands />
         </div>
+        <SpfDocsBlock />
       </AnimatedSection>
 
       <AnimatedSection id="how-to-use" className="bg-white px-6 md:px-20 py-16 md:py-20 scroll-mt-24">
@@ -262,7 +265,7 @@ export default function DailyShieldPage() {
         </details>
       </AnimatedSection>
 
-      <AnimatedSection className="bg-white px-6 md:px-20 py-16 pb-24 md:pb-16">
+      <AnimatedSection className="bg-white px-6 md:px-20 py-16">
         <h2 className="text-center font-bold text-navy text-[24px] mb-10">What We Don&apos;t Use</h2>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-8">
           {WHAT_WE_DONT_USE.map((item) => (
@@ -278,6 +281,8 @@ export default function DailyShieldPage() {
       </AnimatedSection>
 
       <ProductFaq productId="daily-shield" name="Daily Shield" />
+      {/* Extra bottom padding on mobile clears the sticky launch bar. */}
+      <ProductRegulatory className="pb-24 md:pb-14" />
     </>
   )
 }
