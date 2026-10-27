@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
-import GoldDivider from '@/components/ui/GoldDivider'
+import Rule from '@/components/ui/Rule'
 import IngredientLibrary from './IngredientLibrary'
 import SkuCoverageMatrix from '@/components/SkuCoverageMatrix'
 import UvFilterBands from '@/components/UvFilterBands'
@@ -53,12 +53,12 @@ export default function SciencePage() {
         </p>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           <div className="bg-navy p-8">
-            <p className="text-gold font-bold text-[11px] tracking-[0.3em] uppercase mb-2">Ectoin</p>
+            <p className="text-white font-bold text-[11px] tracking-[0.3em] uppercase mb-2">Ectoin</p>
             <p className="italic text-bluemuted text-[14px] mb-3">The Extremolyte</p>
             <p className="text-bluelight text-[11px] tracking-[0.1em] uppercase mb-5">
               In Daily Shield, Gentle Daily Cleanser, Barrier Repair Cream &amp; Clarity Serum
             </p>
-            <GoldDivider className="mb-5" />
+            <Rule dark className="mb-5" />
             <p className="text-bluelight text-[14px] leading-[1.65] mb-5">
               Ectoin is an extremolyte — a molecule that extremophile bacteria produce to survive
               salt lakes, desert heat and hydrothermal vents. In skin care, Ectoin draws water to
@@ -69,7 +69,7 @@ export default function SciencePage() {
               It works in the outer layers of the skin. It does not absorb UV — in Daily Shield,
               UV protection comes from the six filters — and it does not reach the dermis.
             </p>
-            <p className="text-gold font-bold text-[12px]">The science of holding water.</p>
+            <p className="text-white font-bold text-[12px]">The science of holding water.</p>
           </div>
           <div className="bg-white border border-cardline p-8">
             <p className="text-navy font-bold text-[11px] tracking-[0.3em] uppercase mb-2">
@@ -79,7 +79,7 @@ export default function SciencePage() {
             <p className="text-mgrey text-[11px] tracking-[0.1em] uppercase mb-5">
               Present in Gentle Daily Cleanser, Age Renewal Night Serum &amp; Barrier Repair Cream
             </p>
-            <GoldDivider className="mb-5" />
+            <Rule className="mb-5" />
             <p className="text-dgrey text-[14px] leading-[1.65] mb-5">
               A fermentation-derived postbiotic that supports a balanced skin microbiome. A
               disrupted microbiome is associated with a weakened skin barrier.
@@ -94,7 +94,7 @@ export default function SciencePage() {
             <p className="text-mgrey text-[11px] tracking-[0.1em] uppercase mb-5">
               Present in Gentle Daily Cleanser &amp; Barrier Repair Cream
             </p>
-            <GoldDivider className="mb-5" />
+            <Rule className="mb-5" />
             <p className="text-dgrey text-[14px] leading-[1.65] mb-5">
               An oat-derived polysaccharide, added to Therazo&apos;s cleanser and barrier cream to
               help calm skin during periods of visible sensitivity.

@@ -137,7 +137,7 @@ export default function DailyShieldPage() {
               ))}
             </div>
 
-            <div className="bg-[#FBF3D9] border border-gold/40 p-4">
+            <div className="bg-lgrey border-l-2 border-navy p-4">
               <p className="text-dgrey text-[13px] leading-[1.6]">{dailyShield.fragranceNote}</p>
             </div>
           </div>
@@ -172,7 +172,7 @@ export default function DailyShieldPage() {
             This page lists what each active does. For full formulation data and the
             formulation reference, visit the dermatologist portal.
           </p>
-          <Link href="/for-doctors" className="text-gold text-[13px] font-bold whitespace-nowrap">
+          <Link href="/for-doctors" className="text-white text-[13px] font-bold whitespace-nowrap underline underline-offset-4">
             Access Full Clinical Data →
           </Link>
         </div>
@@ -199,8 +199,8 @@ export default function DailyShieldPage() {
             <p className="text-bluemuted text-[11px] uppercase tracking-[0.1em] mb-3">PPD 8–16</p>
             <p className="text-bluelight text-[12px]">High protection</p>
           </div>
-          <div className="border-2 border-gold p-6 text-center">
-            <p className="text-gold font-bold text-[18px] mb-1">PA++++</p>
+          <div className="border-2 border-white p-6 text-center">
+            <p className="text-white font-bold text-[18px] mb-1">PA++++</p>
             <p className="text-bluemuted text-[11px] uppercase tracking-[0.1em] mb-3">PPD 16+</p>
             <p className="text-white text-[12px] font-medium">Very high — Daily Shield&apos;s designation</p>
           </div>
@@ -269,7 +269,7 @@ export default function DailyShieldPage() {
             </div>
           ))}
         </div>
-        <div className="bg-[#FBF3D9] border border-gold/40 p-4 max-w-2xl mx-auto">
+        <div className="bg-lgrey border-l-2 border-navy p-4 max-w-2xl mx-auto">
           <p className="text-dgrey text-[13px] leading-[1.6]">{dailyShield.fragranceNote}</p>
         </div>
       </AnimatedSection>

@@ -40,7 +40,7 @@ export default function SkuCoverageMatrix() {
                 <tr
                   key={active}
                   className={isPostbiotic ? '' : i % 2 === 0 ? 'bg-white' : 'bg-lgrey'}
-                  style={isPostbiotic ? { backgroundColor: '#FFFDE7' } : undefined}
+                  style={isPostbiotic ? { backgroundColor: '#F2F4F7' } : undefined}
                 >
                   <td className="p-4 border-t border-cardline font-medium text-navy whitespace-nowrap">
                     {active}

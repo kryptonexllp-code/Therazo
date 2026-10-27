@@ -4,7 +4,7 @@ import Image from 'next/image'
 import ProductImage from '@/components/ui/ProductImage'
 import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
-import GoldDivider from '@/components/ui/GoldDivider'
+import Rule from '@/components/ui/Rule'
 import ComingSoonBadge from '@/components/ui/ComingSoonBadge'
 import { products, statusLabel } from '@/lib/products'
 
@@ -121,7 +121,7 @@ export default function AboutPage() {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {PILLARS.map((p) => (
-            <div key={p.n} className="relative bg-white border border-cardline border-t-[3px] border-t-gold p-8 overflow-hidden">
+            <div key={p.n} className="relative bg-white border border-cardline border-t-[3px] border-t-navy p-8 overflow-hidden">
               <span className="absolute -top-2 right-3 font-extrabold text-[80px] text-lgrey leading-none select-none">
                 {p.n}
               </span>
@@ -211,7 +211,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           <div className="border border-cardline p-7">
             <p className="text-navy font-bold text-[14px] mb-3">Contract Manufacturer</p>
-            <GoldDivider className="mb-4" />
+            <Rule className="mb-4" />
             <p className="text-dgrey text-[13px] leading-[1.7]">
               BO International
               <br />
@@ -220,7 +220,7 @@ export default function AboutPage() {
           </div>
           <div className="border border-cardline p-7">
             <p className="text-navy font-bold text-[14px] mb-3">Formulation Reference</p>
-            <GoldDivider className="mb-4" />
+            <Rule className="mb-4" />
             <p className="text-dgrey text-[13px] leading-[1.7]">
               Every Therazo formula carries a documented reference code. Dermatologists can request
               full access, including mechanisms and concentrations, on the{' '}
@@ -232,7 +232,7 @@ export default function AboutPage() {
           </div>
           <div className="border border-cardline p-7">
             <p className="text-navy font-bold text-[14px] mb-3">Marketed By</p>
-            <GoldDivider className="mb-4" />
+            <Rule className="mb-4" />
             <p className="text-dgrey text-[13px] leading-[1.7]">
               Kryptonex LLP
               <br />
@@ -272,7 +272,7 @@ export default function AboutPage() {
       {/* CLOSING MANIFESTO */}
       <AnimatedSection className="bg-navy px-6 md:px-20 py-20 md:py-[120px]">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="font-extrabold text-[90px] sm:text-[110px] text-gold opacity-15 select-none leading-none block">
+          <span className="font-extrabold text-[90px] sm:text-[110px] text-navy opacity-10 select-none leading-none block">
             &ldquo;
           </span>
           <p className="font-normal italic text-white text-[18px] sm:text-[22px] leading-[1.8] -mt-10 mb-8">
@@ -286,7 +286,7 @@ export default function AboutPage() {
             decision is documented. Every price is honest. We believe the brands that earn trust
             are the ones that deserve it.
           </p>
-          <Link href="/for-doctors" className="text-gold text-[13px] font-medium tracking-[0.1em] uppercase">
+          <Link href="/for-doctors" className="text-white text-[13px] font-medium tracking-[0.1em] uppercase underline underline-offset-4">
             For dermatologists →
           </Link>
         </div>

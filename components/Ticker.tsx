@@ -25,7 +25,7 @@ export default function Ticker() {
             className="text-white text-[10px] font-medium tracking-[0.25em] uppercase mx-4 flex items-center gap-4"
           >
             {item}
-            <span className="text-gold">·</span>
+            <span className="text-bluemuted">·</span>
           </span>
         ))}
       </div>

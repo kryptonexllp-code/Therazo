@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import WaitlistForm from '@/components/WaitlistForm'
 import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from './SectionLabel'
-import GoldDivider from './GoldDivider'
+import Rule from './Rule'
 import { dailyShield, formatPrice, productClaims, type Product } from '@/lib/products'
 import WaitlistButton from '@/components/WaitlistButton'
 
@@ -52,7 +52,7 @@ export default function ProductComingSoonPage({ product }: { product: Product })
             <h3 className="font-bold text-navy text-[16px] mt-8 mb-4">Key Actives</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
               {product.actives.map((a) => (
-                <div key={a.name} className="border-l-2 border-gold pl-3">
+                <div key={a.name} className="border-l-2 border-navy pl-3">
                   <p className="font-bold text-navy text-[13px]">{a.name}</p>
                   <p className="text-mgrey text-[12px]">{a.function}</p>
                 </div>
@@ -64,7 +64,7 @@ export default function ProductComingSoonPage({ product }: { product: Product })
                 This page shows the clinical function of each active. For complete data — full
                 concentrations and mechanisms — visit the dermatologist portal.
               </p>
-              <Link href="/for-doctors" className="text-gold text-[12px] font-bold">
+              <Link href="/for-doctors" className="text-white text-[12px] font-bold underline underline-offset-4">
                 Access Full Clinical Data →
               </Link>
             </div>
@@ -99,17 +99,17 @@ export default function ProductComingSoonPage({ product }: { product: Product })
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           <div>
             <p className="text-navy font-bold text-[13px] tracking-[0.1em] uppercase mb-2">Skin Concern</p>
-            <GoldDivider className="mb-3" />
+            <Rule className="mb-3" />
             <p className="text-dgrey text-[14px] leading-[1.6]">{product.concern}</p>
           </div>
           <div>
             <p className="text-navy font-bold text-[13px] tracking-[0.1em] uppercase mb-2">Routine Fit</p>
-            <GoldDivider className="mb-3" />
+            <Rule className="mb-3" />
             <p className="text-dgrey text-[14px] leading-[1.6]">{product.routineFit}</p>
           </div>
           <div>
             <p className="text-navy font-bold text-[13px] tracking-[0.1em] uppercase mb-2">Shared Actives</p>
-            <GoldDivider className="mb-3" />
+            <Rule className="mb-3" />
             <p className="text-dgrey text-[14px] leading-[1.6]">{product.sharedActives}</p>
           </div>
         </div>

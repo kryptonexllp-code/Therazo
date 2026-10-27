@@ -1,4 +1,4 @@
-import GoldDivider from './GoldDivider'
+import Rule from './Rule'
 import type { PublicActive } from '@/lib/products'
 
 export default function ActiveCard({ active }: { active: PublicActive }) {
@@ -8,7 +8,7 @@ export default function ActiveCard({ active }: { active: PublicActive }) {
       <p className="text-[11px] font-medium text-mgrey uppercase tracking-[0.08em] mb-3">
         {active.function}
       </p>
-      <GoldDivider className="mb-3" />
+      <Rule className="mb-3" />
       <p className="text-[13px] text-dgrey leading-relaxed">{active.benefit}</p>
     </div>
   )

@@ -160,18 +160,18 @@ export default function LandingPage() {
             onClick={() => router.push('/customers')}
             className="group flex w-[220px] flex-col items-center px-5 py-7 text-center transition-transform duration-[250ms] ease-out hover:scale-[1.03]"
             style={{
-              borderLeft: '2px solid #FFC107',
+              borderLeft: '2px solid rgba(255,255,255,0.7)',
               background: 'rgba(31,58,95,0.7)',
               backdropFilter: 'blur(12px)',
               WebkitBackdropFilter: 'blur(12px)',
             }}
           >
-            <span className="text-gold"><UserIcon /></span>
+            <span className="text-white"><UserIcon /></span>
             <span className="mt-2.5 font-bold text-[15px] text-white">For Customers</span>
             <span className="mt-1.5 text-[12px] leading-relaxed text-[#8BAFD4]">
               Explore the Therazo range and join the Daily Shield waitlist.
             </span>
-            <span className="mt-3.5 block font-bold text-[11px] tracking-[0.15em] text-gold">Enter →</span>
+            <span className="mt-3.5 block font-bold text-[11px] tracking-[0.15em] text-white">Enter →</span>
           </motion.button>
 
           <motion.button

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import SectionLabel from '@/components/ui/SectionLabel'
-import GoldDivider from '@/components/ui/GoldDivider'
+import Rule from '@/components/ui/Rule'
 import ContactForm from './ContactForm'
 import { COMPANY } from '@/lib/company'
 
@@ -20,7 +20,7 @@ export default function ContactPage() {
             <h1 className="font-bold text-navy text-[32px] sm:text-[44px] leading-[1.1] mb-8">
               Talk to Therazo.
             </h1>
-            <GoldDivider className="mb-8" />
+            <Rule className="mb-8" />
             <dl className="space-y-5 mb-10">
               <div>
                 <dt className="text-mgrey text-[11px] uppercase tracking-[0.15em] mb-1">Email</dt>

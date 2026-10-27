@@ -7,7 +7,8 @@ import HeroScanner from '@/components/HeroScanner'
 import WaitlistButton from '@/components/WaitlistButton'
 import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
-import GoldDivider from '@/components/ui/GoldDivider'
+import Rule from '@/components/ui/Rule'
+import AccentRule from '@/components/ui/AccentRule'
 import ProductCard from '@/components/ui/ProductCard'
 import StatCounter from '@/components/StatCounter'
 import WaitlistForm from '@/components/WaitlistForm'
@@ -92,7 +93,7 @@ export default function HomePage() {
               dermatologists. And we price our products so that pharmacy-grade skincare is
               accessible to the Indian consumer who deserves it.
             </p>
-            <GoldDivider className="mt-8" />
+            <AccentRule className="mt-8" />
             <p className="font-normal italic text-navy text-[18px] mt-6 max-w-[480px]">
               &ldquo;Trust is earned through what is inside the product — not what is written on the
               packaging.&rdquo;
@@ -132,7 +133,7 @@ export default function HomePage() {
               body: 'Formulated for diverse Indian skin types, tones, and lifestyles. Unisex by design. Pharmacy-grade does not have a gender.',
             },
           ].map((p) => (
-            <div key={p.n} className="relative bg-white border border-cardline border-t-[3px] border-t-gold p-8 overflow-hidden">
+            <div key={p.n} className="relative bg-white border border-cardline border-t-[3px] border-t-navy p-8 overflow-hidden">
               <span className="absolute -top-2 right-3 font-extrabold text-[64px] text-lgrey leading-none select-none">
                 {p.n}
               </span>
@@ -191,12 +192,12 @@ export default function HomePage() {
               communicated plainly, and built for people who want to know what they are actually
               putting on their skin.
             </p>
-            <Link href="/about" className="inline-block text-gold text-[13px] font-medium mt-6">
+            <Link href="/about" className="inline-block text-white text-[13px] font-medium mt-6 underline underline-offset-4">
               Read our full story →
             </Link>
           </div>
           <div className="relative">
-            <span className="absolute -top-10 -left-2 font-extrabold text-[100px] sm:text-[120px] text-gold opacity-15 select-none leading-none">
+            <span className="absolute -top-10 -left-2 font-extrabold text-[100px] sm:text-[120px] text-white opacity-10 select-none leading-none">
               &ldquo;
             </span>
             <p className="relative font-normal italic text-white text-[17px] sm:text-[19px] leading-[1.8] max-w-[580px]">
@@ -224,18 +225,18 @@ export default function HomePage() {
         </p>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           <div className="bg-navy p-8">
-            <p className="text-gold font-bold text-[11px] tracking-[0.3em] uppercase mb-2">Ectoin</p>
+            <p className="text-white font-bold text-[11px] tracking-[0.3em] uppercase mb-2">Ectoin</p>
             <p className="italic text-bluemuted text-[14px] mb-3">The Extremolyte</p>
             <p className="text-bluelight text-[11px] tracking-[0.1em] uppercase mb-5">
               In Daily Shield, Gentle Daily Cleanser, Barrier Repair Cream &amp; Clarity Serum
             </p>
-            <GoldDivider className="mb-5" />
+            <Rule dark className="mb-5" />
             <p className="text-bluelight text-[14px] leading-[1.65] mb-5">
               Ectoin draws water to skin cells and forms a stabilising shell around them, which
               supports hydration retention. It works in the outer layers of the skin — UV
               protection in Daily Shield comes from its six filters, not from Ectoin.
             </p>
-            <p className="text-gold font-bold text-[12px]">The science of holding water.</p>
+            <p className="text-white font-bold text-[12px]">The science of holding water.</p>
           </div>
           <div className="bg-white border border-cardline p-8">
             <p className="text-navy font-bold text-[11px] tracking-[0.3em] uppercase mb-2">
@@ -245,7 +246,7 @@ export default function HomePage() {
             <p className="text-mgrey text-[11px] tracking-[0.1em] uppercase mb-5">
               Present in Gentle Daily Cleanser, Age Renewal Night Serum &amp; Barrier Repair Cream
             </p>
-            <GoldDivider className="mb-5" />
+            <Rule className="mb-5" />
             <p className="text-dgrey text-[14px] leading-[1.65] mb-5">
               A fermentation-derived postbiotic that supports a balanced skin microbiome. A
               disrupted microbiome is associated with a weakened skin barrier.
@@ -260,7 +261,7 @@ export default function HomePage() {
             <p className="text-mgrey text-[11px] tracking-[0.1em] uppercase mb-5">
               Present in Gentle Daily Cleanser &amp; Barrier Repair Cream
             </p>
-            <GoldDivider className="mb-5" />
+            <Rule className="mb-5" />
             <p className="text-dgrey text-[14px] leading-[1.65] mb-5">
               An oat-derived polysaccharide, added to Therazo&apos;s cleanser and barrier cream to
               help calm skin during periods of visible sensitivity.
@@ -291,7 +292,7 @@ export default function HomePage() {
               <span className="font-extrabold text-[22px]">₹699</span>
               <span className="text-mgrey"> · 50 ml</span>
             </p>
-            <GoldDivider className="my-8" />
+            <Rule className="my-8" />
             <p className="text-navy text-[12px] font-medium tracking-[0.1em] uppercase mb-4">
               Upcoming products
             </p>

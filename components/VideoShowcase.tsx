@@ -32,7 +32,7 @@ export default function VideoShowcase() {
                 onClick={() => setOpenId(v.id)}
                 className="absolute inset-0 flex items-center justify-center"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-gold/90">
+                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/90">
                   <span className="ml-0.5 text-[14px] text-navy">▶</span>
                 </span>
               </button>

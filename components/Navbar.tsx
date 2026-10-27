@@ -70,7 +70,7 @@ export default function Navbar({ variant = 'default' }: { variant?: NavVariant }
               className="relative text-white text-[11px] font-medium tracking-[0.14em] uppercase group py-2"
             >
               {link.label}
-              <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-gold transition-all duration-200 group-hover:w-full" />
+              <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-white transition-all duration-200 group-hover:w-full" />
             </Link>
           ))}
         </nav>
@@ -79,7 +79,7 @@ export default function Navbar({ variant = 'default' }: { variant?: NavVariant }
           {showWaitlist && (
             <button
               onClick={() => openWaitlist('daily-shield')}
-              className="hidden sm:inline-block border border-gold text-gold text-[11px] font-bold tracking-[0.1em] uppercase px-[18px] py-[7px] transition-colors duration-200 hover:bg-gold hover:text-navy"
+              className="hidden sm:inline-block border border-white text-white text-[11px] font-bold tracking-[0.1em] uppercase px-[18px] py-[7px] transition-colors duration-200 hover:bg-white hover:text-navy"
             >
               Launching Soon
             </button>
@@ -143,7 +143,7 @@ export default function Navbar({ variant = 'default' }: { variant?: NavVariant }
                 setMobileOpen(false)
                 openWaitlist('daily-shield')
               }}
-              className="mt-4 border border-gold text-gold font-bold text-[14px] tracking-[0.1em] uppercase px-8 py-3"
+              className="mt-4 border border-white text-white font-bold text-[14px] tracking-[0.1em] uppercase px-8 py-3"
             >
               Launching Soon
             </button>

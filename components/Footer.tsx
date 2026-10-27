@@ -4,7 +4,7 @@ import { COMPANY } from '@/lib/company'
 
 export default function Footer() {
   return (
-    <footer className="bg-navy border-t-2 border-gold pt-16 pb-8 px-6 md:px-16">
+    <footer className="bg-navy border-t-2 border-[#2A4A6F] pt-16 pb-8 px-6 md:px-16">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
         <div>
           <Logo variant="reversed" height={28} className="mb-5" />

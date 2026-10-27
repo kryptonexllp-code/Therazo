@@ -120,7 +120,7 @@ export default function ForDoctorsPage() {
             'Share honest clinical feedback — positive or critical',
             'Help us identify where we can improve',
           ].map((t) => (
-            <li key={t} className="text-white text-[14px] leading-[1.6] border-l-2 border-gold pl-4">
+            <li key={t} className="text-white text-[14px] leading-[1.6] border-l-2 border-bluemuted pl-4">
               {t}
             </li>
           ))}
