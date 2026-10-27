@@ -1,11 +1,16 @@
 // Waitlist fields and validation, shared by the form and /api/waitlist.
 export const ALL_PRODUCTS = 'all'
+export const CONTEXT_MAX = 500
 
 export type WaitlistInput = {
   name: string
   phone: string
   email: string
   productInterest: string
+  // Required, unticked by default (privacy policy, /privacy).
+  consent: boolean
+  // Optional: the routine chosen in the Routine Finder.
+  context?: string
 }
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -26,5 +31,7 @@ export function validateWaitlist(input: WaitlistInput, productIds: string[]): st
   if (input.productInterest !== ALL_PRODUCTS && !productIds.includes(input.productInterest)) {
     return 'Please choose a product.'
   }
+  if ((input.context ?? '').length > CONTEXT_MAX) return 'Something went wrong. Please try again.'
+  if (input.consent !== true) return 'Please tick the consent box so we can contact you.'
   return null
 }

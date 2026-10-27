@@ -1,21 +1,28 @@
 'use client'
 
-import { useState } from 'react'
+import { useId, useState } from 'react'
+import Link from 'next/link'
 import { products } from '@/lib/products'
 import { ALL_PRODUCTS, validateWaitlist, type WaitlistInput } from '@/lib/waitlist'
 
+// `context` (e.g. the routine chosen in the Routine Finder) is sent with the
+// sign-up and replaces the product-interest field.
 export default function WaitlistForm({
   dark = false,
   productId,
+  context,
 }: {
   dark?: boolean
   productId?: string
+  context?: string
 }) {
+  const uid = useId()
   const [form, setForm] = useState<WaitlistInput>({
     name: '',
     phone: '',
     email: '',
     productInterest: productId ?? ALL_PRODUCTS,
+    consent: false,
   })
   const [status, setStatus] = useState<'idle' | 'loading' | 'done' | 'error'>('idle')
   const [message, setMessage] = useState('')
@@ -25,7 +32,8 @@ export default function WaitlistForm({
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    const error = validateWaitlist(form, products.map((p) => p.id))
+    const payload = { ...form, context }
+    const error = validateWaitlist(payload, products.map((p) => p.id))
     if (error) {
       setStatus('error')
       setMessage(error)
@@ -36,7 +44,7 @@ export default function WaitlistForm({
       const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify(payload),
       })
       const data = await res.json().catch(() => ({}))
       if (!res.ok) throw new Error(data.error ?? 'Something went wrong. Please try again.')
@@ -66,21 +74,21 @@ export default function WaitlistForm({
     <form onSubmit={handleSubmit} noValidate className="w-full text-left">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <div className="sm:col-span-2">
-          <label htmlFor={`wl-name-${productId ?? 'all'}`} className={label}>Name</label>
-          <input id={`wl-name-${productId ?? 'all'}`} autoComplete="name" value={form.name} onChange={set('name')} className={field} />
+          <label htmlFor={`${uid}-name`} className={label}>Name</label>
+          <input id={`${uid}-name`} autoComplete="name" value={form.name} onChange={set('name')} className={field} />
         </div>
         <div>
-          <label htmlFor={`wl-phone-${productId ?? 'all'}`} className={label}>Phone / WhatsApp</label>
-          <input id={`wl-phone-${productId ?? 'all'}`} type="tel" inputMode="tel" autoComplete="tel" placeholder="+91" value={form.phone} onChange={set('phone')} className={field} />
+          <label htmlFor={`${uid}-phone`} className={label}>Phone / WhatsApp</label>
+          <input id={`${uid}-phone`} type="tel" inputMode="tel" autoComplete="tel" placeholder="+91" value={form.phone} onChange={set('phone')} className={field} />
         </div>
         <div>
-          <label htmlFor={`wl-email-${productId ?? 'all'}`} className={label}>Email</label>
-          <input id={`wl-email-${productId ?? 'all'}`} type="email" autoComplete="email" value={form.email} onChange={set('email')} className={field} />
+          <label htmlFor={`${uid}-email`} className={label}>Email</label>
+          <input id={`${uid}-email`} type="email" autoComplete="email" value={form.email} onChange={set('email')} className={field} />
         </div>
-        <div className="sm:col-span-2">
-          <label htmlFor={`wl-interest-${productId ?? 'all'}`} className={label}>Product interest</label>
+        {!context && <div className="sm:col-span-2">
+          <label htmlFor={`${uid}-interest`} className={label}>Product interest</label>
           <select
-            id={`wl-interest-${productId ?? 'all'}`}
+            id={`${uid}-interest`}
             value={form.productInterest}
             onChange={set('productInterest')}
             className={`${field} ${dark ? '[&>option]:text-navy' : ''}`}
@@ -92,7 +100,24 @@ export default function WaitlistForm({
               </option>
             ))}
           </select>
-        </div>
+        </div>}
+      </div>
+      <div className="flex items-start gap-3 mt-4">
+        <input
+          id={`${uid}-consent`}
+          type="checkbox"
+          checked={form.consent}
+          onChange={(e) => setForm((f) => ({ ...f, consent: e.target.checked }))}
+          className={`mt-0.5 h-4 w-4 shrink-0 ${dark ? 'accent-white' : 'accent-navy'}`}
+        />
+        <label htmlFor={`${uid}-consent`} className={`text-[12px] leading-[1.55] ${dark ? 'text-bluelight' : 'text-dgrey'}`}>
+          I agree to Therazo contacting me about product launches, and to my details being used as
+          described in the{' '}
+          <Link href="/privacy" className="underline underline-offset-2">
+            privacy policy
+          </Link>
+          .
+        </label>
       </div>
       <button
         type="submit"

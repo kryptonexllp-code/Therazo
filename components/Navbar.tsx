@@ -13,6 +13,7 @@ const NAV_LINKS: Record<NavVariant, { label: string; href: string }[]> = {
     { label: 'The Science', href: '/science' },
     { label: 'The Range', href: '/products' },
     { label: 'The Routine', href: '/routine' },
+    { label: 'Find your routine', href: '/find-your-routine' },
     { label: 'Our Story', href: '/about' },
     { label: 'For Doctors', href: '/for-doctors' },
   ],
@@ -20,6 +21,7 @@ const NAV_LINKS: Record<NavVariant, { label: string; href: string }[]> = {
     { label: 'The Range', href: '/products' },
     { label: 'The Science', href: '/science' },
     { label: 'The Routine', href: '/routine' },
+    { label: 'Find your routine', href: '/find-your-routine' },
     { label: 'Our Story', href: '/about' },
   ],
   doctor: [

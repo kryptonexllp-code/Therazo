@@ -36,11 +36,13 @@ export default function Footer() {
             <li><Link href="/science">The Science</Link></li>
             <li><Link href="/products">The Range</Link></li>
             <li><Link href="/routine">The Routine</Link></li>
+            <li><Link href="/find-your-routine">Find Your Routine</Link></li>
             <li><Link href="/dose-guide">Dose Guide</Link></li>
             <li><Link href="/about">Our Story</Link></li>
             <li><Link href="/for-doctors">For Doctors</Link></li>
             <li><Link href="/contact">Contact</Link></li>
             <li><Link href="/customers#waitlist">Join the Waitlist</Link></li>
+            <li><Link href="/privacy">Privacy Policy</Link></li>
           </ul>
         </div>
 

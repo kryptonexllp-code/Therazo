@@ -15,6 +15,8 @@ const STATIC_PATHS = [
   '/science',
   '/about',
   '/routine',
+  '/find-your-routine',
+  '/privacy',
   '/dose-guide',
   '/for-doctors',
   '/contact',
