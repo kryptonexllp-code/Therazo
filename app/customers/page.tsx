@@ -50,6 +50,9 @@ export default function HomePage() {
             <WaitlistButton className="border-[1.5px] border-white text-white text-[11px] font-medium tracking-[0.2em] uppercase px-8 py-[15px] transition-colors duration-200 hover:bg-white hover:text-navy">
               Daily Shield — Launching Soon →
             </WaitlistButton>
+            <Link href="/start-here" className="text-bluelight text-[13px] underline underline-offset-4 mt-1">
+              New here? Start here →
+            </Link>
           </div>
         </div>
         <div className="md:w-[52%] flex flex-col">

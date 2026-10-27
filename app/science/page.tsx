@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
 import Rule from '@/components/ui/Rule'
@@ -58,6 +59,9 @@ export default function SciencePage() {
               UV protection comes from the six filters — and it does not reach the dermis.
             </p>
             <p className="text-white font-bold text-[12px]">The science of holding water.</p>
+            <Link href="/science/ectoin" className="inline-block mt-4 text-white text-[12px] font-medium underline underline-offset-4">
+              More on Ectoin →
+            </Link>
           </div>
           <div className="bg-white border border-cardline p-8">
             <p className="text-navy font-bold text-[11px] tracking-[0.3em] uppercase mb-2">
@@ -73,6 +77,9 @@ export default function SciencePage() {
               disrupted microbiome is associated with a weakened skin barrier.
             </p>
             <p className="text-navy font-bold text-[12px]">The science of a balanced barrier.</p>
+            <Link href="/science/postbiotic-lysate" className="inline-block mt-4 text-navy text-[12px] font-medium underline underline-offset-4">
+              Postbiotic Lysate page →
+            </Link>
           </div>
           <div className="bg-white border border-cardline p-8">
             <p className="text-navy font-bold text-[11px] tracking-[0.3em] uppercase mb-2">
@@ -88,6 +95,9 @@ export default function SciencePage() {
               help calm skin during periods of visible sensitivity.
             </p>
             <p className="text-navy font-bold text-[12px]">The science of a calmer barrier.</p>
+            <Link href="/science/beta-glucan" className="inline-block mt-4 text-navy text-[12px] font-medium underline underline-offset-4">
+              Beta-Glucan page →
+            </Link>
           </div>
         </div>
       </AnimatedSection>

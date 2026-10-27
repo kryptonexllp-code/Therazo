@@ -6,6 +6,7 @@ const BASE_URL = 'https://therazo.co'
 const STATIC_PATHS = [
   '',
   '/customers',
+  '/start-here',
   '/products',
   '/products/daily-shield',
   '/products/gentle-cleanser',
@@ -13,6 +14,9 @@ const STATIC_PATHS = [
   '/products/barrier-repair',
   '/products/clarity-serum',
   '/science',
+  '/science/ectoin',
+  '/science/postbiotic-lysate',
+  '/science/beta-glucan',
   '/about',
   '/routine',
   '/find-your-routine',

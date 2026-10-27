@@ -8,6 +8,11 @@ export const CLAIMS = {
   crueltyFree: false,
 } as const
 
+// /dose-calculator stays off (the route returns 404) until the product team
+// has confirmed the finger-length guidance and run a tube weigh test
+// (content/dose.ts). No tube-life figure appears anywhere until then.
+export const calculatorEnabled = false
+
 export type HeldClaim = keyof typeof CLAIMS
 
 // Wording used once a flag is switched on.

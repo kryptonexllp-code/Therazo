@@ -33,6 +33,7 @@ export default function Footer() {
             Navigate
           </h3>
           <ul className="space-y-3 text-bluelight text-[13px]">
+            <li><Link href="/start-here">Start Here</Link></li>
             <li><Link href="/science">The Science</Link></li>
             <li><Link href="/products">The Range</Link></li>
             <li><Link href="/routine">The Routine</Link></li>
