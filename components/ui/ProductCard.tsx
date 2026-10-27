@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import Image from 'next/image'
-import type { Product } from '@/lib/products'
+import ProductImage from '@/components/ui/ProductImage'
+import { formatPrice, type Product } from '@/lib/products'
 import ComingSoonBadge from './ComingSoonBadge'
 
 export default function ProductCard({ product }: { product: Product }) {
@@ -21,15 +21,7 @@ export default function ProductCard({ product }: { product: Product }) {
           <ComingSoonBadge timeline={product.timeline ?? 'Coming Soon'} />
         )}
       </div>
-      <div className="relative h-[130px] mb-4 mt-8 bg-lgrey">
-        <Image
-          src={product.productImage}
-          alt={`${product.name} — ${product.descriptor}`}
-          fill
-          sizes="(max-width: 640px) 90vw, 220px"
-          className="object-contain"
-        />
-      </div>
+      <ProductImage src={product.productImage} alt={`${product.name} — ${product.descriptor}`} aspect='4 / 5' sizes="(max-width: 640px) 90vw, 220px" className="mb-4 mt-8" background="bg-lgrey" />
       <p className="text-[11px] text-mgrey tracking-[0.1em] uppercase mb-1">
         {product.sku} · {product.step}
       </p>
@@ -47,7 +39,7 @@ export default function ProductCard({ product }: { product: Product }) {
         ))}
       </ul>
       <p className={`font-extrabold text-navy mb-3 mt-auto ${available ? 'text-[20px]' : 'text-[18px]'}`}>
-        ₹{product.price}
+        {formatPrice(product.price)}
       </p>
       {available ? (
         <span className="text-center bg-navy text-white text-[11px] font-bold tracking-[0.15em] uppercase py-3">

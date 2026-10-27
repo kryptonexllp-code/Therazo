@@ -20,8 +20,8 @@ export type Product = {
   status: ProductStatus
   timeline?: string
   tagline: string
-  heroImage: string
-  productImage: string
+  heroImage?: string
+  productImage?: string
   actives: PublicActive[]
   benefits?: string[]
   claims?: string[]
@@ -32,6 +32,8 @@ export type Product = {
   concern?: string
   routineFit?: string
   sharedActives?: string
+  // true while a formula's full active list is not yet confirmed
+  activesPending?: boolean
 }
 
 export const products: Product[] = [
@@ -42,7 +44,7 @@ export const products: Product[] = [
     name: 'Daily Shield',
     descriptor: 'SPF Moisturizer',
     price: 699,
-    size: '50 ml / 50 g',
+    size: '50 ml ℮ 1.69 fl. oz.',
     status: 'available',
     tagline: 'Six UV filters. Nine skin actives. One daily step.',
     spf: 'SPF 50 PA++++',
@@ -76,7 +78,7 @@ export const products: Product[] = [
     step: 'CLEANSE',
     name: 'Gentle Daily Cleanser',
     descriptor: 'Ceramide Cleanser',
-    price: 749,
+    price: 499,
     size: '100 ml',
     status: 'coming-soon',
     timeline: 'Arriving Y1 Q3',
@@ -88,7 +90,7 @@ export const products: Product[] = [
       { name: 'Niacinamide', function: 'Barrier support and tone evening', benefit: 'Maintains barrier integrity through the cleansing step. Addresses uneven tone from first use.' },
       { name: 'Zinc PCA', function: 'Sebum regulation', benefit: 'Reduces excess oil production. Particularly effective for oily and combination skin.' },
       { name: 'Ectoin', function: 'Stress shield and barrier support', benefit: 'Protects skin cells from cleansing-related environmental stress. Present in all 5 Therazo formulas.' },
-      { name: 'Postbiotic Lysate (Bifida Ferment Filtrate)', function: 'Microbiome support', benefit: 'A fermentation-derived postbiotic that supports a balanced skin microbiome through the cleansing step.' },
+      { name: 'Postbiotic Lysate', function: 'Microbiome support', benefit: 'A combined fermentation-derived postbiotic that supports a balanced skin microbiome through the cleansing step.' },
       { name: 'Beta-Glucan', function: 'Skin immune support', benefit: "Oat-derived. Supports the skin's own immune function and calms visible stress from daily cleansing." },
     ],
     claims: ['Silicone-free', 'Paraben-free', 'Sulphate-free', 'Synthetic Fragrance-Free'],
@@ -101,33 +103,29 @@ export const products: Product[] = [
     sharedActives: 'Ceramide Complex and Ectoin — the same barrier and stress-protection actives found in Daily Shield.',
   },
   {
-    id: 'oil-balance',
+    id: 'age-renewal',
     sku: '03',
-    step: 'MOISTURISE',
-    name: 'Oil Balance Moisturiser',
-    descriptor: 'Gel Moisturiser',
-    price: 599,
-    size: '50 g',
+    step: 'RENEW',
+    name: 'Age Renewal Night Serum',
+    descriptor: 'Anti-ageing Night Serum',
+    price: 1699,
+    size: '30 ml',
     status: 'coming-soon',
     timeline: 'Arriving Y2 Q1',
-    tagline: 'Hydration without heaviness. Built for Indian humidity.',
-    productImage: '/images/product-oil-balance.png',
-    heroImage: '/images/product-oil-balance.png',
+    tagline: 'A night-time renewal step for skin beginning to show its age.',
+    // No pack photography exists for this SKU yet — components fall back to a placeholder.
     actives: [
-      { name: 'Niacinamide', function: 'Sebum regulation and barrier support', benefit: 'Reduces excess sebum production. A cornerstone active for oily and combination Indian skin.' },
-      { name: 'Zinc PCA', function: 'Oil control and antimicrobial', benefit: 'Regulates sebaceous activity at the follicular level. Clinical evidence for visible pore reduction.' },
-      { name: 'Ceramide Complex', function: 'Barrier repair without heaviness', benefit: 'Replenishes barrier lipids in a lightweight gel format — appropriate for the Indian climate.' },
-      { name: 'Ectoin', function: 'Extremolyte stress protection', benefit: 'Shields skin from urban environmental stressors. Consistent across all Therazo formulas.' },
-      { name: 'Postbiotic Lysate (Lactobacillus Ferment)', function: 'Microbiome support', benefit: 'Supports a balanced skin microbiome — a root factor in regulating excess oiliness.' },
+      { name: 'Postbiotic Lysate', function: 'Microbiome support', benefit: 'A fermentation-derived postbiotic that supports a balanced skin microbiome overnight.' },
     ],
-    claims: ['Silicone-free', 'Paraben-free', 'Mineral oil-free', 'Synthetic Fragrance-Free', 'Non-comedogenic'],
+    activesPending: true,
+    claims: [],
     about: [
-      'A gel moisturiser built specifically for skin that sweats, shines, and still needs to be hydrated. Oil Balance Moisturiser delivers water-based hydration and barrier support without the heaviness of a conventional cream — appropriate for India\'s humidity and heat.',
-      'Niacinamide and Zinc PCA regulate excess sebum at the source, while the ceramide complex keeps the barrier intact — so oil control never comes at the cost of dehydration.',
+      'Age Renewal Night Serum (working name) is the anti-ageing step in the Therazo range — a 30 ml night serum designed to work while skin is not dealing with sun exposure.',
+      'Its full active profile will be published here once the formula is final. Like every Therazo product, each active will be listed with the reason it is there.',
     ],
-    concern: 'Excess oil and shine without compromising barrier hydration in hot, humid climates.',
-    routineFit: 'Step 3 — after cleansing and treatment, before or in place of a heavier cream.',
-    sharedActives: 'Niacinamide, Ceramide Complex, and Ectoin — shared with Daily Shield\'s barrier and brightening system.',
+    concern: 'Visible signs of ageing — fine lines, loss of firmness and uneven texture.',
+    routineFit: 'Night routine — after Gentle Daily Cleanser, before Barrier Repair Cream.',
+    sharedActives: 'Postbiotic Lysate, shared with Gentle Daily Cleanser and Barrier Repair Cream. Full active profile to be confirmed.',
   },
   {
     id: 'barrier-repair',
@@ -135,7 +133,7 @@ export const products: Product[] = [
     step: 'REPAIR',
     name: 'Barrier Repair Cream',
     descriptor: 'Intensive Barrier Cream',
-    price: 699,
+    price: 749,
     size: '50 g',
     status: 'coming-soon',
     timeline: 'Arriving Y2 Q2',
@@ -164,7 +162,7 @@ export const products: Product[] = [
     step: 'TREAT',
     name: 'Clarity Serum',
     descriptor: 'Brightening Serum',
-    price: 899,
+    price: 1199,
     size: '30 ml',
     status: 'coming-soon',
     timeline: 'Arriving Y2 Q4',
@@ -187,6 +185,11 @@ export const products: Product[] = [
     sharedActives: 'Niacinamide and Ectoin — the same brightening and stress-protection actives found in Daily Shield.',
   },
 ]
+
+// MRP incl. taxes, Indian digit grouping: 1699 → "₹1,699"
+export function formatPrice(price: number) {
+  return `₹${price.toLocaleString('en-IN')}`
+}
 
 export function getProduct(id: string): Product | undefined {
   return products.find((p) => p.id === id)

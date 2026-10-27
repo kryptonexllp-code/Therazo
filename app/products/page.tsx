@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
+import ProductImage from '@/components/ui/ProductImage'
 import ComingSoonBadge from '@/components/ui/ComingSoonBadge'
 import { ORDER_WHATSAPP_URL } from '@/lib/whatsapp'
-import { products } from '@/lib/products'
+import { formatPrice, products } from '@/lib/products'
 
 export const metadata: Metadata = {
   title: 'The Range',
@@ -35,15 +35,7 @@ export default function ProductsPage() {
           className={`px-6 md:px-20 py-16 ${i % 2 === 0 ? 'bg-white' : 'bg-lgrey'}`}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <div className="relative h-[260px] w-full bg-offwhite">
-              <Image
-                src={p.productImage}
-                alt={`${p.name} — ${p.descriptor}`}
-                fill
-                sizes="(max-width: 1024px) 90vw, 500px"
-                className="object-contain"
-              />
-            </div>
+            <ProductImage src={p.productImage} alt={`${p.name} — ${p.descriptor}`} aspect='1 / 1' sizes="(max-width: 1024px) 90vw, 500px" className="max-h-[420px]" background="bg-lgrey" />
             <div>
               <p className="text-mgrey text-[11px] tracking-[0.15em] uppercase mb-2">
                 {p.sku} · {p.step}
@@ -60,7 +52,7 @@ export default function ProductsPage() {
               <h2 className="font-extrabold text-navy text-[28px] md:text-[34px] mb-2">{p.name}</h2>
               <p className="text-mgrey text-[15px] mb-4">{p.descriptor} · {p.size}</p>
               <p className="text-dgrey text-[15px] leading-[1.7] mb-5">{p.tagline}</p>
-              <p className="font-extrabold text-navy text-[24px] mb-6">₹{p.price}</p>
+              <p className="font-extrabold text-navy text-[24px] mb-6">{formatPrice(p.price)}</p>
               {p.status === 'available' ? (
                 <a
                   href={ORDER_WHATSAPP_URL}
@@ -88,9 +80,8 @@ export default function ProductsPage() {
 
       <section className="bg-navy px-6 md:px-20 py-14 text-center">
         <p className="text-bluelight text-[14px] max-w-2xl mx-auto">
-          Complete routine: Cleanse → Treat → Moisturise → Repair → Protect. All products in the
-          Therazo range are formulated on the same scientific standard — with Ectoin as the common
-          thread.
+          Morning: Cleanse → Treat → Protect. Night: Cleanse → Renew → Repair. All products in the
+          Therazo range are formulated to the same scientific standard.
         </p>
       </section>
     </>

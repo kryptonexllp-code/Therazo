@@ -57,9 +57,9 @@ export default function DailyShieldPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
           <ProductGallery
             images={[
-              { src: dailyShield.heroImage, alt: 'Daily Shield on a stone slab with molecular props', label: 'Daily Shield — main image' },
-              { src: dailyShield.productImage, alt: 'Daily Shield packaging box detail', label: 'Box detail' },
-              { src: dailyShield.heroImage, alt: 'Daily Shield tube close-up', label: 'On stone slab' },
+              { src: dailyShield.heroImage ?? '', alt: 'Daily Shield on a stone slab with molecular props', label: 'Daily Shield — main image' },
+              { src: dailyShield.productImage ?? '', alt: 'Daily Shield packaging box detail', label: 'Box detail' },
+              { src: dailyShield.heroImage ?? '', alt: 'Daily Shield tube close-up', label: 'On stone slab' },
               { src: '', alt: '', label: 'Texture shot — coming soon' },
             ]}
           />

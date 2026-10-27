@@ -110,19 +110,12 @@ export default function SciencePage() {
             </p>
             <p className="italic text-navy text-[14px] mb-3">The Microbiome Active</p>
             <p className="text-mgrey text-[11px] tracking-[0.1em] uppercase mb-5">
-              Present in Gentle Daily Cleanser, Oil Balance Gel &amp; Barrier Repair Cream
+              Present in Gentle Daily Cleanser, Age Renewal Night Serum &amp; Barrier Repair Cream
             </p>
             <GoldDivider className="mb-5" />
             <p className="text-dgrey text-[14px] leading-[1.65] mb-5">
-              A fermentation-derived postbiotic that supports a balanced skin microbiome —
-              Lactobacillus Ferment in Oil Balance Gel, Bifida Ferment Filtrate in Barrier Repair
-              Cream. A disrupted microbiome is a root driver of both excess oiliness and a weakened
-              barrier.
-            </p>
-            <p className="text-dgrey text-[14px] leading-[1.65] mb-5">
-              This class of ingredient is already used in established clinical ranges, including La
-              Roche-Posay Lipikar and Bioderma — Therazo brings the same mechanism into an
-              accessible, pharmacy-grade Indian formulation.
+              A fermentation-derived postbiotic that supports a balanced skin microbiome. A
+              disrupted microbiome is associated with a weakened skin barrier.
             </p>
             <p className="text-navy font-bold text-[12px]">The science of a balanced barrier.</p>
           </div>

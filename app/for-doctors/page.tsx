@@ -37,15 +37,6 @@ export default function ForDoctorsPage() {
           CMO details, and test certificates. We ask only for honest feedback. Your expertise
           shapes our next product.
         </p>
-        <div className="relative h-[220px] w-full">
-          <Image
-            src="/images/hero-pharmacy.png"
-            alt="All 5 Therazo products displayed on a dermatology pharmacy counter"
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
       </section>
 
       <section id="formulation" className="bg-white px-6 md:px-20 py-16">

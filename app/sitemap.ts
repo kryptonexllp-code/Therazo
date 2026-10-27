@@ -9,7 +9,7 @@ const STATIC_PATHS = [
   '/products',
   '/products/daily-shield',
   '/products/gentle-cleanser',
-  '/products/oil-balance',
+  '/products/age-renewal',
   '/products/barrier-repair',
   '/products/clarity-serum',
   '/science',

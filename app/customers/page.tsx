@@ -159,7 +159,7 @@ export default function HomePage() {
           ))}
         </div>
         <p className="text-center text-mgrey text-[12px] mt-10">
-          Complete routine: Cleanse (02) → Treat (05) → Moisturise (03) → Repair (04) → Protect (01)
+          Morning: Cleanse (02) → Treat (05) → Protect (01) · Night: Cleanse (02) → Renew (03) → Repair (04)
         </p>
         <p className="text-center mt-4">
           <Link href="/products" className="text-navy text-[13px] font-medium underline underline-offset-4">
@@ -210,15 +210,6 @@ export default function HomePage() {
             </p>
           </div>
         </div>
-        <div className="relative w-full h-[220px] mt-14 border border-bluemuted/20">
-          <Image
-            src="/images/hero-full-range-lab.png"
-            alt="The full Therazo range — all 5 products in a laboratory setting"
-            fill
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
       </AnimatedSection>
 
       {/* SECTION 7 — ACTIVE SYSTEM */}
@@ -252,15 +243,12 @@ export default function HomePage() {
             </p>
             <p className="italic text-navy text-[14px] mb-3">The Microbiome Active</p>
             <p className="text-mgrey text-[11px] tracking-[0.1em] uppercase mb-5">
-              Present in Gentle Daily Cleanser, Oil Balance Gel &amp; Barrier Repair Cream
+              Present in Gentle Daily Cleanser, Age Renewal Night Serum &amp; Barrier Repair Cream
             </p>
             <GoldDivider className="mb-5" />
             <p className="text-dgrey text-[14px] leading-[1.65] mb-5">
-              A fermentation-derived postbiotic that supports a balanced skin microbiome —
-              Lactobacillus Ferment in Oil Balance Gel, Bifida Ferment Filtrate in Barrier Repair
-              Cream. A disrupted microbiome is a root driver of both excess oiliness and a weakened
-              barrier. Used in established clinical ranges including La Roche-Posay Lipikar and
-              Bioderma.
+              A fermentation-derived postbiotic that supports a balanced skin microbiome. A
+              disrupted microbiome is associated with a weakened skin barrier.
             </p>
             <p className="text-navy font-bold text-[12px]">The science of a balanced barrier.</p>
           </div>

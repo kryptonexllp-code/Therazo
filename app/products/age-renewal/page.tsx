@@ -1,7 +1,7 @@
 import ProductComingSoonPage, { buildComingSoonMetadata } from '@/components/ui/ProductComingSoonPage'
 import { getProduct } from '@/lib/products'
 
-const product = getProduct('oil-balance')!
+const product = getProduct('age-renewal')!
 
 export const metadata = buildComingSoonMetadata(product)
 

@@ -1,17 +1,17 @@
 import Link from 'next/link'
-import Image from 'next/image'
+import ProductImage from '@/components/ui/ProductImage'
 import type { Metadata } from 'next'
 import WaitlistForm from '@/components/WaitlistForm'
 import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from './SectionLabel'
 import GoldDivider from './GoldDivider'
-import { dailyShield, type Product } from '@/lib/products'
+import { dailyShield, formatPrice, type Product } from '@/lib/products'
 import { ORDER_WHATSAPP_URL } from '@/lib/whatsapp'
 
 export function buildComingSoonMetadata(product: Product): Metadata {
   return {
     title: `${product.name} — ${product.descriptor} | Therazo`,
-    description: `${product.tagline} Arriving ${product.timeline}. ₹${product.price} estimated launch price. Join the waitlist.`,
+    description: `${product.tagline} Arriving ${product.timeline}. ${formatPrice(product.price)} estimated launch price. Join the waitlist.`,
   }
 }
 
@@ -28,7 +28,7 @@ export default function ProductComingSoonPage({ product }: { product: Product })
         <p className="text-mgrey text-[16px] mb-1">
           {product.descriptor} · {product.size}
         </p>
-        <p className="text-gold font-bold text-[20px] mb-8">₹{product.price} · Estimated launch price</p>
+        <p className="text-gold font-bold text-[20px] mb-8">{formatPrice(product.price)} · Estimated launch price</p>
         <div className="max-w-md mx-auto">
           <WaitlistForm dark productId={product.id} />
         </div>
@@ -37,15 +37,7 @@ export default function ProductComingSoonPage({ product }: { product: Product })
 
       <AnimatedSection className="bg-white px-6 md:px-20 py-16 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
-          <div className="relative h-[240px] w-full bg-lgrey">
-            <Image
-              src={product.productImage}
-              alt={`${product.name} — ${product.descriptor}`}
-              fill
-              sizes="(max-width: 1024px) 90vw, 500px"
-              className="object-contain"
-            />
-          </div>
+          <ProductImage src={product.productImage} alt={`${product.name} — ${product.descriptor}`} aspect='1 / 1' sizes="(max-width: 1024px) 90vw, 500px" className="max-h-[360px]" background="bg-lgrey" />
           <div>
             <SectionLabel>About This Product</SectionLabel>
             {product.about?.map((para, i) => (
@@ -79,18 +71,10 @@ export default function ProductComingSoonPage({ product }: { product: Product })
                 Available now in the Therazo range
               </p>
               <div className="flex items-center gap-4">
-                <div className="relative h-14 w-14 shrink-0 bg-white">
-                  <Image
-                    src={dailyShield.productImage}
-                    alt="Daily Shield"
-                    fill
-                    sizes="56px"
-                    className="object-contain"
-                  />
-                </div>
+                <ProductImage src={dailyShield.productImage} alt="Daily Shield" aspect='1 / 1' sizes="56px" className="w-14 shrink-0" background="bg-white" />
                 <div>
                   <p className="font-bold text-navy text-[14px]">{dailyShield.name}</p>
-                  <p className="text-mgrey text-[12px]">{dailyShield.spf} · ₹{dailyShield.price}</p>
+                  <p className="text-mgrey text-[12px]">{dailyShield.spf} · {formatPrice(dailyShield.price)}</p>
                 </div>
               </div>
               <a

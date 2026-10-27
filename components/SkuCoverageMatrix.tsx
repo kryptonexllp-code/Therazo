@@ -49,8 +49,10 @@ export default function SkuCoverageMatrix() {
                     <td key={p.id} className="p-4 border-t border-cardline text-center">
                       {hasActive(p.actives, active) ? (
                         <span className="text-green font-bold">✓</span>
+                      ) : p.activesPending ? (
+                        <span className="text-mgrey text-[11px] tracking-[0.1em]">TBC</span>
                       ) : (
-                        <span className="text-cardline">—</span>
+                        <span className="text-mgrey">—</span>
                       )}
                     </td>
                   ))}
@@ -61,8 +63,10 @@ export default function SkuCoverageMatrix() {
         </table>
       </div>
       <p className="text-mgrey text-[12px] mt-4">
-        Postbiotic Lysate: Bifida Ferment Filtrate (SKU 4) · Lactobacillus Ferment (SKU 3) ·
-        Combined in Gentle Daily Cleanser (SKU 2)
+        Postbiotic Lysate is confirmed in SKUs 02, 03 and 04 only: Bifida Ferment Filtrate in
+        Barrier Repair Cream (04) · a combined ferment lysate in Gentle Daily Cleanser (02).
+        TBC: Age Renewal Night Serum (03) formula is not final — its other actives will be
+        published when confirmed.
       </p>
     </div>
   )

@@ -46,7 +46,7 @@ export default function OrderModal({ razorpayUrl }: { razorpayUrl?: string }) {
 
         <div className="p-5 flex items-center gap-4">
           <div className="relative h-16 w-16 shrink-0 bg-lgrey">
-            <Image src={dailyShield.productImage} alt="Daily Shield" fill sizes="64px" className="object-contain" />
+            <Image src={dailyShield.productImage!} alt="Daily Shield" fill sizes="64px" className="object-contain" />
           </div>
           <div>
             <p className="font-bold text-navy text-[14px]">Daily Shield</p>
