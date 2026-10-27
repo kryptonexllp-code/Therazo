@@ -4,6 +4,29 @@ import './globals.css'
 import SiteChrome from '@/components/SiteChrome'
 import { WaitlistModalProvider } from '@/components/WaitlistModalContext'
 import WaitlistModal from '@/components/WaitlistModal'
+import { COMPANY } from '@/lib/company'
+
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Therazo',
+  url: COMPANY.url,
+  logo: `${COMPANY.url}/images/logos/logo-primary.png`,
+  email: COMPANY.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: COMPANY.city,
+    addressRegion: COMPANY.region,
+    addressCountry: 'IN',
+  },
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer service',
+    telephone: COMPANY.phoneIntl,
+    email: COMPANY.email,
+    areaServed: 'IN',
+  },
+}
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -32,6 +55,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-IN" className={poppins.variable}>
       <body className="font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <WaitlistModalProvider>
           <SiteChrome>{children}</SiteChrome>
           <WaitlistModal />

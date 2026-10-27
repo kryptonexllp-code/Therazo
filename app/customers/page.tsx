@@ -321,9 +321,9 @@ export default function HomePage() {
               guides pharmaceutical dispensing guides every Therazo formula.
             </p>
             <div className="flex flex-wrap gap-x-6 gap-y-2 mt-8 text-mgrey text-[12px]">
-              <span>Launched 2026</span>
               <span>Made in India</span>
               <span>care@therazo.co</span>
+              <span>1800 569 4100</span>
             </div>
           </div>
         </div>

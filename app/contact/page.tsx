@@ -3,10 +3,11 @@ import Link from 'next/link'
 import SectionLabel from '@/components/ui/SectionLabel'
 import GoldDivider from '@/components/ui/GoldDivider'
 import ContactForm from './ContactForm'
+import { COMPANY } from '@/lib/company'
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Get in touch with Therazo. We respond within 24 hours — care@therazo.co',
+  description: 'Get in touch with Therazo — care@therazo.co · customer care 1800 569 4100 · Hyderabad.',
 }
 
 export default function ContactPage() {
@@ -20,9 +21,29 @@ export default function ContactPage() {
               Talk to Therazo.
             </h1>
             <GoldDivider className="mb-8" />
-            <p className="font-bold text-navy text-[22px] mb-2">care@therazo.co</p>
-            <p className="text-dgrey text-[15px] mb-1">We respond within 24 hours</p>
-            <p className="text-mgrey text-[14px] mb-10">therazo.co</p>
+            <dl className="space-y-5 mb-10">
+              <div>
+                <dt className="text-mgrey text-[11px] uppercase tracking-[0.15em] mb-1">Email</dt>
+                <dd>
+                  <a href={`mailto:${COMPANY.email}`} className="font-bold text-navy text-[22px]">{COMPANY.email}</a>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-mgrey text-[11px] uppercase tracking-[0.15em] mb-1">Customer care</dt>
+                <dd>
+                  <a href={COMPANY.phoneHref} className="font-bold text-navy text-[22px]">{COMPANY.phone}</a>
+                </dd>
+              </div>
+              <div>
+                <dt className="text-mgrey text-[11px] uppercase tracking-[0.15em] mb-1">Based in</dt>
+                <dd className="text-dgrey text-[15px]">
+                  {COMPANY.city}, {COMPANY.region}, India
+                </dd>
+              </div>
+            </dl>
+            <p className="text-mgrey text-[13px] leading-[1.7] mb-8">
+              Marketed by {COMPANY.marketer}. Manufactured by {COMPANY.manufacturer}. Made in India.
+            </p>
             <p className="text-dgrey text-[14px] leading-[1.7]">
               For dermatologists: visit the{' '}
               <Link href="/for-doctors" className="text-navy underline underline-offset-4 font-medium">

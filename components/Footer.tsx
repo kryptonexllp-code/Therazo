@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Logo from './ui/Logo'
+import { COMPANY } from '@/lib/company'
 
 export default function Footer() {
   return (
@@ -7,8 +8,16 @@ export default function Footer() {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
         <div>
           <Logo variant="reversed" height={28} className="mb-5" />
-          <p className="text-bluelight text-[13px]">care@therazo.co</p>
-          <p className="text-bluelight text-[13px] mb-5">www.therazo.co</p>
+          <ul className="space-y-1 text-bluelight text-[13px] mb-5">
+            <li>
+              <a href={`mailto:${COMPANY.email}`} className="hover:text-white">{COMPANY.email}</a>
+            </li>
+            <li>
+              <a href={COMPANY.phoneHref} className="hover:text-white">{COMPANY.phone}</a>
+              <span className="text-bluemuted"> · customer care</span>
+            </li>
+            <li>{COMPANY.city}, India</li>
+          </ul>
           <div className="flex gap-4">
             {['Instagram', 'LinkedIn', 'YouTube', 'Facebook'].map((s) => (
               <span key={s} className="text-bluemuted text-[11px] tracking-[0.05em]">
@@ -35,16 +44,19 @@ export default function Footer() {
 
         <div>
           <h3 className="text-white text-[12px] font-bold tracking-[0.15em] uppercase mb-5">
-            Therazo
+            Company
           </h3>
-          <p className="text-bluelight text-[13px] mb-3">Pharmacy-grade skincare for India</p>
-          <p className="text-bluelight text-[13px] mb-3">Manufactured by BO International, Gurugram</p>
+          <p className="text-bluelight text-[13px] mb-3">Pharmacy-grade skincare for India · Made in India</p>
+          <p className="text-bluelight text-[13px] mb-1">Marketed by {COMPANY.marketer}</p>
+          <p className="text-bluelight text-[13px] mb-3">Manufactured by {COMPANY.manufacturer}</p>
           <p className="text-bluemuted text-[12px]">Cosmetic product — not for medicinal use</p>
         </div>
       </div>
 
       <div className="border-t border-[#2A4A6F] mt-12 pt-6 text-center">
-        <p className="text-[12px] text-[#4A6A8A]">© 2026 Therazo · therazo.co · care@therazo.co</p>
+        <p className="text-[12px] text-[#4A6A8A]">
+          © 2026 Therazo · {COMPANY.domain} · {COMPANY.email} · {COMPANY.phone}
+        </p>
       </div>
     </footer>
   )

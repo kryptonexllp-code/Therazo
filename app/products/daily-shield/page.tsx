@@ -126,7 +126,7 @@ export default function DailyShieldPage() {
               >
                 Prefer WhatsApp? Message us to be notified →
               </a>
-              <p className="text-mgrey text-[12px] mt-2">Questions? care@therazo.co</p>
+              <p className="text-mgrey text-[12px] mt-2">Questions? care@therazo.co · 1800 569 4100</p>
             </div>
 
             <div className="flex flex-wrap gap-2 mb-6">
