@@ -64,12 +64,12 @@ export default function Navbar({ variant = 'default' }: { variant?: NavVariant }
           )}
         </div>
 
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="relative text-white text-[11px] font-medium tracking-[0.14em] uppercase group py-2"
+              className="relative text-white text-[11px] font-medium tracking-[0.08em] xl:tracking-[0.14em] uppercase group py-2"
             >
               {link.label}
               <span className="absolute left-0 -bottom-0.5 h-[2px] w-0 bg-white transition-all duration-200 group-hover:w-full" />

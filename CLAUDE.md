@@ -93,12 +93,20 @@ AI-generated video or imagery. Never imply the people shown are real customers o
 No before-and-after. Never crop, blur, paint
 over or place graphics on a generator watermark — swap the file instead (docs/LAUNCH_CHECKLIST.md).
 
-## PENDING WORK
-Tier 1 competitor-inspired features (usage badges, daily timeline, product FAQs with schema,
-Routine Finder as a waitlist engine, SPF test-documentation block, Therazo Promise strip, Ectoin
-page, reviews placeholder) come in a separate prompt (Therazo_ClaudeCode_Tier1_Features.md).
-Every one must follow CLAIMS CONTROL and TWO-TIER INFORMATION: no invented reviews, ratings or
-clinical claims.
+## TIER 1 FEATURES (customer portal)
+Copy lives in content/ — change wording there, not in components.
+Usage badge on every product image (lib/products.ts `usage`); badge icons stay white so the
+page keeps its single amber accent. Reapply guidance is always "every 2 hours outdoors".
+No tube-life figure anywhere until `calculatorEnabled` (lib/claims.ts) is true and
+content/dose.ts has a weigh-tested number. /dose-calculator returns 404 while it is off.
+FAQs (content/faq/): an answer that needs facts we don't have stays null — shown as a TODO in
+development only, never in production or JSON-LD. Never invent makeup, white-cast or
+amount answers.
+SPF test documentation (content/spfDocs.ts) stays 'not-published' until the report is on file;
+never say testing is "in progress", "in a laboratory" or "before shipping".
+Every waitlist form has a required, unticked consent checkbox linking to /privacy.
+Nav: one item for the Routine Finder, no mega-menu. No competitor names in site copy.
+No reviews, stars, counts or testimonials until there are verified buyers after launch.
 
 ## COMMANDS
 npm run dev → localhost:3000

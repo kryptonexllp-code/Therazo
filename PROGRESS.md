@@ -21,6 +21,7 @@ this file.
 | C8 | Images | `ProductImage`: contain inside fixed aspect wrappers, explicit dimensions, WebP |
 | C9 | Quality gate | Lint + build clean; 390/768/1440 checked on every route; banned-phrase grep |
 | Hero | HeroScanner | /customers hero: clean video + code-drawn scan overlay locked to tracked face landmarks; AI-imagery disclosure in footer |
+| Tier 1 | Usage and guidance | Usage badges, How to use it + day timeline, product FAQs with JSON-LD, Routine Finder (/find-your-routine) with consent + /privacy, SPF test-documentation block, Therazo Promise strip, regulatory block, /dose-calculator (off), /science/ectoin + stubs, /start-here |
 
 ## Open items
 
@@ -33,10 +34,14 @@ this file.
   `TODO: replace with final white-matt pack photo`. No texture shot yet.
 - **SKU 03 actives**: only Postbiotic Lysate is confirmed; the rest show as TBC.
 - **Daily Shield INCI list**: placeholder until the final list is supplied.
-- **Dose guide**: tube life ("about six weeks") is indicative pending a weigh
-  test; references read `[REFERENCES TO BE ADDED]`.
+- **Dose guide**: no tube-life figure until a weigh test (content/dose.ts, then switch on
+  `calculatorEnabled`); references read `[REFERENCES TO BE ADDED]`.
+- **FAQ answers to confirm**: Daily Shield under makeup and white cast; amounts for SKUs 02–05
+  (hidden in production until filled in content/faq/).
+- **Dose calculator**: face-only finger-length guidance not supplied yet.
+- **Privacy policy**: `[LEGAL REVIEW]` markers — retention, grievance contact, storage.
+- **SPF test documentation**: set content/spfDocs.ts to 'published' when the report is on file.
 - **Videos**: the three showcase slots show posters only until real files are added in `lib/videos.ts`.
 - **Manufacturer address**: only "Jhajjar, Haryana" is on file.
 - **Held claims**: flip a flag in `lib/claims.ts` only once the evidence is on file.
-- **Tier 1 features**: pending a separate prompt (`Therazo_ClaudeCode_Tier1_Features.md`).
 - **Logo**: only PNG logo files are supplied; swap in SVGs when available.
