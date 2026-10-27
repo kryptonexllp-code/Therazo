@@ -23,7 +23,11 @@ export default function ProductImage({
 }) {
   const dims = src ? IMAGE_DIMENSIONS[src] : undefined
   return (
-    <div className={`relative w-full overflow-hidden ${background} ${className}`} style={{ aspectRatio: aspect }}>
+    // Full width unless the caller sets its own width (e.g. a thumbnail).
+    <div
+      className={`relative overflow-hidden ${/(^|\s)(\w+:)?w-/.test(className) ? '' : 'w-full'} ${background} ${className}`}
+      style={{ aspectRatio: aspect }}
+    >
       {src && dims ? (
         <Image
           src={src}

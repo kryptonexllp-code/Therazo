@@ -76,7 +76,7 @@ export default function RoutinePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {steps.map((p) => (
             <div key={p.id} className="bg-white border border-cardline flex flex-col sm:flex-row overflow-hidden">
-              <ProductImage src={p.productImage} alt={`${p.name} — ${p.descriptor}`} aspect='1 / 1' sizes="(max-width: 640px) 100vw, 300px" className="sm:w-[42%] shrink-0" background="bg-lgrey" />
+              <ProductImage src={p.productImage} alt={`${p.name} — ${p.descriptor}`} aspect='1 / 1' sizes="(max-width: 640px) 100vw, 300px" className="w-full sm:w-[42%] shrink-0" background="bg-lgrey" />
               <div className="p-7 flex flex-col flex-1">
                 <p className="text-mgrey text-[10px] font-medium tracking-[0.2em] uppercase mb-2">
                   Step {p.sku} · {p.step}

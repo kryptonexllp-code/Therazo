@@ -52,7 +52,7 @@ export default function HomePage() {
             </WaitlistButton>
           </div>
         </div>
-        <div className="relative bg-[#E8EFF8] md:w-[52%] h-[280px] md:h-auto">
+        <div className="relative overflow-hidden bg-[#E8EFF8] md:w-[52%] h-[280px] md:h-auto">
           {/* Hero loop slot — set VIDEO_SLOTS.heroLoop.src in lib/videos.ts to go live */}
           <VideoSlot
             slot={VIDEO_SLOTS.heroLoop}
