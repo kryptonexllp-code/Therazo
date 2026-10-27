@@ -11,6 +11,7 @@ this file.
 | A | Locked facts | CLAUDE.md rewritten; amber `#FFC107`, Soft Grey `#E6E8EC` tokens; one accent element per page |
 | C1 | Range and pricing | MRPs 699 / 499 / 1,699 / 749 / 1,199; SKU 03 is the Age Renewal Night Serum (the earlier gel moisturiser is removed everywhere) |
 | B | Claims control | Held claims in `lib/claims.ts` (all false); safe Ectoin wording; generic UV filter classes |
+| B (27 Oct) | Two-tier | Ingredient percentages and the formulation ref only on /for-doctors (server-side `lib/clinical.ts`); customer pages list actives by name |
 | C2 | Launch state | "Launching soon" / "Coming soon" + 4-field waitlist (`lib/waitlist.ts`, `/api/waitlist`); no ordering or payment |
 | C3 | Contact | `lib/company.ts` drives footer, contact page and Organization JSON-LD |
 | C4 | `/dose-guide` | "Two finger-lengths" page — carton QR target, keep the URL stable |
@@ -37,3 +38,5 @@ this file.
 - **Videos**: the three showcase slots show posters only until real files are added in `lib/videos.ts`.
 - **Manufacturer address**: only "Jhajjar, Haryana" is on file.
 - **Held claims**: flip a flag in `lib/claims.ts` only once the evidence is on file.
+- **Tier 1 features**: pending a separate prompt (`Therazo_ClaudeCode_Tier1_Features.md`).
+- **Logo**: only PNG logo files are supplied; swap in SVGs when available.
