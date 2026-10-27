@@ -3,6 +3,7 @@
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import MoleculeField from '@/components/MoleculeField'
 
 // Wordmark-only crop: the source square logo file has "THERAZO" sitting above a
 // smaller "SCIENCE. DEFINED." caption within one thin content band. This crop
@@ -23,32 +24,6 @@ function WordmarkOnly({ height }: { height: number }) {
   )
 }
 
-type Particle = {
-  type: 'dot' | 'ring'
-  top: string
-  left: string
-  size: number
-  opacity: number
-  duration: number
-  delay: number
-  rotate: number
-  drift: number
-}
-
-const PARTICLES: Particle[] = [
-  { type: 'ring', top: '10%', left: '8%', size: 96, opacity: 0.09, duration: 11, delay: 0, rotate: 8, drift: -28 },
-  { type: 'dot', top: '16%', left: '32%', size: 4, opacity: 0.12, duration: 9, delay: 0.6, rotate: 0, drift: -22 },
-  { type: 'ring', top: '6%', left: '62%', size: 120, opacity: 0.07, duration: 15, delay: 1.1, rotate: -10, drift: -34 },
-  { type: 'dot', top: '22%', left: '80%', size: 4, opacity: 0.1, duration: 8, delay: 0.3, rotate: 0, drift: -20 },
-  { type: 'ring', top: '38%', left: '90%', size: 60, opacity: 0.1, duration: 13, delay: 1.8, rotate: 14, drift: -30 },
-  { type: 'dot', top: '48%', left: '5%', size: 4, opacity: 0.08, duration: 10, delay: 0.9, rotate: 0, drift: -24 },
-  { type: 'ring', top: '58%', left: '20%', size: 40, opacity: 0.12, duration: 16, delay: 2.2, rotate: -6, drift: -40 },
-  { type: 'dot', top: '68%', left: '48%', size: 4, opacity: 0.09, duration: 12, delay: 0.4, rotate: 0, drift: -26 },
-  { type: 'ring', top: '78%', left: '70%', size: 88, opacity: 0.06, duration: 14, delay: 1.4, rotate: 12, drift: -32 },
-  { type: 'dot', top: '85%', left: '15%', size: 4, opacity: 0.11, duration: 9, delay: 1.6, rotate: 0, drift: -18 },
-  { type: 'ring', top: '90%', left: '55%', size: 110, opacity: 0.08, duration: 12, delay: 0.7, rotate: -14, drift: -36 },
-  { type: 'dot', top: '30%', left: '50%', size: 4, opacity: 0.1, duration: 11, delay: 2.0, rotate: 0, drift: -22 },
-]
 
 function UserIcon() {
   return (
@@ -74,48 +49,8 @@ export default function LandingPage() {
 
   return (
     <div className="relative h-[100svh] w-full overflow-hidden bg-[#0D1F35] flex items-center justify-center">
-      {/* GRADIENT MESH */}
-      <div
-        className="absolute -top-1/4 -left-1/4 h-[70vw] w-[70vw] rounded-full animate-therazo-mesh-a"
-        style={{
-          background: 'radial-gradient(circle, #26466F 0%, #0D1F35 70%)',
-          opacity: 0.4,
-          filter: 'blur(40px)',
-        }}
-      />
-      <div
-        className="absolute -bottom-1/4 -right-1/4 h-[70vw] w-[70vw] rounded-full animate-therazo-mesh-b"
-        style={{
-          background: 'radial-gradient(circle, #26466F 0%, #0D1F35 70%)',
-          opacity: 0.4,
-          filter: 'blur(40px)',
-        }}
-      />
-      <div
-        className="absolute top-1/2 left-1/2 h-[60vw] w-[60vw] -translate-x-1/2 -translate-y-1/2 rounded-full animate-therazo-mesh-c"
-        style={{
-          background: 'radial-gradient(circle, #1F3A5F 0%, #0D1F35 70%)',
-          opacity: 0.4,
-          filter: 'blur(40px)',
-        }}
-      />
-
-      {/* PARTICLE FIELD */}
-      {PARTICLES.map((p, i) => (
-        <div
-          key={i}
-          className="absolute rounded-full"
-          style={{
-            top: p.top,
-            left: p.left,
-            width: p.size,
-            height: p.size,
-            background: p.type === 'dot' ? `rgba(255,255,255,${p.opacity})` : 'transparent',
-            border: p.type === 'ring' ? `1px solid rgba(255,255,255,${p.opacity})` : 'none',
-            animation: `therazo-particle-${i} ${p.duration}s ease-in-out ${p.delay}s infinite alternate`,
-          }}
-        />
-      ))}
+      {/* MOLECULE FIELD — slow, calm, no gradients */}
+      <MoleculeField />
 
       {/* CENTRE CONTENT */}
       <div className="relative z-10 mx-auto flex max-w-[560px] flex-col items-center px-6">
@@ -137,10 +72,10 @@ export default function LandingPage() {
         </motion.p>
 
         <motion.div
-          initial={{ width: 0 }}
-          animate={{ width: 40 }}
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.8 }}
-          className="mt-5 h-px bg-gold"
+          className="mt-5 h-px w-10 origin-center bg-gold"
         />
 
         <motion.p
@@ -201,31 +136,6 @@ export default function LandingPage() {
         </p>
       </div>
 
-      <style>{`
-        @keyframes therazo-mesh-a {
-          0%, 100% { transform: translate(0, 0); }
-          50% { transform: translate(4%, 6%); }
-        }
-        @keyframes therazo-mesh-b {
-          0%, 100% { transform: translate(0, 0); }
-          50% { transform: translate(-5%, -4%); }
-        }
-        @keyframes therazo-mesh-c {
-          0%, 100% { transform: translate(-50%, -50%) scale(1); }
-          50% { transform: translate(-50%, -50%) scale(1.08); }
-        }
-        .animate-therazo-mesh-a { animation: therazo-mesh-a 22s ease-in-out infinite; }
-        .animate-therazo-mesh-b { animation: therazo-mesh-b 26s ease-in-out infinite; }
-        .animate-therazo-mesh-c { animation: therazo-mesh-c 30s ease-in-out infinite; }
-
-        ${PARTICLES.map(
-          (p, i) => `
-        @keyframes therazo-particle-${i} {
-          0% { transform: translateY(0) rotate(0deg); }
-          100% { transform: translateY(${p.drift}px) rotate(${p.rotate}deg); }
-        }`
-        ).join('\n')}
-      `}</style>
     </div>
   )
 }

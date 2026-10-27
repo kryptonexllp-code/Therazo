@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { useInView } from 'framer-motion'
+import { useInView, useReducedMotion } from 'framer-motion'
 
 export default function StatCounter({
   value,
@@ -14,6 +14,8 @@ export default function StatCounter({
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true, amount: 0.5 })
+  // Reduced motion: jump straight to the final number.
+  const reduce = useReducedMotion()
   const [display, setDisplay] = useState(value.match(/^\d+$/) ? '0' : value)
 
   useEffect(() => {
@@ -24,13 +26,13 @@ export default function StatCounter({
     const start = performance.now()
     let frame: number
     const tick = (now: number) => {
-      const progress = Math.min((now - start) / (duration * 1000), 1)
+      const progress = reduce ? 1 : Math.min((now - start) / (duration * 1000), 1)
       setDisplay(Math.round(progress * target).toString())
       if (progress < 1) frame = requestAnimationFrame(tick)
     }
     frame = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(frame)
-  }, [isInView, value, duration])
+  }, [isInView, value, duration, reduce])
 
   return (
     <div ref={ref}>

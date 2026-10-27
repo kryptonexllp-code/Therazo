@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import './globals.css'
 import SiteChrome from '@/components/SiteChrome'
+import MotionProvider from '@/components/MotionProvider'
 import { WaitlistModalProvider } from '@/components/WaitlistModalContext'
 import WaitlistModal from '@/components/WaitlistModal'
 import { COMPANY } from '@/lib/company'
@@ -59,10 +60,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
-        <WaitlistModalProvider>
-          <SiteChrome>{children}</SiteChrome>
-          <WaitlistModal />
-        </WaitlistModalProvider>
+        <MotionProvider>
+          <WaitlistModalProvider>
+            <SiteChrome>{children}</SiteChrome>
+            <WaitlistModal />
+          </WaitlistModalProvider>
+        </MotionProvider>
       </body>
     </html>
   )

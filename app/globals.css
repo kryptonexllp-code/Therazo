@@ -48,3 +48,21 @@ body {
   background: var(--color-gold);
   color: var(--color-navy);
 }
+
+/* Respect the OS "reduce motion" setting: stop CSS loops (ticker, molecule
+   drift) and transitions. Framer Motion is handled by MotionProvider. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .therazo-drift {
+    animation: none !important;
+  }
+}
