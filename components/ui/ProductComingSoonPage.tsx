@@ -8,6 +8,7 @@ import Rule from './Rule'
 import { dailyShield, formatPrice, productClaims, type Product } from '@/lib/products'
 import WaitlistButton from '@/components/WaitlistButton'
 import UsageBadge from './UsageBadge'
+import ProductFaq from '@/components/ProductFaq'
 
 export function buildComingSoonMetadata(product: Product): Metadata {
   return {
@@ -19,7 +20,7 @@ export function buildComingSoonMetadata(product: Product): Metadata {
 export default function ProductComingSoonPage({ product }: { product: Product }) {
   return (
     <>
-      <section className="bg-navy px-6 md:px-20 pt-32 pb-16 text-center">
+      <section id="waitlist" className="bg-navy px-6 md:px-20 pt-32 pb-16 text-center scroll-mt-16">
         <span className="inline-block border border-white/40 text-white text-[10px] font-medium tracking-[0.2em] uppercase px-4 py-2 mb-6">
           Coming soon
         </span>
@@ -129,6 +130,8 @@ export default function ProductComingSoonPage({ product }: { product: Product })
           <WaitlistForm productId={product.id} />
         </div>
       </AnimatedSection>
+
+      <ProductFaq productId={product.id} name={product.name} />
     </>
   )
 }

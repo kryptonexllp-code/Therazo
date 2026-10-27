@@ -11,6 +11,7 @@ import UsageBadge from '@/components/ui/UsageBadge'
 import DoseIllustrations from '@/components/DoseIllustrations'
 import DayTimeline from '@/components/DayTimeline'
 import { DOSE_LINE } from '@/content/dose'
+import ProductFaq from '@/components/ProductFaq'
 import { dailyShield, productClaims } from '@/lib/products'
 
 // Key actives by name. Concentrations stay in the /for-doctors tier only
@@ -143,7 +144,7 @@ export default function DailyShieldPage() {
               ))}
             </div>
 
-            <div className="bg-lgrey border-l-2 border-navy p-4">
+            <div id="fragrance-disclosure" className="bg-lgrey border-l-2 border-navy p-4 scroll-mt-32">
               <p className="text-dgrey text-[13px] leading-[1.6]">{dailyShield.fragranceNote}</p>
             </div>
           </div>
@@ -276,6 +277,7 @@ export default function DailyShieldPage() {
         </div>
       </AnimatedSection>
 
+      <ProductFaq productId="daily-shield" name="Daily Shield" />
     </>
   )
 }
