@@ -160,7 +160,7 @@ export default function LandingPage() {
             onClick={() => router.push('/customers')}
             className="group flex w-[220px] flex-col items-center px-5 py-7 text-center transition-transform duration-[250ms] ease-out hover:scale-[1.03]"
             style={{
-              borderLeft: '2px solid #F5C400',
+              borderLeft: '2px solid #FFC107',
               background: 'rgba(31,58,95,0.7)',
               backdropFilter: 'blur(12px)',
               WebkitBackdropFilter: 'blur(12px)',

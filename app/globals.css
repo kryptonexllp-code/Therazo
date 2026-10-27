@@ -5,7 +5,7 @@
 
   --color-navy: #1f3a5f;
   --color-offwhite: #fafaf7;
-  --color-gold: #f5c400;
+  --color-gold: #ffc107;
   --color-dgrey: #3d4255;
   --color-mgrey: #7a8099;
   --color-lgrey: #f2f4f7;
@@ -13,7 +13,8 @@
   --color-bluelight: #b0c8dc;
   --color-green: #1d6f42;
   --color-white: #ffffff;
-  --color-cardline: #e2e8f0;
+  --color-cardline: #e6e8ec;
+  --color-softgrey: #e6e8ec;
 }
 
 html {

@@ -1,36 +1,84 @@
 # Therazo — Brand Rules for Claude Code
 
-## COLOUR RULES — NEVER CHANGE
-Primary navy: #1F3A5F (not #123A73 or any other value)
-Background: #FAFAF7 (warm off-white — not pure white)
-Gold #F5C400: SPF accent ONLY — one element maximum per page
-Font: Poppins ONLY — loaded via next/font/google
+These rules are the locked facts for the site. Where anything else (older build
+prompt, existing copy, comments) disagrees, this file wins.
 
-## PRODUCT RULES — NEVER CHANGE
-Hero SKU: "Daily Shield" (never "Daily Defence")
-Descriptor: "SPF Moisturizer" (never "Sunscreen Gel")
-MRP: ₹699 / 50ml (never any other price)
-Fragrance claim: "Synthetic Fragrance-Free" (never "Fragrance-Free")
-SPF test: ISO 24444:2019 (in-vivo) — certificate in progress
+## BRAND AND CONTACT
+Domain: therazo.co (never any other TLD)
+Care email: care@therazo.co
+Customer care phone: 1800 569 4100 (as printed on the tube)
+WhatsApp 919953339464: waitlist notifications only until launch — no ordering, no payment
+Manufactured by BO International (Jhajjar, Haryana) · Marketed by Kryptonex LLP, Hyderabad
 
-## FORMULATION PROTECTION
-Public pages: active NAMES and clinical FUNCTIONS only — NO concentrations
-Dermatologist portal (/for-doctors): full concentrations, mechanisms, formulation ref
-Formulation ref HIM-2627-3041: appears ONLY in /for-doctors, never publicly
-The box image shows concentrations — that is the physical product. Do not reproduce as text.
+## COLOURS — NEVER CHANGE
+Deep Clinical Blue (registered): #1F3A5F — the `navy` token
+Off White: #FAFAF7 — page background, the `offwhite` token
+Soft Grey: #E6E8EC — card borders and rules, the `softgrey` / `cardline` tokens
+Amber accent: #FFC107 — the `gold` token. One accent element per page.
+The old accent hex is retired everywhere. Teal #1D9E75 stays unused.
 
-## ORDERING RULES
-No Razorpay yet — all order CTAs route to WhatsApp
-WhatsApp number: 919953339464 (replace before launch)
-Pre-filled WhatsApp message: "Hi Therazo! I would like to order Daily Shield SPF 50 PA++++ (50ml)
-for ₹699. Please share delivery and payment details."
-Delivery partner: Shiprocket (set up separately — shiprocket.in)
+## TYPE AND LOGO
+Font: Poppins only, loaded via next/font/google.
+The THERAZO wordmark is vector artwork. Always use the supplied logo files
+(/public/images/logos/) — never retype the wordmark as live text.
+The gap in the "O" sits at bottom-left (7–8 o'clock). Tagline: SCIENCE. DEFINED.
+Do not alter or recolour the logo outside the supplied versions.
+
+## RANGE AND PRICES (MRP incl. taxes, Therazo Pricing Model)
+01 Daily Shield SPF 50 PA++++ Moisturizer, 50 ml ℮ 1.69 fl. oz. — ₹699
+02 Gentle Daily Cleanser — ₹499
+03 Age Renewal Night Serum (anti-ageing, 30 ml, working name) — ₹1,699
+04 Barrier Repair Cream — ₹749
+05 Clarity Serum — ₹1,199
+SKU 03 replaced the earlier gel moisturiser entirely — no mention, page, link or image of it.
+Postbiotic Lysate is confirmed in SKUs 02, 03 and 04 only.
+
+## DAILY SHIELD
+Always "SPF Moisturizer". Never "Daily Defence", never "sunscreen" or "gel" as the product descriptor.
+Fragrance line is always "Synthetic fragrance-free", with the Rosa Damascena disclosure box.
+Front-of-pack style list (no percentages): Ectoin · Niacinamide · Ceramide Complex · Vitamin C
+Percentages appear only in back-of-pack style lists and on the science and doctors pages:
+Ectoin 1% · Niacinamide 3% · Ceramide Complex 0.5% · Ethyl Ascorbic Acid 1% ·
+Sodium Hyaluronate 0.5% · Panthenol 1% · Tocopherol 0.5%
+Formulation ref HIM-2627-3041 appears only on /for-doctors.
+
+## PACK
+Tube: white matt body, navy type and navy "50", one amber rule, navy flip-top cap.
+Carton: white matt front and back, navy side walls and flaps.
+Older mockups (off-white tube, navy-front carton) are placeholders only, marked in code with
+`TODO: replace with final white-matt pack photo`. Do not generate new pack imagery.
+
+## LAUNCH STATE
+Daily Shield is in production; finished units expected around mid-December 2026.
+Daily Shield CTA: "Launching soon" + waitlist (name, phone/WhatsApp, email, product interest).
+Other SKUs: "Coming soon" + waitlist.
+No order buttons, payment claims, delivery promises or stock counts anywhere.
+
+## CLAIMS CONTROL
+Held claims live in lib/claims.ts as flags. A flag stays false until the evidence is on file.
+Not on the site until evidence exists: dermatological testing, non-comedogenicity, recyclable
+packaging, cruelty-free, any "clinically validated / clinically relevant concentration" wording,
+anything about blue light.
+SPF: "SPF 50 PA++++" is the product designation only. The in-vivo SPF test is not done for
+batch 1 — never imply a tested or proven SPF result, and no "in-vivo" wording.
+No UV-filter trade names in customer-facing copy; science and doctors pages describe filter
+classes generically (INCI names are fine on the doctors page).
+Ectoin safe wording: "Ectoin draws water to skin cells and forms a stabilising shell around them,
+which supports hydration retention." It works in the outer skin layers; it does not absorb UV
+and does not reach the dermis.
+Dose line on Daily Shield: "SPF is tested with two finger-lengths of cream. Most people use half."
+linking to /dose-guide (the carton QR target — keep that URL stable).
+Never invent testimonials, ratings, review counts, doctor endorsements, awards, rankings or
+clinical results. No certifications (BIS, GMP, cruelty-free marks) that are not on file.
 
 ## DESIGN RULES
 NO gradients · NO border-radius on CTAs · NO drop shadows on brand elements
 NO template components — build everything from scratch
-Framer Motion: restrained, clinical. If it feels flashy, remove it.
+Framer Motion: restrained, clinical. Respect prefers-reduced-motion. If it feels flashy, remove it.
 Sharp corners on all buttons and CTAs — this is a clinical brand
+Product photos never crop: object-fit contain inside fixed aspect wrappers, explicit width/height,
+lazy-load below the fold, alt text without claims.
+Video slots use <VideoSlot>; mobile shows posters, never autoplay.
 
 ## COMMANDS
 npm run dev → localhost:3000

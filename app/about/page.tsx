@@ -144,7 +144,7 @@ export default function AboutPage() {
           <div>
             <div
               className="flex h-[60px] w-[120px] items-center justify-center border"
-              style={{ backgroundColor: '#E8EFF8', borderColor: '#E2E8F0' }}
+              style={{ backgroundColor: '#E8EFF8', borderColor: '#E6E8EC' }}
             >
               <span className="text-[12px] font-medium text-navy">Dr. Cure Pharmacy</span>
             </div>
