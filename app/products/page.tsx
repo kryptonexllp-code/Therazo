@@ -3,6 +3,8 @@ import Link from 'next/link'
 import ProductImage from '@/components/ui/ProductImage'
 import ComingSoonBadge from '@/components/ui/ComingSoonBadge'
 import WaitlistButton from '@/components/WaitlistButton'
+import UsageBadge from '@/components/ui/UsageBadge'
+import { ROUTINE_SUMMARY } from '@/content/routine'
 import { formatPrice, products, statusLabel } from '@/lib/products'
 
 export const metadata: Metadata = {
@@ -35,7 +37,7 @@ export default function ProductsPage() {
           className={`px-6 md:px-20 py-16 ${i % 2 === 0 ? 'bg-white' : 'bg-lgrey'}`}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            <ProductImage src={p.productImage} alt={`${p.name} — ${p.descriptor}`} aspect='1 / 1' sizes="(max-width: 1024px) 90vw, 500px" className="max-h-[420px]" background="bg-lgrey" />
+            <ProductImage src={p.productImage} alt={`${p.name} — ${p.descriptor}`} aspect='1 / 1' sizes="(max-width: 1024px) 90vw, 500px" className="max-h-[420px]" background="bg-lgrey" badge={<UsageBadge usage={p.usage} />} />
             <div>
               <p className="text-mgrey text-[11px] tracking-[0.15em] uppercase mb-2">
                 {p.sku} · {p.step}
@@ -68,8 +70,8 @@ export default function ProductsPage() {
 
       <section className="bg-navy px-6 md:px-20 py-14 text-center">
         <p className="text-bluelight text-[14px] max-w-2xl mx-auto">
-          Morning: Cleanse → Treat → Protect. Night: Cleanse → Renew → Repair. All products in the
-          Therazo range are formulated to the same scientific standard.
+          {ROUTINE_SUMMARY} All products in the Therazo range are formulated to the same
+          scientific standard.
         </p>
       </section>
     </>

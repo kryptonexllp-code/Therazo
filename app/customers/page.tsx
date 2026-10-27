@@ -11,6 +11,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import Rule from '@/components/ui/Rule'
 import AccentRule from '@/components/ui/AccentRule'
 import ProductCard from '@/components/ui/ProductCard'
+import { ROUTINE_SUMMARY_SKUS } from '@/content/routine'
 import StatCounter from '@/components/StatCounter'
 import WaitlistForm from '@/components/WaitlistForm'
 import { products, comingSoonProducts } from '@/lib/products'
@@ -158,7 +159,7 @@ export default function HomePage() {
           ))}
         </div>
         <p className="text-center text-mgrey text-[12px] mt-10">
-          Morning: Cleanse (02) → Treat (05) → Protect (01) · Night: Cleanse (02) → Renew (03) → Repair (04)
+          {ROUTINE_SUMMARY_SKUS}
         </p>
         <p className="text-center mt-4">
           <Link href="/products" className="text-navy text-[13px] font-medium underline underline-offset-4">

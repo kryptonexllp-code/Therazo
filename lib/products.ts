@@ -12,6 +12,11 @@ export type PublicActive = {
   benefit: string
 }
 
+// ── USAGE TIMING ──────────────────────────────────────────────
+// Drives the badge on every product image (wording in content/usage.ts).
+export type UsageTime = 'AM' | 'PM' | 'AM+PM'
+export type Usage = { when: UsageTime; reapplyOutdoors?: boolean }
+
 // ── PRODUCT (PUBLIC) ───────────────────────────────────────────
 export type Product = {
   id: string
@@ -22,6 +27,7 @@ export type Product = {
   price: number
   size: string
   status: ProductStatus
+  usage: Usage
   tagline: string
   heroImage?: string
   productImage?: string
@@ -57,6 +63,7 @@ export const products: Product[] = [
     price: 699,
     size: '50 ml ℮ 1.69 fl. oz.',
     status: 'launching-soon',
+    usage: { when: 'AM', reapplyOutdoors: true },
     tagline: 'Six UV filters. Nine skin actives. One daily step.',
     spf: 'SPF 50 PA++++',
     uvFilters: 6,
@@ -95,6 +102,7 @@ export const products: Product[] = [
     price: 499,
     size: '100 ml',
     status: 'coming-soon',
+    usage: { when: 'AM+PM' },
     tagline: 'Cleans without compromising. The first step that protects.',
     productImage: '/images/product-gentle-cleanser.png',
     heroImage: '/images/product-gentle-cleanser.png',
@@ -124,6 +132,7 @@ export const products: Product[] = [
     price: 1699,
     size: '30 ml',
     status: 'coming-soon',
+    usage: { when: 'PM' },
     tagline: 'A night-time renewal step for skin beginning to show its age.',
     // No pack photography exists for this SKU yet — components fall back to a placeholder.
     actives: [
@@ -148,6 +157,7 @@ export const products: Product[] = [
     price: 749,
     size: '50 g',
     status: 'coming-soon',
+    usage: { when: 'PM' },
     tagline: 'Restore what daily life takes away.',
     productImage: '/images/product-barrier-repair.png',
     heroImage: '/images/product-barrier-repair.png',
@@ -177,6 +187,7 @@ export const products: Product[] = [
     price: 1199,
     size: '30 ml',
     status: 'coming-soon',
+    usage: { when: 'PM' },
     tagline: "A targeted step for Indian skin's most common concern.",
     productImage: '/images/product-clarity-serum.png',
     heroImage: '/images/product-clarity-serum.png',
@@ -190,10 +201,10 @@ export const products: Product[] = [
     heldClaims: ['dermatologicallyTested'],
     about: [
       'Uneven tone and dark marks are among the most common skin concerns across Indian skin types. Clarity Serum pairs Niacinamide and Tranexamic Acid — two actives that work through different pathways.',
-      'Used alongside Daily Shield in the morning routine: the serum targets the look of existing marks, while daily SPF helps limit new pigmentation from UV exposure.',
+      'Clarity Serum is an evening step, used after cleansing. In the morning, Daily Shield is the step that protects skin from UV.',
     ],
     concern: 'The look of hyperpigmentation, post-acne marks and uneven skin tone.',
-    routineFit: 'Morning routine — after cleansing, before Daily Shield.',
+    routineFit: 'Night routine — after Gentle Daily Cleanser, before Barrier Repair Cream.',
     sharedActives: 'Niacinamide and Ectoin — also found in Daily Shield.',
   },
 ]

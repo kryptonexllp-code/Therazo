@@ -7,6 +7,7 @@ import WaitlistForm from '@/components/WaitlistForm'
 import { waitlistWhatsAppUrl } from '@/lib/whatsapp'
 import AnimatedSection from '@/components/AnimatedSection'
 import UvFilterBands from '@/components/UvFilterBands'
+import UsageBadge from '@/components/ui/UsageBadge'
 import { dailyShield, productClaims } from '@/lib/products'
 
 // Key actives by name. Concentrations stay in the /for-doctors tier only
@@ -73,6 +74,7 @@ export default function DailyShieldPage() {
               { src: dailyShield.productImage, alt: 'Daily Shield carton' },
               { src: undefined, alt: 'Daily Shield texture' },
             ]}
+            badge={<UsageBadge usage={dailyShield.usage} />}
           />
 
           <div>

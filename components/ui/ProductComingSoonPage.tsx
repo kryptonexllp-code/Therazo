@@ -7,6 +7,7 @@ import SectionLabel from './SectionLabel'
 import Rule from './Rule'
 import { dailyShield, formatPrice, productClaims, type Product } from '@/lib/products'
 import WaitlistButton from '@/components/WaitlistButton'
+import UsageBadge from './UsageBadge'
 
 export function buildComingSoonMetadata(product: Product): Metadata {
   return {
@@ -40,7 +41,7 @@ export default function ProductComingSoonPage({ product }: { product: Product })
 
       <AnimatedSection className="bg-white px-6 md:px-20 py-16 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-14">
-          <ProductImage src={product.productImage} alt={`${product.name} — ${product.descriptor}`} aspect='1 / 1' sizes="(max-width: 1024px) 90vw, 500px" className="max-h-[360px]" background="bg-lgrey" />
+          <ProductImage src={product.productImage} alt={`${product.name} — ${product.descriptor}`} aspect='1 / 1' sizes="(max-width: 1024px) 90vw, 500px" className="max-h-[360px]" background="bg-lgrey" badge={<UsageBadge usage={product.usage} />} />
           <div>
             <SectionLabel>About This Product</SectionLabel>
             {product.about?.map((para, i) => (

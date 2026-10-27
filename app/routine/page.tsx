@@ -6,26 +6,18 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import ComingSoonBadge from '@/components/ui/ComingSoonBadge'
 import WaitlistButton from '@/components/WaitlistButton'
 import WaitlistForm from '@/components/WaitlistForm'
+import UsageBadge from '@/components/ui/UsageBadge'
+import { MORNING_STEPS, NIGHT_STEPS, NIGHT_SERUM_NOTE } from '@/content/routine'
 import { formatPrice, getProduct, statusLabel } from '@/lib/products'
 
 export const metadata: Metadata = {
   title: 'The Routine',
   description:
-    'The Therazo routine — morning: Cleanse, Treat, Protect. Night: Cleanse, Renew, Repair. Daily Shield is the starting point.',
+    'The Therazo routine — morning: Cleanse, Protect. Night: Cleanse, Treat or Renew, Repair. Daily Shield is the starting point.',
 }
 
-const MORNING = [
-  { id: 'gentle-cleanser', step: 'Cleanse' },
-  { id: 'clarity-serum', step: 'Treat' },
-  { id: 'daily-shield', step: 'Protect' },
-]
-const NIGHT = [
-  { id: 'gentle-cleanser', step: 'Cleanse' },
-  { id: 'age-renewal', step: 'Renew' },
-  { id: 'barrier-repair', step: 'Repair' },
-]
 // Each product appears once below, in the order it first appears in the day.
-const ROUTINE_ORDER = ['gentle-cleanser', 'clarity-serum', 'daily-shield', 'age-renewal', 'barrier-repair']
+const ROUTINE_ORDER = ['gentle-cleanser', 'daily-shield', 'clarity-serum', 'age-renewal', 'barrier-repair']
 
 export default function RoutinePage() {
   const steps = ROUTINE_ORDER.map((id) => getProduct(id)).filter(
@@ -50,8 +42,8 @@ export default function RoutinePage() {
       <section className="bg-white px-6 md:px-20 py-14 border-b border-cardline">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl">
           {[
-            { label: 'Morning', steps: MORNING },
-            { label: 'Night', steps: NIGHT },
+            { label: 'Morning', steps: MORNING_STEPS },
+            { label: 'Night', steps: NIGHT_STEPS },
           ].map((r) => (
             <div key={r.label}>
               <p className="text-navy text-[11px] font-bold tracking-[0.2em] uppercase mb-4">{r.label}</p>
@@ -66,6 +58,7 @@ export default function RoutinePage() {
                   </li>
                 ))}
               </ol>
+              {r.label === 'Night' && <p className="text-mgrey text-[12px] mt-3">{NIGHT_SERUM_NOTE}</p>}
             </div>
           ))}
         </div>
@@ -76,7 +69,7 @@ export default function RoutinePage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {steps.map((p) => (
             <div key={p.id} className="bg-white border border-cardline flex flex-col sm:flex-row overflow-hidden">
-              <ProductImage src={p.productImage} alt={`${p.name} — ${p.descriptor}`} aspect='1 / 1' sizes="(max-width: 640px) 100vw, 300px" className="w-full sm:w-[42%] shrink-0" background="bg-lgrey" />
+              <ProductImage src={p.productImage} alt={`${p.name} — ${p.descriptor}`} aspect='1 / 1' sizes="(max-width: 640px) 100vw, 300px" className="w-full sm:w-[42%] shrink-0" background="bg-lgrey" badge={<UsageBadge usage={p.usage} />} />
               <div className="p-7 flex flex-col flex-1">
                 <p className="text-mgrey text-[10px] font-medium tracking-[0.2em] uppercase mb-2">
                   Step {p.sku} · {p.step}

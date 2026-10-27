@@ -2,6 +2,7 @@ import Link from 'next/link'
 import ProductImage from '@/components/ui/ProductImage'
 import { formatPrice, statusLabel, type Product } from '@/lib/products'
 import ComingSoonBadge from './ComingSoonBadge'
+import UsageBadge from './UsageBadge'
 import Parallax from '@/components/Parallax'
 
 export default function ProductCard({ product }: { product: Product }) {
@@ -13,17 +14,18 @@ export default function ProductCard({ product }: { product: Product }) {
         launchingSoon ? 'border-2 border-navy' : 'border-cardline'
       } p-5 transition-transform duration-200 ease-out hover:-translate-y-1`}
     >
-      <div className="absolute top-3 left-3 z-10">
-        <ComingSoonBadge label={statusLabel(product)} outlined={launchingSoon} />
-      </div>
-      <Parallax distance={6} className="mb-4 mt-8">
+      <Parallax distance={6} className="mb-4">
         <ProductImage
           src={product.productImage}
           alt={`${product.name} — ${product.descriptor}`}
           aspect="4 / 5"
           sizes="(max-width: 640px) 90vw, 220px"
+          badge={<UsageBadge usage={product.usage} />}
         />
       </Parallax>
+      <div className="mb-3">
+        <ComingSoonBadge label={statusLabel(product)} outlined={launchingSoon} />
+      </div>
       <p className="text-[11px] text-mgrey tracking-[0.1em] uppercase mb-1">
         {product.sku} · {product.step}
       </p>

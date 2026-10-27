@@ -11,7 +11,7 @@ type GalleryImage = {
 // Main image + thumbnails, all inside fixed aspect wrappers with
 // object-fit: contain so the pack is never cropped. The main image loads
 // eagerly (above the fold); thumbnails lazy-load.
-export default function ProductGallery({ images }: { images: GalleryImage[] }) {
+export default function ProductGallery({ images, badge }: { images: GalleryImage[]; badge?: React.ReactNode }) {
   const [active, setActive] = useState(0)
   const current = images[active]
 
@@ -24,6 +24,7 @@ export default function ProductGallery({ images }: { images: GalleryImage[] }) {
         sizes="(max-width: 1024px) 90vw, 520px"
         priority
         className="mb-4 max-h-[560px]"
+        badge={badge}
       />
       <div className="grid grid-cols-3 gap-3">
         {images.map((img, i) => (
