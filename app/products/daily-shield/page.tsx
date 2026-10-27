@@ -8,6 +8,9 @@ import { waitlistWhatsAppUrl } from '@/lib/whatsapp'
 import AnimatedSection from '@/components/AnimatedSection'
 import UvFilterBands from '@/components/UvFilterBands'
 import UsageBadge from '@/components/ui/UsageBadge'
+import DoseIllustrations from '@/components/DoseIllustrations'
+import DayTimeline from '@/components/DayTimeline'
+import { DOSE_LINE } from '@/content/dose'
 import { dailyShield, productClaims } from '@/lib/products'
 
 // Key actives by name. Concentrations stay in the /for-doctors tier only
@@ -88,7 +91,7 @@ export default function DailyShieldPage() {
               Daily Shield
             </h1>
             <p className="text-mgrey text-[18px] mb-4">SPF Moisturizer</p>
-            <span className="inline-block bg-gold text-navy font-bold text-[13px] px-3 py-1.5 mb-5">
+            <span className="inline-block bg-navy text-white font-bold text-[13px] px-3 py-1.5 mb-5">
               SPF 50 · BROAD SPECTRUM · PA++++
             </span>
             <p className="font-extrabold text-navy text-[36px] mb-1">
@@ -107,7 +110,7 @@ export default function DailyShieldPage() {
             </ul>
 
             <p className="text-dgrey text-[13px] mb-6 border-l-2 border-navy pl-3">
-              SPF is tested with two finger-lengths of cream. Most people use half.{' '}
+              {DOSE_LINE}{' '}
               <Link href="/dose-guide" className="text-navy font-medium underline underline-offset-4">
                 How much to use →
               </Link>
@@ -220,23 +223,19 @@ export default function DailyShieldPage() {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection className="bg-white px-6 md:px-20 py-16">
-        <h2 className="text-center font-bold text-navy text-[26px] mb-12">How to Use</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto text-center">
-          {[
-            { n: '1', t: 'Cleanse', d: 'Start with a clean, dry face.' },
-            { n: '2', t: 'Apply', d: 'Two finger-lengths for face and neck, as the last step each morning.' },
-            { n: '3', t: 'Reapply', d: 'Every 2 hours when you are outdoors.' },
-          ].map((s) => (
-            <div key={s.n}>
-              <div className="w-14 h-14 rounded-full bg-navy text-white flex items-center justify-center font-bold text-[20px] mx-auto mb-4">
-                {s.n}
-              </div>
-              <p className="font-bold text-navy text-[15px] mb-2">{s.t}</p>
-              <p className="text-mgrey text-[13px]">{s.d}</p>
-            </div>
-          ))}
+      <AnimatedSection id="how-to-use" className="bg-white px-6 md:px-20 py-16 md:py-20 scroll-mt-24">
+        <h2 className="text-center font-bold text-navy text-[26px] mb-3">How to use it</h2>
+        <p className="text-center text-dgrey text-[15px] max-w-xl mx-auto mb-10">{DOSE_LINE}</p>
+        <DoseIllustrations size="small" />
+        <div className="max-w-4xl mx-auto mt-14">
+          <h3 className="font-bold text-navy text-[16px] mb-8">Your day with Daily Shield</h3>
+          <DayTimeline />
         </div>
+        <p className="text-center mt-12">
+          <Link href="/dose-guide" className="text-navy text-[13px] font-medium underline underline-offset-4">
+            Read the full dose guide →
+          </Link>
+        </p>
       </AnimatedSection>
 
       <AnimatedSection className="bg-lgrey px-6 md:px-20 py-16">
