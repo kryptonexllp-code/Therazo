@@ -3,6 +3,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Ticker from '@/components/Ticker'
 import VideoShowcase from '@/components/VideoShowcase'
+import VideoSlot from '@/components/VideoSlot'
+import { VIDEO_SLOTS } from '@/lib/videos'
 import HeroScanner from '@/components/HeroScanner'
 import WaitlistButton from '@/components/WaitlistButton'
 import AnimatedSection from '@/components/AnimatedSection'
@@ -51,13 +53,15 @@ export default function HomePage() {
           </div>
         </div>
         <div className="relative bg-[#E8EFF8] md:w-[52%] h-[280px] md:h-auto">
-          <Image
-            src="/images/hero-daily-shield-clinical.png"
-            alt="Daily Shield SPF Moisturizer on a stone slab with molecular props"
-            fill
+          {/* Hero loop slot — set VIDEO_SLOTS.heroLoop.src in lib/videos.ts to go live */}
+          <VideoSlot
+            slot={VIDEO_SLOTS.heroLoop}
+            loop
+            aspect="fill"
             priority
-            sizes="(max-width: 768px) 100vw, 52vw"
-            className="object-cover object-right"
+            showCaption={false}
+            className="absolute inset-0"
+            background="bg-[#E8EFF8]"
           />
           <HeroScanner />
         </div>
