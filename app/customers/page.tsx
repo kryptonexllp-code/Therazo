@@ -86,8 +86,8 @@ export default function HomePage() {
               We are not a cosmetic brand that dabbles in science.
             </h2>
             <p className="text-dgrey text-[16px] leading-[1.75] max-w-[520px] mt-6">
-              We are a pharmacy-grade brand. Every ingredient in every Therazo formula has a
-              documented clinical reason to be there — at a specific, effective concentration. We
+              We are a pharmacy-grade brand. Every ingredient in a Therazo formula has a documented
+              reason to be there, at a stated concentration. We
               inform before we sell. We publish our manufacturer. We share full clinical data with
               dermatologists. And we price our products so that pharmacy-grade skincare is
               accessible to the Indian consumer who deserves it.
@@ -150,8 +150,8 @@ export default function HomePage() {
           Five products. One complete routine.
         </h2>
         <p className="text-mgrey text-[16px] max-w-2xl mb-12">
-          All five Therazo formulas are built on the same scientific standard — with Ectoin in
-          every product as the brand&apos;s scientific signature.
+          Every Therazo formula is built to the same scientific standard, with Ectoin as the
+          signature active across the range.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
           {products.map((p) => (
@@ -216,7 +216,7 @@ export default function HomePage() {
       <AnimatedSection className="bg-lgrey px-6 md:px-20 py-20 md:py-[100px]">
         <SectionLabel>The Therazo Active System</SectionLabel>
         <h2 className="font-bold text-navy text-[28px] md:text-[40px] mb-3">
-          Three signature actives. Across every formula.
+          Three signature actives across the range.
         </h2>
         <p className="text-mgrey text-[16px] max-w-2xl mb-12">
           These are not generic ingredients. Each is chosen for a specific clinical reason,
@@ -227,15 +227,15 @@ export default function HomePage() {
             <p className="text-gold font-bold text-[11px] tracking-[0.3em] uppercase mb-2">Ectoin</p>
             <p className="italic text-bluemuted text-[14px] mb-3">The Extremolyte</p>
             <p className="text-bluelight text-[11px] tracking-[0.1em] uppercase mb-5">
-              Present in all 5 Therazo formulas
+              In Daily Shield, Gentle Daily Cleanser, Barrier Repair Cream &amp; Clarity Serum
             </p>
             <GoldDivider className="mb-5" />
             <p className="text-bluelight text-[14px] leading-[1.65] mb-5">
-              Clinically validated protection against UV stress, urban pollution, and heat. Forms a
-              protective molecular layer around skin cells. The only active present across all five
-              Therazo formulas — and the brand&apos;s scientific signature.
+              Ectoin draws water to skin cells and forms a stabilising shell around them, which
+              supports hydration retention. It works in the outer layers of the skin — UV
+              protection in Daily Shield comes from its six filters, not from Ectoin.
             </p>
-            <p className="text-gold font-bold text-[12px]">The science of skin protection.</p>
+            <p className="text-gold font-bold text-[12px]">The science of holding water.</p>
           </div>
           <div className="bg-white border border-cardline p-8">
             <p className="text-navy font-bold text-[11px] tracking-[0.3em] uppercase mb-2">
@@ -256,23 +256,21 @@ export default function HomePage() {
             <p className="text-navy font-bold text-[11px] tracking-[0.3em] uppercase mb-2">
               Beta-Glucan
             </p>
-            <p className="italic text-navy text-[14px] mb-3">The Immune-Support Active</p>
+            <p className="italic text-navy text-[14px] mb-3">The Soothing Active</p>
             <p className="text-mgrey text-[11px] tracking-[0.1em] uppercase mb-5">
               Present in Gentle Daily Cleanser &amp; Barrier Repair Cream
             </p>
             <GoldDivider className="mb-5" />
             <p className="text-dgrey text-[14px] leading-[1.65] mb-5">
-              An oat-derived polysaccharide that supports the skin&apos;s own immune function and
-              calms visible stress. Used in pharmaceutical wound-care formulations, and recognised
-              as one of the fastest-growing active ingredients in clinical skincare — added to
-              Therazo&apos;s cleanser and barrier cream for extra soothing and repair support.
+              An oat-derived polysaccharide, added to Therazo&apos;s cleanser and barrier cream to
+              help calm skin during periods of visible sensitivity.
             </p>
-            <p className="text-navy font-bold text-[12px]">The science of resilience.</p>
+            <p className="text-navy font-bold text-[12px]">The science of a calmer barrier.</p>
           </div>
         </div>
         <p className="text-center italic text-mgrey text-[13px] mt-10 max-w-2xl mx-auto">
-          Ectoin is the only active present in all five Therazo formulas — it is the formulation
-          identity that makes Therazo immediately recognisable and scientifically defensible.
+          Ectoin is the signature active of the Therazo range — the common thread in the
+          formulas confirmed so far.
         </p>
       </AnimatedSection>
 
@@ -342,7 +340,7 @@ export default function HomePage() {
             </p>
             <p className="text-bluelight text-[14px] max-w-xl">
               Therazo shares complete formulation data with clinicians — concentrations,
-              mechanisms, CMO details, and test certificates. Request a sample for independent
+              mechanisms and manufacturer details. Register for a sample kit for independent
               evaluation.
             </p>
           </div>

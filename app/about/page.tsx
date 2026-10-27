@@ -27,7 +27,7 @@ const PILLARS = [
     n: '02',
     title: 'Full transparency',
     body: [
-      'We publish our manufacturer address, our formulation reference, and complete clinical data for dermatologists. Trust requires information — not trust me.',
+      'We publish our manufacturer, our formulation reference, and complete formulation data for dermatologists. Trust requires information — not trust me.',
       'Most D2C skincare brands treat their supply chain and formulation as a competitive secret. We treat it as a credibility asset. If we would not want a dermatologist to see it, we would not put it in the bottle.',
     ],
   },
@@ -215,11 +215,7 @@ export default function AboutPage() {
             <p className="text-dgrey text-[13px] leading-[1.7]">
               BO International
               <br />
-              870 Udyog Vihar Phase V
-              <br />
-              Sector 19, Gurugram
-              <br />
-              Haryana 122016
+              Jhajjar, Haryana
             </p>
           </div>
           <div className="border border-cardline p-7">
@@ -235,11 +231,12 @@ export default function AboutPage() {
             </p>
           </div>
           <div className="border border-cardline p-7">
-            <p className="text-navy font-bold text-[14px] mb-3">SPF Testing</p>
+            <p className="text-navy font-bold text-[14px] mb-3">Marketed By</p>
             <GoldDivider className="mb-4" />
             <p className="text-dgrey text-[13px] leading-[1.7]">
-              ISO 24444:2019 in-vivo SPF testing. Certificate in progress — published in full on
-              receipt from the testing laboratory.
+              Kryptonex LLP
+              <br />
+              Hyderabad, Telangana
             </p>
           </div>
         </div>

@@ -1,13 +1,17 @@
+import { activeClaims } from '@/lib/claims'
+
+// Held packaging and testing claims join the ticker only
+// once their flag in lib/claims.ts is switched on.
 const ITEMS = [
   'SYNTHETIC FRAGRANCE-FREE',
-  'CRUELTY-FREE',
-  'RECYCLABLE PACKAGING',
   'PHARMACY-GRADE SKINCARE',
   'MADE FOR INDIAN CLIMATE',
   'SPF 50 PA++++ BROAD SPECTRUM',
-  'ECTOIN IN EVERY FORMULA',
+  'SIGNATURE ACTIVE: ECTOIN',
   '6 UV FILTERS',
   'UNISEX',
+  'MADE IN INDIA',
+  ...activeClaims(['recyclablePackaging', 'crueltyFree']).map((c) => c.toUpperCase()),
 ]
 
 export default function Ticker() {

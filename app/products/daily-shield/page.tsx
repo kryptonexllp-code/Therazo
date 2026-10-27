@@ -5,31 +5,44 @@ import ProductGallery from './ProductGallery'
 import StickyOrderBar from '@/components/StickyOrderBar'
 import OrderButton from '@/components/OrderButton'
 import AnimatedSection from '@/components/AnimatedSection'
-import SectionLabel from '@/components/ui/SectionLabel'
-import { dailyShield } from '@/lib/products'
+import UvFilterBands from '@/components/UvFilterBands'
+import { dailyShield, productClaims } from '@/lib/products'
+
+// Back-of-pack key actives. Percentages are allowed in back-of-pack style
+// lists only (see CLAUDE.md) — never on front-of-pack style lists.
+const BACK_OF_PACK = [
+  ['Ectoin', '1%'],
+  ['Niacinamide', '3%'],
+  ['Ceramide Complex', '0.5%'],
+  ['Ethyl Ascorbic Acid', '1%'],
+  ['Sodium Hyaluronate', '0.5%'],
+  ['Panthenol', '1%'],
+  ['Tocopherol', '0.5%'],
+]
 
 export const metadata: Metadata = {
   title: 'Daily Shield SPF 50 PA++++ SPF Moisturizer',
   description:
-    '6 UV filters including Tinosorb S+M. Ectoin, Niacinamide, Ceramide Complex. Pharmacy-grade SPF moisturizer for Indian skin. ₹699 / 50ml. Order via WhatsApp.',
+    'Daily Shield SPF 50 PA++++ SPF Moisturizer — six UV filters with Ectoin, Niacinamide, Ceramide Complex and Vitamin C. Made for Indian skin and climate. ₹699 / 50 ml.',
 }
 
 const OUTCOMES = [
-  { name: 'Protects', desc: 'Broad-spectrum UVA + UVB defence from 6 UV filters.' },
-  { name: 'Hydrates', desc: 'Sodium Hyaluronate and Squalane for lasting moisture.' },
-  { name: 'Brightens', desc: 'Niacinamide and Ethyl Ascorbic Acid even out tone.' },
-  { name: 'Repairs', desc: 'Ceramide Complex restores the skin barrier.' },
-  { name: 'Shields', desc: 'Ectoin protects against pollution and heat stress.' },
+  { name: 'Filters UV', desc: 'Six UVA + UVB filters — SPF 50 PA++++.' },
+  { name: 'Hydrates', desc: 'Sodium Hyaluronate and Squalane for moisture.' },
+  { name: 'Holds water', desc: 'Ectoin forms a stabilising shell around skin cells.' },
+  { name: 'Supports the barrier', desc: 'Ceramide Complex and Niacinamide.' },
+  { name: 'Evens the look of tone', desc: 'Niacinamide and Vitamin C.' },
 ]
 
-const WHAT_WE_DONT_USE = ['Parabens', 'Silicones', 'Mineral Oil', 'Artificial Colour', 'Sulphates']
+// Mirrors the free-from claims on file for Daily Shield (lib/products.ts).
+const WHAT_WE_DONT_USE = ['Parabens', 'Silicones', 'Mineral oil', 'Artificial colour', 'Synthetic fragrance']
 
 const productJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Product',
   name: 'Daily Shield',
   description:
-    'SPF 50 PA++++ SPF Moisturizer with 6 UV filters, Ectoin, Niacinamide, and Ceramide Complex.',
+    'SPF 50 PA++++ SPF Moisturizer with six UV filters, Ectoin, Niacinamide, Ceramide Complex and Vitamin C.',
   image: 'https://therazo.co/images/product-daily-shield-box.png',
   brand: { '@type': 'Brand', name: 'Therazo' },
   offers: {
@@ -79,7 +92,7 @@ export default function DailyShieldPage() {
               SPF 50 · BROAD SPECTRUM · PA++++
             </span>
             <p className="font-extrabold text-navy text-[36px] mb-1">₹699</p>
-            <p className="text-mgrey text-[13px] mb-6">50 ml / 50 g · Dermatologically tested · Unisex</p>
+            <p className="text-mgrey text-[13px] mb-6">{dailyShield.size} · Unisex</p>
 
             <ul className="space-y-2 mb-8">
               {dailyShield.benefits?.map((b) => (
@@ -89,6 +102,13 @@ export default function DailyShieldPage() {
                 </li>
               ))}
             </ul>
+
+            <p className="text-dgrey text-[13px] mb-6 border-l-2 border-navy pl-3">
+              SPF is tested with two finger-lengths of cream. Most people use half.{' '}
+              <Link href="/dose-guide" className="text-navy font-medium underline underline-offset-4">
+                How much to use →
+              </Link>
+            </p>
 
             <div className="border-[1.5px] border-navy p-4 mb-6">
               <p className="text-navy text-[11px] font-bold tracking-[0.15em] uppercase mb-3">
@@ -104,7 +124,7 @@ export default function DailyShieldPage() {
             </div>
 
             <div className="flex flex-wrap gap-2 mb-6">
-              {dailyShield.claims?.map((c) => (
+              {productClaims(dailyShield).map((c) => (
                 <span key={c} className="border border-cardline text-mgrey text-[11px] font-medium px-3 py-1.5">
                   {c}
                 </span>
@@ -133,7 +153,7 @@ export default function DailyShieldPage() {
       <AnimatedSection className="bg-white px-6 md:px-20 py-16 md:py-20">
         <h2 className="text-center font-bold text-navy text-[28px] mb-2">What&apos;s Inside — and Why</h2>
         <p className="text-center text-mgrey text-[15px] mb-12">
-          Every ingredient has a documented clinical reason to be here.
+          Every ingredient is listed with the reason it is here.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
           {dailyShield.actives.map((a) => (
@@ -143,9 +163,8 @@ export default function DailyShieldPage() {
 
         <div className="bg-navy p-7 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <p className="text-bluelight text-[14px] leading-[1.6] max-w-xl">
-            This page shows the clinical function of each active. For complete data —
-            concentrations, mechanisms, formulation reference, and ISO 24444:2019 SPF test
-            certificate — visit the dermatologist portal.
+            This page lists what each active does. For full formulation data and the
+            formulation reference, visit the dermatologist portal.
           </p>
           <Link href="/for-doctors" className="text-gold text-[13px] font-bold whitespace-nowrap">
             Access Full Clinical Data →
@@ -160,7 +179,7 @@ export default function DailyShieldPage() {
         <p className="text-center text-bluelight text-[15px] max-w-2xl mx-auto mb-12">
           PA rating measures protection against UVA — the ray responsible for photoageing and
           hyperpigmentation, present year-round regardless of season or cloud cover. For Fitzpatrick
-          IV–VI skin, common across India, unmanaged UVA exposure is the leading driver of visible
+          IV–VI skin, common across India, unmanaged UVA exposure is a major driver of visible
           uneven tone.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 max-w-3xl mx-auto">
@@ -172,34 +191,23 @@ export default function DailyShieldPage() {
           <div className="border border-white/20 p-6 text-center">
             <p className="text-white font-bold text-[18px] mb-1">PA+++</p>
             <p className="text-bluemuted text-[11px] uppercase tracking-[0.1em] mb-3">PPD 8–16</p>
-            <p className="text-bluelight text-[12px]">Most pharmacy SPF</p>
+            <p className="text-bluelight text-[12px]">High protection</p>
           </div>
           <div className="border-2 border-gold p-6 text-center">
             <p className="text-gold font-bold text-[18px] mb-1">PA++++</p>
             <p className="text-bluemuted text-[11px] uppercase tracking-[0.1em] mb-3">PPD 16+</p>
-            <p className="text-white text-[12px] font-medium">Daily Shield</p>
+            <p className="text-white text-[12px] font-medium">Very high — Daily Shield&apos;s designation</p>
           </div>
         </div>
       </AnimatedSection>
 
       <AnimatedSection className="bg-lgrey px-6 md:px-20 py-16">
-        <h2 className="text-center font-bold text-navy text-[26px] mb-10">The 6 UV Filters</h2>
-        <div className="max-w-3xl mx-auto space-y-3">
-          {[
-            { name: 'Tinosorb S', range: 92 },
-            { name: 'Tinosorb M', range: 85 },
-            { name: 'DHHB', range: 70 },
-            { name: 'Ethylhexyl Triazone', range: 60 },
-            { name: 'Zinc Oxide', range: 95 },
-            { name: 'Titanium Dioxide', range: 55 },
-          ].map((f) => (
-            <div key={f.name} className="flex items-center gap-4">
-              <span className="w-40 shrink-0 text-navy text-[13px] font-medium">{f.name}</span>
-              <div className="flex-1 h-2 bg-white border border-cardline">
-                <div className="h-full bg-gold" style={{ width: `${f.range}%` }} />
-              </div>
-            </div>
-          ))}
+        <h2 className="text-center font-bold text-navy text-[26px] mb-3">The Six UV Filters</h2>
+        <p className="text-center text-mgrey text-[14px] max-w-xl mx-auto mb-10">
+          Organic and mineral filter classes, and the wavebands each one works in.
+        </p>
+        <div className="max-w-3xl mx-auto bg-white border border-cardline p-6">
+          <UvFilterBands />
         </div>
       </AnimatedSection>
 
@@ -208,8 +216,8 @@ export default function DailyShieldPage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto text-center">
           {[
             { n: '1', t: 'Cleanse', d: 'Start with a clean, dry face.' },
-            { n: '2', t: 'Apply', d: 'A generous, even layer as the last step each morning.' },
-            { n: '3', t: 'Reapply', d: 'Every 3–4 hours with prolonged sun exposure.' },
+            { n: '2', t: 'Apply', d: 'Two finger-lengths for face and neck, as the last step each morning.' },
+            { n: '3', t: 'Reapply', d: 'Every 2 hours when you are outdoors.' },
           ].map((s) => (
             <div key={s.n}>
               <div className="w-14 h-14 rounded-full bg-navy text-white flex items-center justify-center font-bold text-[20px] mx-auto mb-4">
@@ -223,25 +231,29 @@ export default function DailyShieldPage() {
       </AnimatedSection>
 
       <AnimatedSection className="bg-lgrey px-6 md:px-20 py-16">
-        <p className="text-center text-navy text-[13px] font-medium mb-2 max-w-xl mx-auto">
-          We publish our full ingredient list. Every ingredient. In order. Because transparency is
-          not optional.
+        <h2 className="text-center font-bold text-navy text-[24px] mb-3">Back of Pack</h2>
+        <p className="text-center text-mgrey text-[13px] mb-8 max-w-xl mx-auto">
+          Key actives as printed on the pack. We will publish the full ingredient list, in order,
+          from the final pack artwork.
         </p>
-        <details className="max-w-2xl mx-auto bg-white border border-cardline p-5 mt-6">
+        <dl className="max-w-3xl mx-auto grid grid-cols-2 sm:grid-cols-4 border-t border-l border-cardline bg-white">
+          {BACK_OF_PACK.map(([name, pct]) => (
+            <div key={name} className="border-r border-b border-cardline p-4">
+              <dt className="text-navy text-[12px] font-medium">{name}</dt>
+              <dd className="text-navy font-extrabold text-[18px] mt-1">{pct}</dd>
+            </div>
+          ))}
+        </dl>
+        <details className="max-w-3xl mx-auto bg-white border border-cardline p-5 mt-6">
           <summary className="cursor-pointer font-bold text-navy text-[14px]">
-            Full Ingredient List (INCI) — expand to view
+            Full Ingredient List (INCI)
           </summary>
-          <p className="text-mgrey text-[12px] leading-[1.8] mt-4">
-            Aqua, Ethylhexyl Triazone, Zinc Oxide, Titanium Dioxide, Bemotrizinol, Bisoctrizole,
-            Diethylamino Hydroxybenzoyl Hexyl Benzoate, Glycerin, Squalane, Niacinamide, Ectoin,
-            Sodium Hyaluronate, Ceramide NP, Ceramide AP, Ceramide EOP, Phytosphingosine,
-            Cholesterol, 3-O-Ethyl Ascorbic Acid, Panthenol, Tocopherol, Rosa Damascena Flower
-            Extract, Xanthan Gum, Carbomer, Sodium Hydroxide, Disodium EDTA.
-          </p>
+          {/* TODO: paste the INCI list verbatim from the final pack artwork */}
+          <p className="text-mgrey text-[12px] leading-[1.8] mt-4">[FULL INCI LIST TO BE ADDED FROM FINAL PACK ARTWORK]</p>
         </details>
       </AnimatedSection>
 
-      <AnimatedSection className="bg-white px-6 md:px-20 py-16">
+      <AnimatedSection className="bg-white px-6 md:px-20 py-16 pb-24 md:pb-16">
         <h2 className="text-center font-bold text-navy text-[24px] mb-10">What We Don&apos;t Use</h2>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-4 mb-8">
           {WHAT_WE_DONT_USE.map((item) => (
@@ -256,14 +268,6 @@ export default function DailyShieldPage() {
         </div>
       </AnimatedSection>
 
-      <AnimatedSection className="bg-lgrey px-6 md:px-20 py-16 pb-24 md:pb-16">
-        <div className="max-w-md mx-auto border-2 border-navy p-8 text-center">
-          <SectionLabel>SPF Certificate</SectionLabel>
-          <p className="font-bold text-navy text-[16px] mb-2">ISO 24444:2019 In-Vivo SPF Test</p>
-          <p className="text-mgrey text-[13px]">Certificate in Progress</p>
-          <p className="text-mgrey text-[12px] mt-3">Published on receipt from testing laboratory.</p>
-        </div>
-      </AnimatedSection>
     </>
   )
 }

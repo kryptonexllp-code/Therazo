@@ -5,7 +5,7 @@ import WaitlistForm from '@/components/WaitlistForm'
 import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from './SectionLabel'
 import GoldDivider from './GoldDivider'
-import { dailyShield, formatPrice, type Product } from '@/lib/products'
+import { dailyShield, formatPrice, productClaims, type Product } from '@/lib/products'
 import { ORDER_WHATSAPP_URL } from '@/lib/whatsapp'
 
 export function buildComingSoonMetadata(product: Product): Metadata {
@@ -116,7 +116,7 @@ export default function ProductComingSoonPage({ product }: { product: Product })
 
       <AnimatedSection className="bg-white px-6 md:px-20 py-16 text-center">
         <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {product.claims?.map((c) => (
+          {productClaims(product).map((c) => (
             <span key={c} className="border border-cardline text-mgrey text-[11px] font-medium tracking-[0.05em] px-4 py-2">
               {c}
             </span>

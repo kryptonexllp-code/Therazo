@@ -3,33 +3,29 @@
 import { useMemo, useState } from 'react'
 import { products } from '@/lib/products'
 
-type Category = 'UV Protection' | 'Barrier Repair' | 'Brightening' | 'Hydration' | 'Microbiome' | 'Stress Protection'
+type Category = 'UV Protection' | 'Barrier Repair' | 'Even Tone' | 'Hydration' | 'Microbiome'
 
 const CATEGORIES: Category[] = [
   'UV Protection',
   'Barrier Repair',
-  'Brightening',
+  'Even Tone',
   'Hydration',
   'Microbiome',
-  'Stress Protection',
 ]
 
 function categorize(name: string): Category {
   const n = name.toLowerCase()
   if (
-    n.includes('tinosorb') ||
-    n.includes('dhhb') ||
-    n.includes('triazone') ||
+    n.includes('filter') ||
     n.includes('zinc oxide') ||
     n.includes('titanium dioxide')
   ) {
     return 'UV Protection'
   }
   if (n.includes('ceramide') || n.includes('panthenol')) return 'Barrier Repair'
-  if (n.includes('niacinamide') || n.includes('tranexamic') || n.includes('ascorbic')) return 'Brightening'
-  if (n.includes('hyaluronate') || n.includes('squalane')) return 'Hydration'
+  if (n.includes('niacinamide') || n.includes('tranexamic') || n.includes('ascorbic')) return 'Even Tone'
+  if (n.includes('hyaluronate') || n.includes('squalane') || n.includes('ectoin')) return 'Hydration'
   if (n.includes('zinc pca') || n.includes('postbiotic') || n.includes('ferment') || n.includes('beta-glucan')) return 'Microbiome'
-  if (n.includes('ectoin')) return 'Stress Protection'
   return 'Barrier Repair'
 }
 
