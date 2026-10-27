@@ -19,7 +19,7 @@ The old accent hex is retired everywhere. Teal #1D9E75 stays unused.
 
 ## TYPE AND LOGO
 Font: Poppins only, loaded via next/font/google.
-The THERAZO wordmark is vector artwork. Always use the supplied logo files
+The THERAZO wordmark is vector artwork. Always use the supplied SVG/logo files
 (/public/images/logos/) — never retype the wordmark as live text.
 The gap in the "O" sits at bottom-left (7–8 o'clock). Tagline: SCIENCE. DEFINED.
 Do not alter or recolour the logo outside the supplied versions.
@@ -36,8 +36,14 @@ Postbiotic Lysate is confirmed in SKUs 02, 03 and 04 only.
 ## DAILY SHIELD
 Always "SPF Moisturizer". Never "Daily Defence", never "sunscreen" or "gel" as the product descriptor.
 Fragrance line is always "Synthetic fragrance-free", with the Rosa Damascena disclosure box.
+Never plain "fragrance-free".
 Front-of-pack style list (no percentages): Ectoin · Niacinamide · Ceramide Complex · Vitamin C
-Percentages appear only in back-of-pack style lists and on the science and doctors pages:
+
+## TWO-TIER INFORMATION
+Public site: outcomes and benefits only. Concentrations live only in the /for-doctors tier,
+served server-side from lib/clinical.ts (server-only). Never publish percentages or UV-filter
+brand names on customer pages, metadata, schema or client bundles.
+Reference concentrations for the doctors tier:
 Ectoin 1% · Niacinamide 3% · Ceramide Complex 0.5% · Ethyl Ascorbic Acid 1% ·
 Sodium Hyaluronate 0.5% · Panthenol 1% · Tocopherol 0.5%
 Formulation ref HIM-2627-3041 appears only on /for-doctors.
@@ -82,8 +88,17 @@ Video slots use <VideoSlot>; mobile shows posters, never autoplay.
 Exception: the /customers hero uses <HeroScanner> (lib/heroVideo.ts) and plays muted on mobile;
 reduced-motion visitors get the poster only. Its scan labels (content/heroLabels.ts) stay
 descriptive: no percentages, results, before-and-after or claims.
-AI imagery: keep the footer disclosure (content/disclosure.ts) visible. Never crop, blur, paint
+AI imagery: keep the footer disclosure (content/disclosure.ts) visible on every page that shows
+AI-generated video or imagery. Never imply the people shown are real customers or real results.
+No before-and-after. Never crop, blur, paint
 over or place graphics on a generator watermark — swap the file instead (docs/LAUNCH_CHECKLIST.md).
+
+## PENDING WORK
+Tier 1 competitor-inspired features (usage badges, daily timeline, product FAQs with schema,
+Routine Finder as a waitlist engine, SPF test-documentation block, Therazo Promise strip, Ectoin
+page, reviews placeholder) come in a separate prompt (Therazo_ClaudeCode_Tier1_Features.md).
+Every one must follow CLAIMS CONTROL and TWO-TIER INFORMATION: no invented reviews, ratings or
+clinical claims.
 
 ## COMMANDS
 npm run dev → localhost:3000
