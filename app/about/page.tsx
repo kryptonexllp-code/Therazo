@@ -6,7 +6,7 @@ import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
 import GoldDivider from '@/components/ui/GoldDivider'
 import ComingSoonBadge from '@/components/ui/ComingSoonBadge'
-import { products } from '@/lib/products'
+import { products, statusLabel } from '@/lib/products'
 
 export const metadata: Metadata = {
   title: 'Our Story — To Heal and To Preserve',
@@ -262,16 +262,7 @@ export default function AboutPage() {
               </p>
               <h3 className="font-bold text-navy text-[15px] mb-3">{p.name}</h3>
               <div className="mt-auto">
-                {p.status === 'available' ? (
-                  <span className="inline-flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green" />
-                    <span className="text-green text-[10px] font-medium tracking-[0.1em] uppercase">
-                      Available Now
-                    </span>
-                  </span>
-                ) : (
-                  <ComingSoonBadge timeline={p.timeline ?? 'Coming Soon'} />
-                )}
+                <ComingSoonBadge label={statusLabel(p)} outlined={p.status === 'launching-soon'} />
               </div>
             </div>
           ))}

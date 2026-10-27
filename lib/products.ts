@@ -1,7 +1,9 @@
 import { activeClaims, type HeldClaim } from './claims'
 
 // ── STATUS TYPES ──────────────────────────────────────────────
-export type ProductStatus = 'available' | 'coming-soon'
+// Daily Shield is in production (launching soon); every other SKU is coming soon.
+// No SKU is on sale yet — there is deliberately no 'available' status.
+export type ProductStatus = 'launching-soon' | 'coming-soon'
 
 // ── PUBLIC ACTIVE (no concentrations) ─────────────────────────
 export type PublicActive = {
@@ -20,11 +22,12 @@ export type Product = {
   price: number
   size: string
   status: ProductStatus
-  timeline?: string
   tagline: string
   heroImage?: string
   productImage?: string
   actives: PublicActive[]
+  // front-of-pack style list — names only, never percentages
+  frontOfPack?: string[]
   benefits?: string[]
   // formulation claims already on file (free-from list)
   claims?: string[]
@@ -53,10 +56,11 @@ export const products: Product[] = [
     descriptor: 'SPF Moisturizer',
     price: 699,
     size: '50 ml ℮ 1.69 fl. oz.',
-    status: 'available',
+    status: 'launching-soon',
     tagline: 'Six UV filters. Nine skin actives. One daily step.',
     spf: 'SPF 50 PA++++',
     uvFilters: 6,
+    frontOfPack: ['Ectoin', 'Niacinamide', 'Ceramide Complex', 'Vitamin C'],
     heroImage: '/images/hero-daily-shield-clinical.png',
     productImage: '/images/product-daily-shield-box.png',
     actives: [
@@ -90,7 +94,6 @@ export const products: Product[] = [
     price: 499,
     size: '100 ml',
     status: 'coming-soon',
-    timeline: 'Arriving Y1 Q3',
     tagline: 'Cleans without compromising. The first step that protects.',
     productImage: '/images/product-gentle-cleanser.png',
     heroImage: '/images/product-gentle-cleanser.png',
@@ -120,7 +123,6 @@ export const products: Product[] = [
     price: 1699,
     size: '30 ml',
     status: 'coming-soon',
-    timeline: 'Arriving Y2 Q1',
     tagline: 'A night-time renewal step for skin beginning to show its age.',
     // No pack photography exists for this SKU yet — components fall back to a placeholder.
     actives: [
@@ -145,7 +147,6 @@ export const products: Product[] = [
     price: 749,
     size: '50 g',
     status: 'coming-soon',
-    timeline: 'Arriving Y2 Q2',
     tagline: 'Restore what daily life takes away.',
     productImage: '/images/product-barrier-repair.png',
     heroImage: '/images/product-barrier-repair.png',
@@ -175,7 +176,6 @@ export const products: Product[] = [
     price: 1199,
     size: '30 ml',
     status: 'coming-soon',
-    timeline: 'Arriving Y2 Q4',
     tagline: "A targeted step for Indian skin's most common concern.",
     productImage: '/images/product-clarity-serum.png',
     heroImage: '/images/product-clarity-serum.png',
@@ -209,6 +209,10 @@ export function formatPrice(price: number) {
 
 export function getProduct(id: string): Product | undefined {
   return products.find((p) => p.id === id)
+}
+
+export function statusLabel(p: Product) {
+  return p.status === 'launching-soon' ? 'Launching soon' : 'Coming soon'
 }
 
 export const dailyShield = products[0]

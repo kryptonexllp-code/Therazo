@@ -2,12 +2,12 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import ProductImage from '@/components/ui/ProductImage'
 import ComingSoonBadge from '@/components/ui/ComingSoonBadge'
-import { ORDER_WHATSAPP_URL } from '@/lib/whatsapp'
-import { formatPrice, products } from '@/lib/products'
+import WaitlistButton from '@/components/WaitlistButton'
+import { formatPrice, products, statusLabel } from '@/lib/products'
 
 export const metadata: Metadata = {
   title: 'The Range',
-  description: 'Five products. One complete Therazo routine — Daily Shield is available now, four more arrive on the same scientific standard.',
+  description: 'Five products, one scientific standard. Daily Shield SPF 50 PA++++ is launching soon; four more are coming.',
 }
 
 export default function ProductsPage() {
@@ -40,36 +40,24 @@ export default function ProductsPage() {
               <p className="text-mgrey text-[11px] tracking-[0.15em] uppercase mb-2">
                 {p.sku} · {p.step}
               </p>
-              {p.status === 'available' ? (
-                <span className="inline-block bg-green text-white text-[10px] font-medium tracking-[0.12em] uppercase px-2.5 py-1 mb-3">
-                  Available Now
-                </span>
-              ) : (
-                <div className="mb-3">
-                  <ComingSoonBadge timeline={p.timeline ?? 'Coming Soon'} />
-                </div>
-              )}
+              <div className="mb-3">
+                <ComingSoonBadge label={statusLabel(p)} outlined={p.status === 'launching-soon'} />
+              </div>
               <h2 className="font-extrabold text-navy text-[28px] md:text-[34px] mb-2">{p.name}</h2>
               <p className="text-mgrey text-[15px] mb-4">{p.descriptor} · {p.size}</p>
               <p className="text-dgrey text-[15px] leading-[1.7] mb-5">{p.tagline}</p>
-              <p className="font-extrabold text-navy text-[24px] mb-6">{formatPrice(p.price)}</p>
-              {p.status === 'available' ? (
-                <a
-                  href={ORDER_WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-navy text-white text-[11px] font-bold tracking-[0.15em] uppercase px-8 py-4 transition-transform duration-150 hover:scale-[1.02]"
-                >
-                  Order Now →
-                </a>
-              ) : (
-                <Link
-                  href={`/products/${p.id}`}
-                  className="inline-block border border-navy text-navy text-[11px] font-bold tracking-[0.15em] uppercase px-8 py-4"
-                >
-                  Notify Me →
-                </Link>
-              )}
+              <p className="font-extrabold text-navy text-[24px] mb-6">
+                <span className="text-mgrey font-medium text-[11px] uppercase tracking-[0.1em] mr-2">MRP</span>
+                {formatPrice(p.price)}
+              </p>
+              <WaitlistButton
+                productId={p.id}
+                className={`inline-block text-[11px] font-bold tracking-[0.15em] uppercase px-8 py-4 transition-transform duration-150 hover:scale-[1.02] ${
+                  p.status === 'launching-soon' ? 'bg-navy text-white' : 'border border-navy text-navy'
+                }`}
+              >
+                Join the Waitlist →
+              </WaitlistButton>
               <Link href={`/products/${p.id}`} className="block mt-4 text-navy text-[13px] underline underline-offset-4">
                 View full details →
               </Link>

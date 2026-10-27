@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import './globals.css'
 import SiteChrome from '@/components/SiteChrome'
-import { OrderModalProvider } from '@/components/OrderModalContext'
-import OrderModal from '@/components/OrderModal'
+import { WaitlistModalProvider } from '@/components/WaitlistModalContext'
+import WaitlistModal from '@/components/WaitlistModal'
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -32,10 +32,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-IN" className={poppins.variable}>
       <body className="font-sans antialiased">
-        <OrderModalProvider>
+        <WaitlistModalProvider>
           <SiteChrome>{children}</SiteChrome>
-          <OrderModal />
-        </OrderModalProvider>
+          <WaitlistModal />
+        </WaitlistModalProvider>
       </body>
     </html>
   )

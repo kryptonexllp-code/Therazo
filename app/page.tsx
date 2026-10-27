@@ -169,7 +169,7 @@ export default function LandingPage() {
             <span className="text-gold"><UserIcon /></span>
             <span className="mt-2.5 font-bold text-[15px] text-white">For Customers</span>
             <span className="mt-1.5 text-[12px] leading-relaxed text-[#8BAFD4]">
-              Explore the Therazo range and order Daily Shield.
+              Explore the Therazo range and join the Daily Shield waitlist.
             </span>
             <span className="mt-3.5 block font-bold text-[11px] tracking-[0.15em] text-gold">Enter →</span>
           </motion.button>

@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import ActiveCard from '@/components/ui/ActiveCard'
 import ProductGallery from './ProductGallery'
-import StickyOrderBar from '@/components/StickyOrderBar'
-import OrderButton from '@/components/OrderButton'
+import StickyLaunchBar from '@/components/StickyLaunchBar'
+import WaitlistForm from '@/components/WaitlistForm'
+import { waitlistWhatsAppUrl } from '@/lib/whatsapp'
 import AnimatedSection from '@/components/AnimatedSection'
 import UvFilterBands from '@/components/UvFilterBands'
 import { dailyShield, productClaims } from '@/lib/products'
@@ -45,12 +46,8 @@ const productJsonLd = {
     'SPF 50 PA++++ SPF Moisturizer with six UV filters, Ectoin, Niacinamide, Ceramide Complex and Vitamin C.',
   image: 'https://therazo.co/images/product-daily-shield-box.png',
   brand: { '@type': 'Brand', name: 'Therazo' },
-  offers: {
-    '@type': 'Offer',
-    priceCurrency: 'INR',
-    price: '699',
-    availability: 'https://schema.org/InStock',
-  },
+  // No Offer: Daily Shield is not on sale yet (launching soon), so we
+  // publish no availability, stock or purchase data.
 }
 
 export default function DailyShieldPage() {
@@ -60,7 +57,7 @@ export default function DailyShieldPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
-      <StickyOrderBar />
+      <StickyLaunchBar />
 
       <section className="px-6 md:px-20 pt-24 md:pt-16 pb-16">
         <p className="text-mgrey text-[12px] mb-8">
@@ -79,9 +76,9 @@ export default function DailyShieldPage() {
 
           <div>
             <div className="inline-flex items-center gap-2 mb-4">
-              <span className="w-2 h-2 rounded-full bg-green" />
-              <span className="text-green text-[11px] font-medium tracking-[0.1em] uppercase">
-                Available Now · In Stock
+              <span className="w-2 h-2 rounded-full bg-navy" />
+              <span className="text-navy text-[11px] font-medium tracking-[0.1em] uppercase">
+                Launching soon · In production
               </span>
             </div>
             <h1 className="font-extrabold text-navy text-[36px] sm:text-[44px] md:text-[48px] mb-1">
@@ -91,7 +88,10 @@ export default function DailyShieldPage() {
             <span className="inline-block bg-gold text-navy font-bold text-[13px] px-3 py-1.5 mb-5">
               SPF 50 · BROAD SPECTRUM · PA++++
             </span>
-            <p className="font-extrabold text-navy text-[36px] mb-1">₹699</p>
+            <p className="font-extrabold text-navy text-[36px] mb-1">
+              <span className="text-mgrey font-medium text-[12px] uppercase tracking-[0.1em] mr-2">MRP incl. taxes</span>
+              ₹699
+            </p>
             <p className="text-mgrey text-[13px] mb-6">{dailyShield.size} · Unisex</p>
 
             <ul className="space-y-2 mb-8">
@@ -110,17 +110,23 @@ export default function DailyShieldPage() {
               </Link>
             </p>
 
-            <div className="border-[1.5px] border-navy p-4 mb-6">
-              <p className="text-navy text-[11px] font-bold tracking-[0.15em] uppercase mb-3">
-                Order Daily Shield
+            <div id="waitlist" className="border-[1.5px] border-navy p-5 mb-6 scroll-mt-32">
+              <p className="text-navy text-[11px] font-bold tracking-[0.15em] uppercase mb-1">
+                Join the Daily Shield waitlist
               </p>
-              <OrderButton className="w-full h-[52px] bg-navy text-gold font-bold text-[12px] tracking-[0.2em] uppercase transition-transform duration-150 hover:scale-[1.02]">
-                Order via WhatsApp — ₹699
-              </OrderButton>
-              <p className="text-mgrey text-[12px] mt-3">
-                Payment link shared on WhatsApp · Pan-India delivery · Free above ₹499
+              <p className="text-mgrey text-[12px] mb-4">
+                Daily Shield is in production. We will let you know when it launches.
               </p>
-              <p className="text-mgrey text-[12px] mt-1">Need help? care@therazo.co</p>
+              <WaitlistForm productId="daily-shield" />
+              <a
+                href={waitlistWhatsAppUrl('Daily Shield')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-3 text-navy text-[12px] font-medium underline underline-offset-4"
+              >
+                Prefer WhatsApp? Message us to be notified →
+              </a>
+              <p className="text-mgrey text-[12px] mt-2">Questions? care@therazo.co</p>
             </div>
 
             <div className="flex flex-wrap gap-2 mb-6">

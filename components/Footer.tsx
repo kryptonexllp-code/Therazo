@@ -29,7 +29,7 @@ export default function Footer() {
             <li><Link href="/about">Our Story</Link></li>
             <li><Link href="/for-doctors">For Doctors</Link></li>
             <li><Link href="/contact">Contact</Link></li>
-            <li><Link href="/products/daily-shield">Order Now</Link></li>
+            <li><Link href="/customers#waitlist">Join the Waitlist</Link></li>
           </ul>
         </div>
 

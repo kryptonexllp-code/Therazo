@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
-import { useOrderModal } from './OrderModalContext'
+import { useWaitlistModal } from './WaitlistModalContext'
 import Logo, { LogoIcon } from './ui/Logo'
 
 export type NavVariant = 'default' | 'customer' | 'doctor'
@@ -31,10 +31,10 @@ const NAV_LINKS: Record<NavVariant, { label: string; href: string }[]> = {
 
 export default function Navbar({ variant = 'default' }: { variant?: NavVariant }) {
   const [mobileOpen, setMobileOpen] = useState(false)
-  const { openOrderModal } = useOrderModal()
+  const { openWaitlist } = useWaitlistModal()
   const router = useRouter()
   const links = NAV_LINKS[variant]
-  const showOrderNow = variant !== 'doctor'
+  const showWaitlist = variant !== 'doctor'
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 h-16 bg-navy">
@@ -76,12 +76,12 @@ export default function Navbar({ variant = 'default' }: { variant?: NavVariant }
         </nav>
 
         <div className="flex items-center gap-4">
-          {showOrderNow && (
+          {showWaitlist && (
             <button
-              onClick={openOrderModal}
+              onClick={() => openWaitlist('daily-shield')}
               className="hidden sm:inline-block border border-gold text-gold text-[11px] font-bold tracking-[0.1em] uppercase px-[18px] py-[7px] transition-colors duration-200 hover:bg-gold hover:text-navy"
             >
-              Order Now
+              Launching Soon
             </button>
           )}
           <button
@@ -137,15 +137,15 @@ export default function Navbar({ variant = 'default' }: { variant?: NavVariant }
               {link.label}
             </Link>
           ))}
-          {showOrderNow && (
+          {showWaitlist && (
             <button
               onClick={() => {
                 setMobileOpen(false)
-                openOrderModal()
+                openWaitlist('daily-shield')
               }}
               className="mt-4 border border-gold text-gold font-bold text-[14px] tracking-[0.1em] uppercase px-8 py-3"
             >
-              Order Now
+              Launching Soon
             </button>
           )}
         </div>

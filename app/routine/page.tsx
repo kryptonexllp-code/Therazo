@@ -4,9 +4,9 @@ import ProductImage from '@/components/ui/ProductImage'
 import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
 import ComingSoonBadge from '@/components/ui/ComingSoonBadge'
-import OrderButton from '@/components/OrderButton'
+import WaitlistButton from '@/components/WaitlistButton'
 import WaitlistForm from '@/components/WaitlistForm'
-import { formatPrice, getProduct } from '@/lib/products'
+import { formatPrice, getProduct, statusLabel } from '@/lib/products'
 
 export const metadata: Metadata = {
   title: 'The Routine',
@@ -88,23 +88,20 @@ export default function RoutinePage() {
                     {a}
                   </p>
                 ))}
-                <p className="font-bold text-navy text-[18px] mt-5 mb-4">{formatPrice(p.price)}</p>
+                <p className="font-bold text-navy text-[18px] mt-5 mb-4">
+                  <span className="text-mgrey font-medium text-[10px] uppercase tracking-[0.1em] mr-1.5">MRP</span>
+                  {formatPrice(p.price)}
+                </p>
                 <div className="mt-auto">
-                  {p.status === 'available' ? (
-                    <OrderButton className="w-full h-[48px] bg-navy text-gold font-bold text-[11px] tracking-[0.2em] uppercase transition-transform duration-150 hover:scale-[1.02]">
-                      Order Daily Shield →
-                    </OrderButton>
-                  ) : (
-                    <div className="flex items-center justify-between gap-3">
-                      <ComingSoonBadge timeline={p.timeline ?? 'Coming Soon'} />
-                      <Link
-                        href={`/products/${p.id}`}
-                        className="text-navy text-[12px] font-medium underline underline-offset-4 whitespace-nowrap"
-                      >
-                        Join Waitlist →
-                      </Link>
-                    </div>
-                  )}
+                  <div className="flex items-center justify-between gap-3">
+                    <ComingSoonBadge label={statusLabel(p)} outlined={p.status === 'launching-soon'} />
+                    <WaitlistButton
+                      productId={p.id}
+                      className="text-navy text-[12px] font-medium underline underline-offset-4 whitespace-nowrap"
+                    >
+                      Join Waitlist →
+                    </WaitlistButton>
+                  </div>
                 </div>
               </div>
             </div>

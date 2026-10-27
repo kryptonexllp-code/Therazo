@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Ticker from '@/components/Ticker'
 import VideoShowcase from '@/components/VideoShowcase'
 import HeroScanner from '@/components/HeroScanner'
-import OrderButton from '@/components/OrderButton'
+import WaitlistButton from '@/components/WaitlistButton'
 import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
 import GoldDivider from '@/components/ui/GoldDivider'
@@ -44,9 +44,9 @@ export default function HomePage() {
             >
               Explore the Science
             </Link>
-            <OrderButton className="border-[1.5px] border-white text-white text-[11px] font-medium tracking-[0.2em] uppercase px-8 py-[15px] transition-colors duration-200 hover:bg-white hover:text-navy">
-              Order Daily Shield — ₹699 →
-            </OrderButton>
+            <WaitlistButton className="border-[1.5px] border-white text-white text-[11px] font-medium tracking-[0.2em] uppercase px-8 py-[15px] transition-colors duration-200 hover:bg-white hover:text-navy">
+              Daily Shield — Launching Soon →
+            </WaitlistButton>
           </div>
         </div>
         <div className="relative bg-[#E8EFF8] md:w-[52%] h-[280px] md:h-auto">
@@ -274,23 +274,22 @@ export default function HomePage() {
         </p>
       </AnimatedSection>
 
-      {/* SECTION 8 — ORDER + WAITLIST */}
-      <AnimatedSection className="bg-offwhite px-6 md:px-20 py-20 md:py-[100px]">
+      {/* SECTION 8 — LAUNCH + WAITLIST */}
+      <AnimatedSection id="waitlist" className="bg-offwhite px-6 md:px-20 py-20 md:py-[100px]">
         <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-14">
           <div>
-            <SectionLabel>Order Now</SectionLabel>
+            <SectionLabel>Launching Soon</SectionLabel>
             <h2 className="font-bold text-navy text-[28px] md:text-[40px] mb-5">
-              Daily Shield is available now.
+              Daily Shield is launching soon.
             </h2>
             <p className="text-dgrey text-[16px] leading-[1.7] mb-7">
-              Order via WhatsApp — we respond within 2 hours. Payment link shared on WhatsApp.
-              Pan-India delivery via courier. Free delivery on orders above ₹499.
+              Daily Shield SPF 50 PA++++ is in production. Join the waitlist with your name and a
+              phone/WhatsApp number or email, and we will let you know when it launches.
             </p>
-            <OrderButton className="bg-navy text-gold font-bold text-[13px] tracking-[0.15em] uppercase px-8 py-4 transition-transform duration-150 hover:scale-[1.02]">
-              Order via WhatsApp — ₹699
-            </OrderButton>
-            <p className="text-mgrey text-[12px] mt-4">
-              3–6 business day delivery · Pan-India · Fragile packaging for skincare
+            <p className="text-navy text-[14px]">
+              <span className="text-mgrey text-[11px] uppercase tracking-[0.1em] mr-2">MRP incl. taxes</span>
+              <span className="font-extrabold text-[22px]">₹699</span>
+              <span className="text-mgrey"> · 50 ml</span>
             </p>
             <GoldDivider className="my-8" />
             <p className="text-navy text-[12px] font-medium tracking-[0.1em] uppercase mb-4">
@@ -300,11 +299,11 @@ export default function HomePage() {
               {comingSoonProducts.map((p) => (
                 <li key={p.id} className="flex items-center justify-between text-[13px] border-b border-cardline pb-3">
                   <span className="text-dgrey">
-                    {p.name} · <span className="text-mgrey">{p.timeline}</span>
+                    {p.name} · <span className="text-mgrey">Coming soon</span>
                   </span>
-                  <Link href={`/products/${p.id}`} className="text-navy font-medium underline underline-offset-4">
+                  <WaitlistButton productId={p.id} className="text-navy font-medium underline underline-offset-4">
                     Notify me
-                  </Link>
+                  </WaitlistButton>
                 </li>
               ))}
             </ul>
@@ -312,8 +311,8 @@ export default function HomePage() {
           <div>
             <h3 className="font-bold text-navy text-[20px] mb-3">Join the Waitlist</h3>
             <p className="text-dgrey text-[14px] mb-6">
-              Get early access, launch alerts, and ingredient education from the science behind
-              Therazo.
+              Launch alerts and ingredient education from the science behind Therazo. Choose the
+              product you are interested in.
             </p>
             <WaitlistForm />
             <p className="text-mgrey text-[13px] text-center max-w-[480px] mx-auto mt-4">

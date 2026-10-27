@@ -6,12 +6,12 @@ import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from './SectionLabel'
 import GoldDivider from './GoldDivider'
 import { dailyShield, formatPrice, productClaims, type Product } from '@/lib/products'
-import { ORDER_WHATSAPP_URL } from '@/lib/whatsapp'
+import WaitlistButton from '@/components/WaitlistButton'
 
 export function buildComingSoonMetadata(product: Product): Metadata {
   return {
     title: `${product.name} — ${product.descriptor} | Therazo`,
-    description: `${product.tagline} Arriving ${product.timeline}. ${formatPrice(product.price)} estimated launch price. Join the waitlist.`,
+    description: `${product.tagline} Coming soon. MRP ${formatPrice(product.price)}. Join the waitlist.`,
   }
 }
 
@@ -20,7 +20,7 @@ export default function ProductComingSoonPage({ product }: { product: Product })
     <>
       <section className="bg-navy px-6 md:px-20 pt-32 pb-16 text-center">
         <span className="inline-block border border-white/40 text-white text-[10px] font-medium tracking-[0.2em] uppercase px-4 py-2 mb-6">
-          Arriving {product.timeline}
+          Coming soon
         </span>
         <h1 className="font-extrabold text-white text-[32px] sm:text-[40px] md:text-[44px] mb-2">
           {product.name}
@@ -28,11 +28,14 @@ export default function ProductComingSoonPage({ product }: { product: Product })
         <p className="text-mgrey text-[16px] mb-1">
           {product.descriptor} · {product.size}
         </p>
-        <p className="text-gold font-bold text-[20px] mb-8">{formatPrice(product.price)} · Estimated launch price</p>
+        <p className="text-white font-bold text-[20px] mb-8">
+          <span className="text-bluemuted font-medium text-[11px] uppercase tracking-[0.12em] mr-2">MRP incl. taxes</span>
+          {formatPrice(product.price)}
+        </p>
         <div className="max-w-md mx-auto">
           <WaitlistForm dark productId={product.id} />
         </div>
-        <p className="text-bluemuted text-[11px] mt-4">One email when this product launches. No spam.</p>
+        <p className="text-bluemuted text-[11px] mt-4">One message when this product launches. No spam.</p>
       </section>
 
       <AnimatedSection className="bg-white px-6 md:px-20 py-16 md:py-20">
@@ -68,23 +71,21 @@ export default function ProductComingSoonPage({ product }: { product: Product })
 
             <div className="bg-lgrey border border-cardline p-6">
               <p className="text-navy text-[12px] font-medium tracking-[0.1em] uppercase mb-4">
-                Available now in the Therazo range
+                Launching first in the Therazo range
               </p>
               <div className="flex items-center gap-4">
                 <ProductImage src={dailyShield.productImage} alt="Daily Shield" aspect='1 / 1' sizes="56px" className="w-14 shrink-0" background="bg-white" />
                 <div>
                   <p className="font-bold text-navy text-[14px]">{dailyShield.name}</p>
-                  <p className="text-mgrey text-[12px]">{dailyShield.spf} · {formatPrice(dailyShield.price)}</p>
+                  <p className="text-mgrey text-[12px]">{dailyShield.spf} · MRP {formatPrice(dailyShield.price)} · Launching soon</p>
                 </div>
               </div>
-              <a
-                href={ORDER_WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block text-center bg-navy text-white text-[11px] font-bold tracking-[0.15em] uppercase py-3 mt-4"
+              <WaitlistButton
+                productId="daily-shield"
+                className="block w-full text-center bg-navy text-white text-[11px] font-bold tracking-[0.15em] uppercase py-3 mt-4"
               >
-                Order Daily Shield →
-              </a>
+                Join the Daily Shield waitlist →
+              </WaitlistButton>
             </div>
           </div>
         </div>
