@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Logo from './ui/Logo'
 import { COMPANY } from '@/lib/company'
+import { AI_IMAGERY_DISCLOSURE } from '@/content/disclosure'
 
 export default function Footer() {
   return (
@@ -58,6 +59,7 @@ export default function Footer() {
         <p className="text-[12px] text-[#4A6A8A]">
           © 2026 Therazo · {COMPANY.domain} · {COMPANY.email} · {COMPANY.phone}
         </p>
+        <p className="text-[12px] text-bluemuted mt-2">{AI_IMAGERY_DISCLOSURE}</p>
       </div>
     </footer>
   )

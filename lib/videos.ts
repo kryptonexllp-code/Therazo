@@ -1,5 +1,6 @@
 // Swappable video slots. To go live, drop the file in /public/videos and set
-// `src` (and a `poster`) here — no component changes needed.
+// `src` (and a `poster`) here — no component changes needed. The customer
+// portal hero video is configured separately in lib/heroVideo.ts.
 export type VideoSlotConfig = {
   id: string
   title: string
@@ -10,16 +11,6 @@ export type VideoSlotConfig = {
 }
 
 export const VIDEO_SLOTS = {
-  // Customer portal hero. Loops muted on desktop; mobile shows the poster.
-  heroLoop: {
-    id: 'hero-loop',
-    title: 'Daily Shield',
-    meta: 'Hero loop',
-    caption: 'Daily Shield SPF 50 PA++++ SPF Moisturizer, 50 ml.',
-    src: undefined,
-    // TODO: replace with final white-matt pack photo (older off-white tube mockup)
-    poster: '/images/hero-daily-shield-clinical.png',
-  },
   application: {
     id: 'application',
     title: 'Daily application — Indian skin tones',

@@ -19,8 +19,12 @@ this file.
 | C7 | Video | `<VideoSlot>` + `lib/videos.ts` — swap `src`/`poster` there to drop in real films |
 | C8 | Images | `ProductImage`: contain inside fixed aspect wrappers, explicit dimensions, WebP |
 | C9 | Quality gate | Lint + build clean; 390/768/1440 checked on every route; banned-phrase grep |
+| Hero | HeroScanner | /customers hero: clean video + code-drawn scan overlay locked to tracked face landmarks; AI-imagery disclosure in footer |
 
 ## Open items
+
+- **Hero video (blocking, see docs/LAUNCH_CHECKLIST.md)**: both hero clips are
+  watermarked placeholders; `hero-loop.mp4` is a stand-in built from the play-once clip.
 
 - **Waitlist storage**: `/api/waitlist` writes to a local JSON file. That does not
   persist on Vercel — connect real storage (database, form service or sheet) before launch.
@@ -30,6 +34,6 @@ this file.
 - **Daily Shield INCI list**: placeholder until the final list is supplied.
 - **Dose guide**: tube life ("about six weeks") is indicative pending a weigh
   test; references read `[REFERENCES TO BE ADDED]`.
-- **Videos**: all slots show posters only until real files are added in `lib/videos.ts`.
+- **Videos**: the three showcase slots show posters only until real files are added in `lib/videos.ts`.
 - **Manufacturer address**: only "Jhajjar, Haryana" is on file.
 - **Held claims**: flip a flag in `lib/claims.ts` only once the evidence is on file.

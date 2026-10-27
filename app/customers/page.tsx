@@ -3,9 +3,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import Ticker from '@/components/Ticker'
 import VideoShowcase from '@/components/VideoShowcase'
-import VideoSlot from '@/components/VideoSlot'
-import { VIDEO_SLOTS } from '@/lib/videos'
-import HeroScanner from '@/components/HeroScanner'
+import CustomerHeroVideo from '@/components/CustomerHeroVideo'
+import { AI_IMAGERY_CAPTION } from '@/content/disclosure'
 import WaitlistButton from '@/components/WaitlistButton'
 import AnimatedSection from '@/components/AnimatedSection'
 import SectionLabel from '@/components/ui/SectionLabel'
@@ -52,18 +51,13 @@ export default function HomePage() {
             </WaitlistButton>
           </div>
         </div>
-        <div className="relative overflow-hidden bg-[#E8EFF8] md:w-[52%] h-[280px] md:h-auto">
-          {/* Hero loop slot — set VIDEO_SLOTS.heroLoop.src in lib/videos.ts to go live */}
-          <VideoSlot
-            slot={VIDEO_SLOTS.heroLoop}
-            loop
-            aspect="fill"
-            priority
-            showCaption={false}
-            className="absolute inset-0"
-            background="bg-[#E8EFF8]"
-          />
-          <HeroScanner />
+        <div className="md:w-[52%] flex flex-col">
+          <div className="relative overflow-hidden bg-[#E8EFF8] aspect-square md:aspect-auto md:flex-1">
+            <CustomerHeroVideo />
+          </div>
+          <p className="md:hidden bg-navy text-bluemuted text-[10px] tracking-[0.04em] px-6 py-1.5">
+            {AI_IMAGERY_CAPTION}
+          </p>
         </div>
       </section>
 

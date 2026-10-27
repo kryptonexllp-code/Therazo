@@ -79,6 +79,11 @@ Sharp corners on all buttons and CTAs — this is a clinical brand
 Product photos never crop: object-fit contain inside fixed aspect wrappers, explicit width/height,
 lazy-load below the fold, alt text without claims.
 Video slots use <VideoSlot>; mobile shows posters, never autoplay.
+Exception: the /customers hero uses <HeroScanner> (lib/heroVideo.ts) and plays muted on mobile;
+reduced-motion visitors get the poster only. Its scan labels (content/heroLabels.ts) stay
+descriptive: no percentages, results, before-and-after or claims.
+AI imagery: keep the footer disclosure (content/disclosure.ts) visible. Never crop, blur, paint
+over or place graphics on a generator watermark — swap the file instead (docs/LAUNCH_CHECKLIST.md).
 
 ## COMMANDS
 npm run dev → localhost:3000
