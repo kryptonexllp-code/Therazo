@@ -44,4 +44,5 @@ this file.
 - **Videos**: the three showcase slots show posters only until real files are added in `lib/videos.ts`.
 - **Manufacturer address**: only "Jhajjar, Haryana" is on file.
 - **Held claims**: flip a flag in `lib/claims.ts` only once the evidence is on file.
-- **Logo**: only PNG logo files are supplied; swap in SVGs when available.
+- **Logo**: no SVGs from the trademark package yet. BrandLogo uses wordmark crops of the official
+  PNGs (scripts/crop_logo.py); add the SVGs to /public/images/logos/ and point BrandLogo at them.

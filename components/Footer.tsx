@@ -1,14 +1,14 @@
 import Link from 'next/link'
-import Logo from './ui/Logo'
+import BrandLogo from './BrandLogo'
 import { COMPANY } from '@/lib/company'
 import { AI_IMAGERY_DISCLOSURE } from '@/content/disclosure'
 
 export default function Footer() {
   return (
-    <footer className="bg-navy border-t-2 border-[#2A4A6F] pt-16 pb-8 px-6 md:px-16">
+    <footer className="bg-navy border-t-2 border-[#2A4A6F] pt-10 pb-8 px-6 md:px-16">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl mx-auto">
         <div>
-          <Logo variant="reversed" height={28} className="mb-5" />
+          <BrandLogo variant="reversed" size="header" />
           <ul className="space-y-1 text-bluelight text-[13px] mb-5">
             <li>
               <a href={`mailto:${COMPANY.email}`} className="hover:text-white">{COMPANY.email}</a>

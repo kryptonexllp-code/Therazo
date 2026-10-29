@@ -21,7 +21,7 @@ export function buildComingSoonMetadata(product: Product): Metadata {
 export default function ProductComingSoonPage({ product }: { product: Product }) {
   return (
     <>
-      <section id="waitlist" className="bg-navy px-6 md:px-20 pt-32 pb-16 text-center scroll-mt-16">
+      <section id="waitlist" className="bg-navy px-6 md:px-20 pt-32 pb-16 text-center scroll-mt-[var(--header-h)]">
         <span className="inline-block border border-white/40 text-white text-[10px] font-medium tracking-[0.2em] uppercase px-4 py-2 mb-6">
           Coming soon
         </span>

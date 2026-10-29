@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
+import BrandLogo from '@/components/BrandLogo'
 import ProductImage from '@/components/ui/ProductImage'
 import UsageBadge from '@/components/ui/UsageBadge'
 import AnimatedSection from '@/components/AnimatedSection'
@@ -55,14 +55,8 @@ export default function AboutPage() {
     <>
       {/* HERO */}
       <section className="bg-navy px-6 md:px-20 pt-32 pb-16">
-        <div className="relative h-16 w-16 mb-8">
-          <Image
-            src="/images/logos/logo-icon-tagline.png"
-            alt="Therazo — Science. Defined."
-            fill
-            sizes="64px"
-            className="object-contain mix-blend-multiply"
-          />
+        <div className="flex max-w-full">
+          <BrandLogo variant="reversed" size="hero" tagline />
         </div>
         <SectionLabel dark>Our Story</SectionLabel>
         <h1 className="font-extrabold text-white text-[36px] sm:text-[52px] md:text-[64px] leading-[0.95] mb-8">
@@ -71,7 +65,7 @@ export default function AboutPage() {
           TO PRESERVE.
         </h1>
         <p className="text-bluelight text-[16px] leading-[1.8] max-w-2xl">
-          THERAZO™ is derived from two Ancient Greek words — Therapeutikos, &ldquo;to heal, to care
+          Therazo™ is derived from two Ancient Greek words — Therapeutikos, &ldquo;to heal, to care
           for, to restore&rdquo;, and Sozo, &ldquo;to save, to preserve, to protect from harm&rdquo;.
         </p>
         <p className="text-bluelight text-[16px] leading-[1.8] max-w-2xl mt-5">

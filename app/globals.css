@@ -49,6 +49,18 @@ body {
   color: var(--color-navy);
 }
 
+/* Fixed header height: the header logo (22px / 28px tall) plus its clear
+   space above and below, which equals the logo height (BrandLogo). Offsets
+   for content under the fixed header use this variable. */
+:root {
+  --header-h: 66px;
+}
+@media (min-width: 768px) {
+  :root {
+    --header-h: 84px;
+  }
+}
+
 /* Respect the OS "reduce motion" setting: stop CSS loops (ticker, molecule
    drift) and transitions. Framer Motion is handled by MotionProvider. */
 @media (prefers-reduced-motion: reduce) {

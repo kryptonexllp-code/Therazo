@@ -2,28 +2,8 @@
 
 import { useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import MoleculeField from '@/components/MoleculeField'
-
-// Wordmark-only crop: the source square logo file has "THERAZO" sitting above a
-// smaller "SCIENCE. DEFINED." caption within one thin content band. This crop
-// isolates just the wordmark line so the caption can be its own animated element.
-function WordmarkOnly({ height }: { height: number }) {
-  const width = height * 6.4
-  return (
-    <div style={{ height, width }} className="relative shrink-0 overflow-hidden">
-      <Image
-        src="/images/logos/logo-reversed.png"
-        alt="Therazo"
-        fill
-        sizes={`${width}px`}
-        style={{ objectFit: 'cover', objectPosition: '50% 44.8%' }}
-        priority
-      />
-    </div>
-  )
-}
-
+import BrandLogo from '@/components/BrandLogo'
 
 function UserIcon() {
   return (
@@ -48,34 +28,27 @@ export default function LandingPage() {
   const router = useRouter()
 
   return (
-    <div className="relative h-[100svh] w-full overflow-hidden bg-[#0D1F35] flex items-center justify-center">
+    <div className="relative min-h-[100svh] w-full overflow-x-hidden bg-[#0D1F35] flex items-center justify-center py-10">
       {/* MOLECULE FIELD — slow, calm, no gradients */}
       <MoleculeField />
 
-      {/* CENTRE CONTENT */}
-      <div className="relative z-10 mx-auto flex max-w-[560px] flex-col items-center px-6">
-        <motion.div
+      {/* CENTRE CONTENT — full width with 16px side padding, so the logo
+          always fits (it scales down within max-width: 100% if it must). */}
+      <div className="relative z-10 flex w-full flex-col items-center px-4">
+        <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
+          className="flex max-w-full justify-center"
         >
-          <WordmarkOnly height={56} />
-        </motion.div>
-
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.6 }}
-          className="mt-4 text-[11px] font-medium tracking-[0.32em] text-white uppercase"
-        >
-          Science. Defined.
-        </motion.p>
+          <BrandLogo variant="reversed" size="hero" tagline />
+        </motion.h1>
 
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
           transition={{ duration: 0.5, ease: 'easeOut', delay: 0.8 }}
-          className="mt-5 h-px w-10 origin-center bg-gold"
+          className="h-px w-10 origin-center bg-gold"
         />
 
         <motion.p

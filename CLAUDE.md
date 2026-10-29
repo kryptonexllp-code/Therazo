@@ -23,6 +23,10 @@ The THERAZO wordmark is vector artwork. Always use the supplied SVG/logo files
 (/public/images/logos/) — never retype the wordmark as live text.
 The gap in the "O" sits at bottom-left (7–8 o'clock). Tagline: SCIENCE. DEFINED.
 Do not alter or recolour the logo outside the supplied versions.
+Every logo on the site goes through components/BrandLogo.tsx (variant primary = navy on light,
+reversed = white on navy/dark; size header = 22/28px tall, hero = clamp(44px, 9vw, 88px)).
+Never use the black version on a dark background. Minimum width 120px. Clear space = the
+"T" height (the logo height) — built in above and below; keep neighbours that far away.
 
 ## RANGE AND PRICES (MRP incl. taxes, Therazo Pricing Model)
 01 Daily Shield SPF 50 PA++++ Moisturizer, 50 ml ℮ 1.69 fl. oz. — ₹699

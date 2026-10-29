@@ -6,7 +6,7 @@ export default function StickyLaunchBar() {
   const { openWaitlist } = useWaitlistModal()
   return (
     <>
-      <div className="hidden md:flex sticky top-16 z-30 bg-navy items-center justify-between px-8 py-3">
+      <div className="hidden md:flex sticky top-[var(--header-h)] z-30 bg-navy items-center justify-between px-8 py-3">
         <p className="text-white text-[13px]">Daily Shield · SPF 50 PA++++ · Launching soon</p>
         <div className="flex items-center gap-6">
           <span className="text-white text-[13px]">

@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useWaitlistModal } from './WaitlistModalContext'
-import Logo, { LogoIcon } from './ui/Logo'
+import BrandLogo from './BrandLogo'
 
 export type NavVariant = 'default' | 'customer' | 'doctor'
 
@@ -39,12 +39,12 @@ export default function Navbar({ variant = 'default' }: { variant?: NavVariant }
   const showWaitlist = variant !== 'doctor'
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 h-16 bg-navy">
-      <div className="h-full flex items-center justify-between px-5 md:px-8">
-        <div className="flex items-center gap-4">
-          <Link href="/" className="flex items-center">
-            <Logo variant="reversed" height={32} className="hidden sm:block" />
-            <LogoIcon height={32} className="sm:hidden" />
+    <header className="fixed top-0 left-0 right-0 z-50 h-[var(--header-h)] bg-navy">
+      {/* Side padding and the gap after the logo equal the logo height (clear space). */}
+      <div className="h-full flex items-center justify-between px-[22px] md:px-[28px]">
+        <div className="flex items-center gap-[22px] md:gap-[28px]">
+          <Link href="/" className="flex items-center" aria-label="Therazo — home">
+            <BrandLogo variant="reversed" size="header" />
           </Link>
           {variant === 'customer' && (
             <button

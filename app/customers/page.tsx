@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
 import Ticker from '@/components/Ticker'
 import VideoShowcase from '@/components/VideoShowcase'
 import HeroScanner from '@/components/HeroScanner'
@@ -13,6 +12,7 @@ import SectionLabel from '@/components/ui/SectionLabel'
 import Rule from '@/components/ui/Rule'
 import AccentRule from '@/components/ui/AccentRule'
 import ProductCard from '@/components/ui/ProductCard'
+import BrandLogo from '@/components/BrandLogo'
 import { ROUTINE_SUMMARY_SKUS } from '@/content/routine'
 import StatCounter from '@/components/StatCounter'
 import WaitlistForm from '@/components/WaitlistForm'
@@ -28,15 +28,14 @@ export default function HomePage() {
   return (
     <>
       {/* SECTION 1 — HERO */}
-      <section className="relative flex flex-col md:flex-row min-h-[420px] md:h-[100svh] md:min-h-[600px] pt-16 md:pt-0">
+      <section className="relative flex flex-col md:flex-row min-h-[420px] md:h-[100svh] md:min-h-[600px] pt-[var(--header-h)]">
         <div className="flex flex-col justify-center bg-navy px-6 sm:px-10 md:px-16 py-14 md:py-0 md:w-[48%]">
-          <p className="text-bluemuted text-[10px] font-medium tracking-[0.3em] uppercase mb-6">
+          <p className="text-bluemuted text-[10px] font-medium tracking-[0.3em] uppercase">
             Pharmacy-Grade Skincare · India
           </p>
-          <h1 className="font-extrabold text-white text-[44px] sm:text-[64px] lg:text-[92px] leading-[0.9] mb-7">
-            SCIENCE.
-            <br />
-            DEFINED.
+          {/* Brand lockup: the logo leads; the tagline sits below at 0.28 × its height. */}
+          <h1 className="flex max-w-full">
+            <BrandLogo variant="reversed" size="hero" tagline />
           </h1>
           <p className="text-bluelight text-[16px] leading-[1.7] max-w-[380px] mb-10">
             Formulated for Indian skin and climate. Every claim documented. Every concentration
@@ -83,15 +82,6 @@ export default function HomePage() {
 
       {/* SECTION 3 — BRAND POSITIONING */}
       <AnimatedSection className="relative bg-offwhite px-6 md:px-20 py-20 md:py-[120px] overflow-hidden">
-        <div className="hidden lg:block absolute -bottom-6 -right-6 h-40 w-40 pointer-events-none" aria-hidden="true">
-          <Image
-            src="/images/logos/logo-mono-light.png"
-            alt=""
-            fill
-            sizes="160px"
-            className="object-contain mix-blend-multiply opacity-70"
-          />
-        </div>
         <div className="grid grid-cols-1 lg:grid-cols-[55%_45%] gap-14">
           <div>
             <SectionLabel>Why Therazo Is Different</SectionLabel>
@@ -192,7 +182,7 @@ export default function HomePage() {
               TO PRESERVE.
             </h2>
             <p className="text-bluelight text-[15px] leading-[1.7] mt-6">
-              THERAZO™ is derived from two Ancient Greek words — Therapeutikos, &ldquo;to heal, to
+              Therazo™ is derived from two Ancient Greek words — Therapeutikos, &ldquo;to heal, to
               care for, to restore&rdquo;, and Sozo, &ldquo;to save, to preserve, to protect from
               harm&rdquo;. This is not a naming exercise. It is a commitment.
             </p>

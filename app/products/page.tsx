@@ -20,7 +20,7 @@ export default function ProductsPage() {
         <p className="text-bluelight text-[15px]">Five products. One scientific standard.</p>
       </section>
 
-      <nav className="sticky top-16 z-30 bg-white border-b border-cardline overflow-x-auto">
+      <nav className="sticky top-[var(--header-h)] z-30 bg-white border-b border-cardline overflow-x-auto">
         <div className="flex px-6 md:px-20 gap-8 py-4 whitespace-nowrap">
           {products.map((p) => (
             <a key={p.id} href={`#${p.id}`} className="text-navy text-[11px] font-medium tracking-[0.1em] uppercase">
